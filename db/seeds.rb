@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
+
+puts "Importing Airport data..."
+CSV.foreach(Rails.root.join("db", "airports.csv"), headers: true) do |row|
+  next if row["iata"].blank?
+
+  Airport.create(
+    name: row["name"],
+    city: row["city"],
+    country: row["country"],
+    iata: row["iata"],
+    icao: row["icao"],
+    latitude: row["latitude"],
+    longitude: row["longitude"],
+    altitude: row["altitude"],
+    timezone: row["timezone"]
+  )
+end
