@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.9'
 end
 
 group :development do
