@@ -12,10 +12,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'fast_jsonapi', '~> 1.5'
 gem 'will_paginate', '~> 3.2'
+gem 'haversine', '~> 0.3'
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.9'
+  gem 'factory_bot_rails', '~> 5.1'
 end
 
 group :development do
@@ -27,4 +29,5 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 4.1'
+  gem 'faker', '~> 2.7'
 end
