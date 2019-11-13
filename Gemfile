@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'fast_jsonapi', '~> 1.5'
+gem 'will_paginate', '~> 3.2'
 
 group :development, :test do
   gem 'byebug'
