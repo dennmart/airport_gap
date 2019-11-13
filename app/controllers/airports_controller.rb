@@ -28,5 +28,16 @@ class AirportsController < ApplicationController
     end
   end
 
-  private
+  def distance
+    airport_1 = Airport.find_by(iata: params[:airport_1])
+    airport_2 = Airport.find_by(iata: params[:airport_2])
+
+    if airport_1 && airport_2
+      distances = Airport.distance_between(airport_1, airport_2)
+      render json: distances
+    else
+      # TODO: Implement a better error message
+      head :unprocessable_entity
+    end
+  end
 end
