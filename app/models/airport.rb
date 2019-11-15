@@ -8,12 +8,12 @@ class Airport < ApplicationRecord
     c2 = [airport_2.latitude, airport_2.longitude]
     haversine = Haversine.distance(c1, c2)
 
-    {
-      airport_1: airport_1.iata,
-      airport_2: airport_2.iata,
+    OpenStruct.new(
+      from_airport: airport_1,
+      to_airport: airport_2,
       kilometers: haversine.to_km,
       miles: haversine.to_miles,
       nautical_miles: haversine.to_nautical_miles
-    }
+    )
   end
 end

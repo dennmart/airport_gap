@@ -29,12 +29,12 @@ class AirportsController < ApplicationController
   end
 
   def distance
-    airport_1 = Airport.find_by(iata: params[:airport_1])
-    airport_2 = Airport.find_by(iata: params[:airport_2])
+    airport_1 = Airport.find_by(iata: params[:from])
+    airport_2 = Airport.find_by(iata: params[:to])
 
     if airport_1 && airport_2
       distances = Airport.distance_between(airport_1, airport_2)
-      render json: distances
+      render json: AirportDistanceSerializer.new(distances).serialized_json
     else
       # TODO: Implement a better error message
       head :unprocessable_entity
