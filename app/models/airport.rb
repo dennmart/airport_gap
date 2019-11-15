@@ -1,4 +1,6 @@
 class Airport < ApplicationRecord
+  has_many :favorites
+
   validates :name, :iata, presence: true
 
   def self.distance_between(airport_1, airport_2)
