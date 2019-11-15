@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'fast_jsonapi', '~> 1.5'
 gem 'will_paginate', '~> 3.2'
 gem 'haversine', '~> 0.3'
+gem 'rack-attack', '~> 6.2'
 
 group :development, :test do
   gem 'byebug'
