@@ -4,4 +4,6 @@ Rails.application.routes.draw do
       post :distance
     end
   end
+
+  resources :favorites, only: [:index, :show, :create, :update, :destroy]
 end
