@@ -1,4 +1,6 @@
 class AirportsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @airports = Airport.all.page(params[:page])
 
