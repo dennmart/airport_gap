@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
   root "home#index"
 
   resources :airports, only: [:index, :show] do

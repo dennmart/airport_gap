@@ -1,1 +1,61 @@
-<h1 class="text-5xl font-bold">Airport Gap</h1>
+<div class="bg-green-100 border-b-2 border-green-700">
+  <section class="container mx-auto px-6 py-12">
+    <div class="mx-auto max-w-xl mb-2">
+      <%= image_pack_tag "airport_gap_logo.png" %>
+    </div>
+
+    <h1 class="text-3xl font-bold text-center mb-6">An API to fetch and save information about your favorite airports</h1>
+
+    <div class="flex flex-col md:flex-row justify-center items-center">
+      <div class="mb-4 md:mb-0 md:mr-6">
+        <button class="bg-green-500 text-lg text-white font-bold px-4 py-2 rounded hover:bg-green-700">
+          Get Access Token
+        </button>
+      </div>
+
+      <div class="">
+        <button class="bg-purple-500 text-lg text-white font-bold px-4 py-2 rounded hover:bg-purple-700">
+          API Documentation
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div>
+  <section class="container mx-auto px-6 py-12">
+    <p class="text-lg mb-6">
+      Airport Gap is a <a href="https://www.restapitutorial.com/" class="underline text-green-600">RESTful API</a> to
+      help you improve your API automation testing skills. It provides access to a
+      database of airports, calculate distances between airports, and allows you to
+      save your favorite airports.
+    </p>
+
+    <h3 class="text-xl font-bold mb-4">API functionality available for testing</h3>
+
+    <ul class="text-lg pl-4 list-disc list-inside mb-6">
+      <li class="mb-2">Access to main HTTP methods for RESTful services (GET, POST, PUT/PATCH, DELETE)</li>
+      <li class="mb-2">HTTP Token Authentication</li>
+      <li class="mb-2">Data persistance - Save your favorite airports in your account</li>
+    </ul>
+
+    <p class="text-lg">
+      Thanks to <a href="https://openflights.org/data.html" class="underline text-green-600">OpenFlights.org</a> for
+      providing the airport data under the <a href="http://opendatacommons.org/licenses/odbl/1.0/" class="underline text-green-600">
+      Open Database License</a>.
+    </p>
+  </section>
+</div>
+
+<div class="bg-grey-500 border-t-2 border-grey-900">
+  <section class="container mx-auto px-6 py-6">
+    <div class="mx-auto max-w-sm mb-2">
+      <%= image_pack_tag "dev_tester_logo.png" %>
+    </div>
+
+    <p class="text-white text-center">
+      Airport Gap is provided by <a href="https://dev-tester.com/" class="underline">Dev Tester</a> -
+      articles and tips to help you improve your test automation skills as a developer.
+    </p>
+  </section>
+</div>
