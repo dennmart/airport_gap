@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_token
 
   def index
-    @favorites = @current_user.favorites.page(params[:page])
+    @favorites = @authenticated_user.favorites.page(params[:page])
 
     if @favorites.present?
       options = {
@@ -21,7 +21,7 @@ class FavoritesController < ApplicationController
   end
 
   def show
-    @favorite = @current_user.favorites.find(params[:id])
+    @favorite = @authenticated_user.favorites.find(params[:id])
     render json: FavoriteSerializer.new(@favorite).serialized_json
   rescue ActiveRecord::RecordNotFound
     # TODO: Implement a better error message
@@ -30,7 +30,7 @@ class FavoritesController < ApplicationController
 
   def create
     @airport = Airport.find_by(iata: params[:airport_id])
-    @favorite = @current_user.favorites.new(airport: @airport, note: params[:note])
+    @favorite = @authenticated_user.favorites.new(airport: @airport, note: params[:note])
 
     if @favorite.save
       render json: FavoriteSerializer.new(@favorite).serialized_json
@@ -41,7 +41,7 @@ class FavoritesController < ApplicationController
   end
 
   def update
-    @favorite = @current_user.favorites.find(params[:id])
+    @favorite = @authenticated_user.favorites.find(params[:id])
 
     if @favorite.update(note: params[:note])
       render json: FavoriteSerializer.new(@favorite).serialized_json
@@ -55,7 +55,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = @current_user.favorites.find(params[:id])
+    @favorite = @authenticated_user.favorites.find(params[:id])
     @favorite.destroy
     head :no_content
   rescue ActiveRecord::RecordNotFound
