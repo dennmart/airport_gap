@@ -5,6 +5,10 @@ RSpec.describe User, type: :model do
     it { should have_secure_token }
   end
 
+  describe "has_secure_password method" do
+    it { should have_secure_password }
+  end
+
   describe "associations" do
     it { should have_many(:favorites) }
   end

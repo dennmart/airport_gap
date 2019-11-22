@@ -23,9 +23,12 @@ puts "==========================================\n\n"
 
 puts "=========================================="
 puts "Creating user..."
-user = User.find_or_create_by(email: "dennis@dev-tester.com")
+user = User.find_or_create_by(email: "dennis@dev-tester.com") do |user|
+  user.password = "airport-gap-123"
+end
 puts "Done creating user!\n"
 puts "Email: #{user.email}"
+puts "Password: airport-gap-123"
 puts "Token: #{user.token}"
 puts "==========================================\n\n"
 
