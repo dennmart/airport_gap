@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to tokens_path
     else
-      redirect_to login_path, flash: { error: "Your email and/or password is invalid." }
+      redirect_to login_path, alert: "Your email and/or password is invalid. Please check and try again."
     end
   end
 
