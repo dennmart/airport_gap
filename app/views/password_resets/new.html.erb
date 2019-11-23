@@ -1,0 +1,45 @@
+<div class="flex flex-col justify-center items-center min-h-screen px-6">
+  <div class="flex flex-col md:flex-row border border-grey-600 rounded bg-white shadow-md w-full md:w-3/4 mb-3">
+    <div class="flex-1 p-4 border-b md:border-b-0 md:border-r border-grey-600 bg-green-100">
+      <div class="max-w-xs mx-auto mb-6">
+        <%= image_pack_tag "airport_gap_logo.png" %>
+      </div>
+
+      <p class="mb-4 text-sm">
+        If you forgot your Airport Gap password, enter your email address to receive instructions
+        to reset your password.
+      </p>
+    </div>
+
+    <div class="flex-1 m-4">
+      <% if flash[:alert] %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded relative mb-4" role="alert">
+          <span class="block sm:inline text-sm"><%= flash[:alert] %></span>
+        </div>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <div class="bg-green-100 border border-green-400 text-green-700 px-3 py-2 rounded relative mb-4" role="alert">
+          <span class="block sm:inline text-sm"><%= flash[:notice] %></span>
+        </div>
+      <% end %>
+
+      <h1 class="text-lg font-bold mb-6">Forgot your Airport Gap password?</h1>
+
+      <%= form_tag password_reset_path do %>
+        <div class="mb-4">
+          <%= label_tag :email, "Email Address", class: "text-sm font-bold block mb-1" %>
+          <%= email_field_tag :email, "", class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 text-sm leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+
+        <div class="flex justify-end">
+          <%= submit_tag "Send Reset Instructions", class: "w-full md:w-auto px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white font-bold focus:outline-none focus:shadow-outline" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mx-auto text-sm">
+    <%= link_to "Log in to your Airport Gap account", login_path, class: "underline text-green-600 hover:text-green-900" %>
+  </div>
+</div>

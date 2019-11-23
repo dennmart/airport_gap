@@ -1,5 +1,5 @@
-<div class="flex justify-center items-center min-h-screen px-6">
-  <div class="flex flex-col md:flex-row border border-grey-600 rounded bg-white shadow-md w-full md:w-3/4">
+<div class="flex flex-col justify-center items-center min-h-screen px-6">
+  <div class="flex flex-col md:flex-row border border-grey-600 rounded bg-white shadow-md w-full md:w-3/4 mb-3">
     <div class="flex-1 p-4 border-b md:border-b-0 md:border-r border-grey-600 bg-green-100">
       <div class="max-w-xs mx-auto mb-6">
         <%= image_pack_tag "airport_gap_logo.png" %>
@@ -46,5 +46,9 @@
         </div>
       <% end %>
     </div>
+  </div>
+
+  <div class="mx-auto text-sm">
+    <%= link_to "Forgot your password?", new_password_reset_path, class: "underline text-green-600 hover:text-green-900" %>
   </div>
 </div>

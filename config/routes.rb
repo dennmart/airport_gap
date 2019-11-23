@@ -17,4 +17,6 @@ Rails.application.routes.draw do
       post :regenerate
     end
   end
+
+  resource :password_reset, only: [:new, :create, :edit, :update]
 end
