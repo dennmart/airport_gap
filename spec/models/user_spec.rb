@@ -32,7 +32,15 @@ RSpec.describe User, type: :model do
       expect(user.password_reset_sent_at).to_not be_nil
     end
 
-    it "sends an email with the password reset instructions"
+    it "queues an email with the password reset instructions" do
+      expect {
+        user.trigger_password_reset!
+      }.to change { Sidekiq::Worker.jobs.size }.by(1)
+
+      Sidekiq::Worker.drain_all
+      mail = ActionMailer::Base.deliveries.first
+      expect(mail.subject).to eq("Password reset instructions")
+    end
   end
 
   describe "#password_reset_successful!" do
@@ -47,6 +55,14 @@ RSpec.describe User, type: :model do
       expect(user.password_reset_sent_at).to be_nil
     end
 
-    it "sends an email to notify the user of the password reset"
+    it "sends an email to notify the user of the password reset" do
+      expect {
+        user.password_reset_successful!
+      }.to change { Sidekiq::Worker.jobs.size }.by(1)
+
+      Sidekiq::Worker.drain_all
+      mail = ActionMailer::Base.deliveries.first
+      expect(mail.subject).to eq("Your password has been reset")
+    end
   end
 end

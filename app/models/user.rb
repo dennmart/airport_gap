@@ -7,11 +7,11 @@ class User < ApplicationRecord
 
   def trigger_password_reset!
     update(password_reset_token: SecureRandom.urlsafe_base64, password_reset_sent_at: Time.current)
-    # TODO: Send email
+    UserMailer.password_reset_instructions(id).deliver_later
   end
 
   def password_reset_successful!
     update(password_reset_token: nil, password_reset_sent_at: nil)
-    # TODO: Send email
+    UserMailer.password_change_notification(id).deliver_later
   end
 end
