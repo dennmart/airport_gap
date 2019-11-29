@@ -7,3 +7,63 @@
 html {
   font-family: "Lato", sans-serif;
 }
+
+.api-docs nav.sidebar {
+  li {
+    @apply .py-1 .px-2 .rounded;
+
+    &:hover {
+      @apply .bg-gray-200;
+    }
+
+    a {
+      @apply .block;
+    }
+  }
+
+  li.api-reference {
+    @apply .py-2;
+  }
+
+  .http-action {
+    @apply .text-white .text-xs .font-bold .p-1 .rounded .mr-1;
+
+    &__get {
+      @apply .bg-green-700;
+    }
+
+    &__post {
+      @apply .bg-blue-700;
+    }
+
+    &__patch {
+      @apply .bg-yellow-600;
+    }
+
+    &__delete {
+      @apply .bg-red-700;
+    }
+  }
+}
+
+.api-docs .main-section {
+  section {
+    @apply .pb-8 .my-8 .border-b .border-grey-100;
+  }
+
+  .section-title {
+    @apply .text-2xl .font-bold .mb-3;
+  }
+
+  p {
+    @apply .mb-2;
+  }
+
+  code {
+    @apply .rounded .bg-black .text-white .p-6 .mb-2 .block;
+  }
+
+  .monospace-inline {
+    @apply .font-mono .bg-grey-100 .border .border-grey-200 .p-1 .rounded-sm;
+  }
+}

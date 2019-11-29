@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "home#index"
 
+  get "/docs", to: "docs#index", as: :docs
+
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy", as: :logout

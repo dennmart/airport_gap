@@ -1,0 +1,212 @@
+<div class="api-docs flex container mx-auto">
+  <div class="w-1/5 p-4 h-full sticky top-0 overflow-y-auto">
+    <nav class="sidebar h-full overflow-y-auto text-base scrolling-touch lg:h-auto lg:block lg:relative lg:sticky">
+      <div class="mx-auto mb-6">
+        <%= image_pack_tag "airport_gap_logo.png" %>
+      </div>
+
+      <ul class="mb-6">
+        <li>
+          <a href="#authentication">Authentication</a>
+        </li>
+        <li>
+          <a href="#base-url">Base URL</a>
+        </li>
+        <li>
+          <a href="#responses">Responses</a>
+        </li>
+        <li>
+          <a href="#errors">Errors</a>
+        </li>
+        <li>
+          <a href="#rate-limiting">Rate Limiting</a>
+        </li>
+        <li>
+          <a href="#pagination">Pagination</a>
+        </li>
+      </ul>
+
+      <h3 class="font-bold text-grey-700 mb-2">API endpoints reference</h3>
+
+      <ul>
+        <li class="api-reference">
+          <a href="#api-ref-get-airports">
+            <span class="http-action http-action__get">GET</span>
+            <span>/airports</span>
+          </a>
+        </li>
+
+        <li class="api-reference">
+          <a href="#api-ref-get-airports-id">
+            <span class="http-action http-action__get">GET</span>
+            <span>/airports/:id</span>
+          </a>
+        </li>
+
+        <li class="api-reference">
+          <a href="#api-ref-post-airports-distance">
+            <span class="http-action http-action__post">POST</span>
+            <span>/airports/distance</span>
+          </a>
+        </li>
+
+        <li class="api-reference">
+          <a href="#api-ref-get-favorites">
+            <span class="http-action http-action__get">GET</span>
+            <span>/favorites</span>
+          </a>
+        </li>
+
+        <li class="api-reference">
+          <a href="#api-ref-get-favorites-id">
+            <span class="http-action http-action__get">GET</span>
+            <span>/favorites/:id</span>
+          </a>
+        </li>
+
+        <li class="api-reference">
+          <a href="#api-ref-post-favorites">
+            <span class="http-action http-action__post">POST</span>
+            <span>/favorites</span>
+          </a>
+        </li>
+
+        <li class="api-reference">
+          <a href="#api-ref-patch-favorites">
+            <span class="http-action http-action__patch">PATCH</span>
+            <span>/favorites/:id</span>
+          </a>
+        </li>
+
+        <li class="api-reference">
+          <a href="#api-ref-patch-favorites">
+            <span class="http-action http-action__delete">DELETE</span>
+            <span>/favorites/:id</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="main-section w-4/5 px-4 py-6">
+    <h1 class="text-3xl font-bold">API Documentation</h1>
+
+    <section>
+      <p>
+        The Airport Gap API is a <a href="https://restfulapi.net/" class="underline text-green-600">RESTful API</a> used
+        to access a database of airports, calculate distances between airports, and save your favorite airports to your account.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Authentication</h1>
+      <p>
+        The Airport Gap API uses API tokens to authenticate protected endpoints. You can
+        <%= link_to "generate a token for free", new_tokens_path, class: "underline text-green-600" %>.
+      </p>
+
+      <p>
+        Authentication to the API is done via Bearer Authentication. When making a request to a protected
+        endpoint, you must send the token in the <span class="monospace-inline">Authorization</span> header.
+      </p>
+
+      <code>
+        Authorization: Bearer <token>
+      </code>
+
+      <p>
+        Please keep your API token secure. Do not share your token in publicly accessible areas such as client-side code,
+        open source code repositories, etc.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Base URL</h2>
+
+      <p>
+        The base URL for all endpoints for the Airport Gap API is <span class="monospace-inline">https://airportgap.dev-tester.com</span>.
+      </p>
+
+      <p>
+        For example, to fetch all airports via the API, the full URL is a GET request to <span class="monospace-inline">https://airportgap.dev-tester.com/airports</span>.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Responses</h2>
+
+      <p>
+        All responses returned by the Airport Gap API follow the <a href="https://jsonapi.org/">JSON:API</a> specification. Please read the API endpoints reference
+        for examples of successful responses.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Errors</h2>
+
+      <p>
+        Airport Gap uses common <a href="https://restfulapi.net/http-status-codes/">HTTP status codes</a> to indicate if a request was successful or there was
+        an error. Status codes in the <strong>2xx</strong> range indicate a successful response. Status codes in the <strong>4xx</strong> range indicate
+        errors caused by your request, such as required parameters not sent. Status codes in the <strong>5xx</strong> mean something went wrong with
+        the Airport Gap application. Please read the API endpoints reference for examples of successful responses.
+      </p>
+
+      <p>
+        These are the common HTTP status codes used by the Airport Gap API:
+      </p>
+
+      <ul class="list-inside list-disc">
+        <li class="mb-1">
+          <strong>200 (OK)</strong>: Your request was successful.
+        </li>
+        <li class="mb-1">
+          <strong>201 (Created)</strong>: Your request was successful and a new resource was created for your account.
+        </li>
+        <li class="mb-1">
+          <strong>401 (Unauthorized)</strong>: Your request was unsuccessful because you are not authenticated. Usually this means you didn't supply your
+          API token or supplied an invalid token.
+        </li>
+        <li class="mb-1">
+          <strong>404 (Not Found)</strong>: Your request was unsuccessful because you attempted to access a resource that doesn't exist.
+        </li>
+        <li class="mb-1">
+          <strong>422 (Unprocessable Entity)</strong>: Your request was unsuccessful because you did not submit the necessary parameters for the endpoint.
+        </li>
+        <li class="mb-1">
+          <strong>429 (Too Many Request)</strong>: Your request was unsuccessful because you accessed the Airport Gap API too many times in a short period.
+          See the Rate Limiting section for more information.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Rate Limiting</h2>
+
+      <p>
+        You can make up to <strong>10 requests per minute</strong> to any endpoint. Any request exceeding the rate limit will receive a
+        <span class="monospace-inline">429 Too Many Requests</span> response.
+      </p>
+
+      <p>
+        Requests are associated to your IP address and will reset every minute.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Pagination</h2>
+
+      <p>
+        Some endpoints that return multiple items will return up to a maximum of 30 items by default. You can fetch additional resources
+        by sending the <span class="monospace-inline">?page</span> parameter with the number of the page for the next set of resources.
+      </p>
+
+      <p>
+        Endpoints containing pagination will include an additional object with links to traverse the data, as specified in the
+        <a href="https://jsonapi.org/format/#fetching-pagination">Pagination section</a> of the JSON:API specification. Please read the API
+        endpoints reference for examples of paginated responses.
+      </p>
+    </section>
+
+
+  </div>
+</div>
