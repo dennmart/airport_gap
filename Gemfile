@@ -15,6 +15,7 @@ gem 'will_paginate', '~> 3.2'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.2'
 gem 'sidekiq', '~> 6.0'
+gem 'rouge', '~> 3.13'
 
 group :development, :test do
   gem 'byebug'

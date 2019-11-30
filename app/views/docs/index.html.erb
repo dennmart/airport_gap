@@ -251,80 +251,82 @@
         <span class="example-section-header__status">Status: 200 OK</span>
       </p>
 
-      <code class="example-code">
-        {
-            "data": [
-                {
-                    "attributes": {
-                        "altitude": 5282,
-                        "city": "Goroka",
-                        "country": "Papua New Guinea",
-                        "iata": "GKA",
-                        "icao": "AYGA",
-                        "latitude": "-6.08169",
-                        "longitude": "145.391998",
-                        "name": "Goroka Airport",
-                        "timezone": "Pacific/Port_Moresby"
-                    },
-                    "id": "GKA",
-                    "type": "airport"
-                },
-                {
-                    "attributes": {
-                        "altitude": 20,
-                        "city": "Madang",
-                        "country": "Papua New Guinea",
-                        "iata": "MAG",
-                        "icao": "AYMD",
-                        "latitude": "-5.20708",
-                        "longitude": "145.789001",
-                        "name": "Madang Airport",
-                        "timezone": "Pacific/Port_Moresby"
-                    },
-                    "id": "MAG",
-                    "type": "airport"
-                },
+      <%= json_syntax(
+        <<~JSON
+          {
+            "data": [{
+                "attributes": {
+                  "altitude": 5282,
+                  "city": "Goroka",
+                  "country": "Papua New Guinea",
+                  "iata": "GKA",
+                  "icao": "AYGA",
+                  "latitude": "-6.08169",
+                  "longitude": "145.391998",
+                  "name": "Goroka Airport",
+                  "timezone": "Pacific/Port_Moresby"
 
-                /* Response edited for brevity */
-
-                {
-                    "attributes": {
-                        "altitude": 1343,
-                        "city": "Brandon",
-                        "country": "Canada",
-                        "iata": "YBR",
-                        "icao": "CYBR",
-                        "latitude": "49.91",
-                        "longitude": "-99.951897",
-                        "name": "Brandon Municipal Airport",
-                        "timezone": "America/Winnipeg"
-                    },
-                    "id": "YBR",
-                    "type": "airport"
                 },
-                {
-                    "attributes": {
-                        "altitude": 90,
-                        "city": "Cambridge Bay",
-                        "country": "Canada",
-                        "iata": "YCB",
-                        "icao": "CYCB",
-                        "latitude": "69.108101",
-                        "longitude": "-105.138",
-                        "name": "Cambridge Bay Airport",
-                        "timezone": "America/Edmonton"
-                    },
-                    "id": "YCB",
-                    "type": "airport"
-                }
+                "id": "GKA",
+                "type": "airport"
+              },
+              {
+                "attributes": {
+                  "altitude": 20,
+                  "city": "Madang",
+                  "country": "Papua New Guinea",
+                  "iata": "MAG",
+                  "icao": "AYMD",
+                  "latitude": "-5.20708",
+                  "longitude": "145.789001",
+                  "name": "Madang Airport",
+                  "timezone": "Pacific/Port_Moresby"
+                },
+                "id": "MAG",
+                "type": "airport"
+              },
+
+              ...
+
+              {
+                "attributes": {
+                  "altitude": 1343,
+                  "city": "Brandon",
+                  "country": "Canada",
+                  "iata": "YBR",
+                  "icao": "CYBR",
+                  "latitude": "49.91",
+                  "longitude": "-99.951897",
+                  "name": "Brandon Municipal Airport",
+                  "timezone": "America/Winnipeg"
+                },
+                "id": "YBR",
+                "type": "airport"
+              },
+              {
+                "attributes": {
+                  "altitude": 90,
+                  "city": "Cambridge Bay",
+                  "country": "Canada",
+                  "iata": "YCB",
+                  "icao": "CYCB",
+                  "latitude": "69.108101",
+                  "longitude": "-105.138",
+                  "name": "Cambridge Bay Airport",
+                  "timezone": "America/Edmonton"
+                },
+                "id": "YCB",
+                "type": "airport"
+              }
             ],
             "links": {
-                "first": "https://airportgap.dev-tester.com/airports",
-                "last": "https://airportgap.dev-tester.com/airports?page=203",
-                "self": "https://airportgap.dev-tester.com/airports"
+              "first": "https://airportgap.dev-tester.com/airports",
+              "last": "https://airportgap.dev-tester.com/airports?page=203",
+              "self": "https://airportgap.dev-tester.com/airports"
             }
-        }
-      </code>
+          }
+        JSON
+      ) %>
     </section>
 
     <section>
@@ -372,25 +374,27 @@
         <span class="example-section-header__status">Status: 200 OK</span>
       </p>
 
-      <code class="example-code">
-        {
+      <%= json_syntax(
+        <<~JSON
+          {
             "data": {
-                "attributes": {
-                    "altitude": 26,
-                    "city": "Osaka",
-                    "country": "Japan",
-                    "iata": "KIX",
-                    "icao": "RJBB",
-                    "latitude": "34.427299",
-                    "longitude": "135.244003",
-                    "name": "Kansai International Airport",
-                    "timezone": "Asia/Tokyo"
-                },
-                "id": "KIX",
-                "type": "airport"
+              "attributes": {
+                "altitude": 26,
+                "city": "Osaka",
+                "country": "Japan",
+                "iata": "KIX",
+                "icao": "RJBB",
+                "latitude": "34.427299",
+                "longitude": "135.244003",
+                "name": "Kansai International Airport",
+                "timezone": "Asia/Tokyo"
+              },
+              "id": "KIX",
+              "type": "airport"
             }
-        }
-      </code>
+          }
+        JSON
+      ) %>
     </section>
 
     <section>
@@ -444,43 +448,45 @@
         <span class="example-section-header__status">Status: 200 OK</span>
       </p>
 
-      <code class="example-code">
-        {
+      <%= json_syntax(
+        <<~JSON
+          {
             "data": {
-                "attributes": {
-                    "from_airport": {
-                        "altitude": 26,
-                        "city": "Osaka",
-                        "country": "Japan",
-                        "iata": "KIX",
-                        "icao": "RJBB",
-                        "id": 9230,
-                        "latitude": "34.427299",
-                        "longitude": "135.244003",
-                        "name": "Kansai International Airport",
-                        "timezone": "Asia/Tokyo"
-                    },
-                    "kilometers": 0.0,
-                    "miles": 0.0,
-                    "nautical_miles": 0.0,
-                    "to_airport": {
-                        "altitude": 26,
-                        "city": "Osaka",
-                        "country": "Japan",
-                        "iata": "KIX",
-                        "icao": "RJBB",
-                        "id": 9230,
-                        "latitude": "34.427299",
-                        "longitude": "135.244003",
-                        "name": "Kansai International Airport",
-                        "timezone": "Asia/Tokyo"
-                    }
+              "attributes": {
+                "from_airport": {
+                  "altitude": 26,
+                  "city": "Osaka",
+                  "country": "Japan",
+                  "iata": "KIX",
+                  "icao": "RJBB",
+                  "id": 9230,
+                  "latitude": "34.427299",
+                  "longitude": "135.244003",
+                  "name": "Kansai International Airport",
+                  "timezone": "Asia/Tokyo"
                 },
-                "id": "KIX-KIX",
-                "type": "airport_distance"
+                "kilometers": 0.0,
+                "miles": 0.0,
+                "nautical_miles": 0.0,
+                "to_airport": {
+                  "altitude": 26,
+                  "city": "Osaka",
+                  "country": "Japan",
+                  "iata": "KIX",
+                  "icao": "RJBB",
+                  "id": 9230,
+                  "latitude": "34.427299",
+                  "longitude": "135.244003",
+                  "name": "Kansai International Airport",
+                  "timezone": "Asia/Tokyo"
+                }
+              },
+              "id": "KIX-KIX",
+              "type": "airport_distance"
             }
-        }
-      </code>
+          }
+        JSON
+      ) %>
     </section>
 
     <section>
@@ -514,74 +520,75 @@
         <span class="example-section-header__status">Status: 200 OK</span>
       </p>
 
-      <code class="example-code">
-        {
-            "data": [
-                {
-                    "attributes": {
-                        "airport": {
-                            "altitude": 26,
-                            "city": "Osaka",
-                            "country": "Japan",
-                            "iata": "KIX",
-                            "icao": "RJBB",
-                            "id": 9230,
-                            "latitude": "34.427299",
-                            "longitude": "135.244003",
-                            "name": "Kansai International Airport",
-                            "timezone": "Asia/Tokyo"
-                        },
-                        "note": "My local airport"
-                    },
-                    "id": "22",
-                    "type": "favorite"
+      <%= json_syntax(
+        <<~JSON
+          {
+            "data": [{
+                "attributes": {
+                  "airport": {
+                    "altitude": 26,
+                    "city": "Osaka",
+                    "country": "Japan",
+                    "iata": "KIX",
+                    "icao": "RJBB",
+                    "id": 9230,
+                    "latitude": "34.427299",
+                    "longitude": "135.244003",
+                    "name": "Kansai International Airport",
+                    "timezone": "Asia/Tokyo"
+                  },
+                  "note": "My local airport"
                 },
-                {
-                    "attributes": {
-                        "airport": {
-                            "altitude": 50,
-                            "city": "Osaka",
-                            "country": "Japan",
-                            "iata": "ITM",
-                            "icao": "RJOO",
-                            "id": 7836,
-                            "latitude": "34.7855",
-                            "longitude": "135.438004",
-                            "name": "Osaka International Airport",
-                            "timezone": "Asia/Tokyo"
-                        },
-                        "note": "Small airport nearby, great for travel within Japan"
-                    },
-                    "id": "23",
-                    "type": "favorite"
+                "id": "22",
+                "type": "favorite"
+              },
+              {
+                "attributes": {
+                  "airport": {
+                    "altitude": 50,
+                    "city": "Osaka",
+                    "country": "Japan",
+                    "iata": "ITM",
+                    "icao": "RJOO",
+                    "id": 7836,
+                    "latitude": "34.7855",
+                    "longitude": "135.438004",
+                    "name": "Osaka International Airport",
+                    "timezone": "Asia/Tokyo"
+                  },
+                  "note": "Small airport nearby, great for travel within Japan"
                 },
-                {
-                    "attributes": {
-                        "airport": {
-                            "altitude": 9,
-                            "city": "San Juan",
-                            "country": "Puerto Rico",
-                            "iata": "SJU",
-                            "icao": "TJSJ",
-                            "id": 8270,
-                            "latitude": "18.4394",
-                            "longitude": "-66.001801",
-                            "name": "Luis Munoz Marin International Airport",
-                            "timezone": "America/Puerto_Rico"
-                        },
-                        "note": "My home country airport, used when I go visit my family"
-                    },
-                    "id": "24",
-                    "type": "favorite"
-                }
+                "id": "23",
+                "type": "favorite"
+              },
+              {
+                "attributes": {
+                  "airport": {
+                    "altitude": 9,
+                    "city": "San Juan",
+                    "country": "Puerto Rico",
+                    "iata": "SJU",
+                    "icao": "TJSJ",
+                    "id": 8270,
+                    "latitude": "18.4394",
+                    "longitude": "-66.001801",
+                    "name": "Luis Munoz Marin International Airport",
+                    "timezone": "America/Puerto_Rico"
+                  },
+                  "note": "My home country airport, used when I go visit my family"
+                },
+                "id": "24",
+                "type": "favorite"
+              }
             ],
             "links": {
-                "first": "http://localhost:3000/favorites",
-                "last": "http://localhost:3000/favorites?page=1",
-                "self": "http://localhost:3000/favorites"
+              "first": "http://localhost:3000/favorites",
+              "last": "http://localhost:3000/favorites?page=1",
+              "self": "http://localhost:3000/favorites"
             }
-        }
-      </code>
+          }
+        JSON
+      ) %>
     </section>
 
     <section>
@@ -637,29 +644,31 @@
         <span class="example-section-header__status">Status: 200 OK</span>
       </p>
 
-      <code class="example-code">
-        {
+      <%= json_syntax(
+        <<~JSON
+          {
             "data": {
-                "attributes": {
-                    "airport": {
-                        "altitude": 26,
-                        "city": "Osaka",
-                        "country": "Japan",
-                        "iata": "KIX",
-                        "icao": "RJBB",
-                        "id": 9230,
-                        "latitude": "34.427299",
-                        "longitude": "135.244003",
-                        "name": "Kansai International Airport",
-                        "timezone": "Asia/Tokyo"
-                    },
-                    "note": "My local airport"
+              "attributes": {
+                "airport": {
+                  "altitude": 26,
+                  "city": "Osaka",
+                  "country": "Japan",
+                  "iata": "KIX",
+                  "icao": "RJBB",
+                  "id": 9230,
+                  "latitude": "34.427299",
+                  "longitude": "135.244003",
+                  "name": "Kansai International Airport",
+                  "timezone": "Asia/Tokyo"
                 },
-                "id": "22",
-                "type": "favorite"
+                "note": "My local airport"
+              },
+              "id": "22",
+              "type": "favorite"
             }
-        }
-      </code>
+          }
+        JSON
+      ) %>
     </section>
 
     <section>
@@ -737,29 +746,31 @@
         <span class="example-section-header__status">Status: 201 Created</span>
       </p>
 
-      <code class="example-code">
-        {
+      <%= json_syntax(
+        <<~JSON
+          {
             "data": {
-                "attributes": {
-                    "airport": {
-                        "altitude": 13,
-                        "city": "New York",
-                        "country": "United States",
-                        "iata": "JFK",
-                        "icao": "KJFK",
-                        "id": 9055,
-                        "latitude": "40.639801",
-                        "longitude": "-73.7789",
-                        "name": "John F Kennedy International Airport",
-                        "timezone": "America/New_York"
-                    },
-                    "note": "My usual layover when visiting family"
+              "attributes": {
+                "airport": {
+                  "altitude": 13,
+                  "city": "New York",
+                  "country": "United States",
+                  "iata": "JFK",
+                  "icao": "KJFK",
+                  "id": 9055,
+                  "latitude": "40.639801",
+                  "longitude": "-73.7789",
+                  "name": "John F Kennedy International Airport",
+                  "timezone": "America/New_York"
                 },
-                "id": "25",
-                "type": "favorite"
+                "note": "My usual layover when visiting family"
+              },
+              "id": "25",
+              "type": "favorite"
             }
-        }
-      </code>
+          }
+        JSON
+      ) %>
     </section>
 
     <section>
@@ -837,29 +848,31 @@
         <span class="example-section-header__status">Status: 200 OK</span>
       </p>
 
-      <code class="example-code">
-        {
+      <%= json_syntax(
+        <<~JSON
+          {
             "data": {
-                "attributes": {
-                    "airport": {
-                        "altitude": 13,
-                        "city": "New York",
-                        "country": "United States",
-                        "iata": "JFK",
-                        "icao": "KJFK",
-                        "id": 9055,
-                        "latitude": "40.639801",
-                        "longitude": "-73.7789",
-                        "name": "John F Kennedy International Airport",
-                        "timezone": "America/New_York"
-                    },
-                    "note": "My usual layover when visiting family, although it's really far away..."
+              "attributes": {
+                "airport": {
+                  "altitude": 13,
+                  "city": "New York",
+                  "country": "United States",
+                  "iata": "JFK",
+                  "icao": "KJFK",
+                  "id": 9055,
+                  "latitude": "40.639801",
+                  "longitude": "-73.7789",
+                  "name": "John F Kennedy International Airport",
+                  "timezone": "America/New_York"
                 },
-                "id": "25",
-                "type": "favorite"
+                "note": "My usual layover when visiting family, although it's really far away..."
+              },
+              "id": "25",
+              "type": "favorite"
             }
-        }
-      </code>
+          }
+        JSON
+      ) %>
     </section>
 
     <section>
