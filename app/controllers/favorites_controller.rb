@@ -33,7 +33,7 @@ class FavoritesController < ApplicationController
     @favorite = @authenticated_user.favorites.new(airport: @airport, note: params[:note])
 
     if @favorite.save
-      render json: FavoriteSerializer.new(@favorite).serialized_json
+      render json: FavoriteSerializer.new(@favorite).serialized_json, status: :created
     else
       # TODO: Implement a better error message
       head :unprocessable_entity
