@@ -10,7 +10,7 @@
           <a href="#authentication">Authentication</a>
         </li>
         <li>
-          <a href="#base-url">Base URL</a>
+          <a href="#base_url">Base URL</a>
         </li>
         <li>
           <a href="#responses">Responses</a>
@@ -19,7 +19,10 @@
           <a href="#errors">Errors</a>
         </li>
         <li>
-          <a href="#rate-limiting">Rate Limiting</a>
+          <a href="#http_status_codes">HTTP Status Codes</a>
+        </li>
+        <li>
+          <a href="#rate_limiting">Rate Limiting</a>
         </li>
         <li>
           <a href="#pagination">Pagination</a>
@@ -30,56 +33,56 @@
 
       <ul>
         <li class="api-reference">
-          <a href="#api-ref-get-airports">
+          <a href="#api_ref_get_airports">
             <span class="http-action http-action__get">GET</span>
             <span>/airports</span>
           </a>
         </li>
 
         <li class="api-reference">
-          <a href="#api-ref-get-airports-id">
+          <a href="#api_ref_get_airports_id">
             <span class="http-action http-action__get">GET</span>
             <span>/airports/:id</span>
           </a>
         </li>
 
         <li class="api-reference">
-          <a href="#api-ref-post-airports-distance">
+          <a href="#api_ref_post_airports_distance">
             <span class="http-action http-action__post">POST</span>
             <span>/airports/distance</span>
           </a>
         </li>
 
         <li class="api-reference">
-          <a href="#api-ref-get-favorites">
+          <a href="#api_ref_get_favorites">
             <span class="http-action http-action__get">GET</span>
             <span>/favorites</span>
           </a>
         </li>
 
         <li class="api-reference">
-          <a href="#api-ref-get-favorites-id">
+          <a href="#api_ref_get_favorites_id">
             <span class="http-action http-action__get">GET</span>
             <span>/favorites/:id</span>
           </a>
         </li>
 
         <li class="api-reference">
-          <a href="#api-ref-post-favorites">
+          <a href="#api_ref_post_favorites">
             <span class="http-action http-action__post">POST</span>
             <span>/favorites</span>
           </a>
         </li>
 
         <li class="api-reference">
-          <a href="#api-ref-patch-favorites">
+          <a href="#api_ref_patch_favorites">
             <span class="http-action http-action__patch">PATCH</span>
             <span>/favorites/:id</span>
           </a>
         </li>
 
         <li class="api-reference">
-          <a href="#api-ref-patch-favorites">
+          <a href="#api_ref_delete_favorites">
             <span class="http-action http-action__delete">DELETE</span>
             <span>/favorites/:id</span>
           </a>
@@ -89,20 +92,25 @@
   </nav>
 
   <div class="main-section w-4/5 px-4 py-6">
+    <div class="md:hidden mx-auto mb-6">
+      <%= image_pack_tag "airport_gap_logo.png" %>
+    </div>
+
     <h1 class="text-3xl font-bold">API Documentation</h1>
 
     <section>
       <p>
-        The Airport Gap API is a <a href="https://restfulapi.net/" class="underline text-green-600">RESTful API</a> used
+        The Airport Gap API is a <a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer">RESTful API</a> used
         to access a database of airports, calculate distances between airports, and save your favorite airports to your account.
       </p>
     </section>
 
     <section>
-      <h2 class="section-title">Authentication</h1>
+      <h2 class="section-title" id="authentication">Authentication</h2>
+
       <p>
         The Airport Gap API uses API tokens to authenticate protected endpoints. You can
-        <%= link_to "generate a token for free", new_tokens_path, class: "underline text-green-600" %>.
+        <%= link_to "generate a token for free", new_tokens_path %>.
       </p>
 
       <p>
@@ -111,7 +119,7 @@
       </p>
 
       <code>
-        Authorization: Bearer <token>
+        Authorization: Bearer token=&lt;Your Airport Gap Token&gt;
       </code>
 
       <p>
@@ -121,7 +129,7 @@
     </section>
 
     <section>
-      <h2 class="section-title">Base URL</h2>
+      <h2 class="section-title" id="base_url">Base URL</h2>
 
       <p>
         The base URL for all endpoints for the Airport Gap API is <span class="monospace-inline">https://airportgap.dev-tester.com</span>.
@@ -133,46 +141,53 @@
     </section>
 
     <section>
-      <h2 class="section-title">Responses</h2>
+      <h2 class="section-title" id="responses">Responses</h2>
 
       <p>
-        All responses returned by the Airport Gap API follow the <a href="https://jsonapi.org/">JSON:API</a> specification. Please read the API endpoints reference
+        All responses returned by the Airport Gap API follow the <a href="https://jsonapi.org/" target="_blank" rel="noopener noreferrer">JSON:API</a> specification. Please read the API endpoints reference
         for examples of successful responses.
       </p>
     </section>
 
     <section>
-      <h2 class="section-title">Errors</h2>
+      <h2 class="section-title" id="errors">Errors</h2>
 
       <p>
-        Airport Gap uses common <a href="https://restfulapi.net/http-status-codes/">HTTP status codes</a> to indicate if a request was successful or there was
+        Airport Gap uses common <a href="https://restfulapi.net/http-status-codes/" target="_blank" rel="noopener noreferrer">HTTP status codes</a> to indicate if a request was successful or there was
         an error. Status codes in the <strong>2xx</strong> range indicate a successful response. Status codes in the <strong>4xx</strong> range indicate
         errors caused by your request, such as required parameters not sent. Status codes in the <strong>5xx</strong> mean something went wrong with
         the Airport Gap application. Please read the API endpoints reference for examples of successful responses.
       </p>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="http_status_codes">HTTP Status Codes</h2>
 
       <p>
         These are the common HTTP status codes used by the Airport Gap API:
       </p>
 
-      <ul class="list-inside list-disc">
-        <li class="mb-1">
+      <ul class="status-code-list">
+        <li>
           <strong>200 (OK)</strong>: Your request was successful.
         </li>
-        <li class="mb-1">
+        <li>
           <strong>201 (Created)</strong>: Your request was successful and a new resource was created for your account.
         </li>
-        <li class="mb-1">
+        <li>
+          <strong>204 (No Content)</strong>: Your request was successful and no content is returned in the response body.
+        </li>
+        <li>
           <strong>401 (Unauthorized)</strong>: Your request was unsuccessful because you are not authenticated. Usually this means you didn't supply your
           API token or supplied an invalid token.
         </li>
-        <li class="mb-1">
+        <li>
           <strong>404 (Not Found)</strong>: Your request was unsuccessful because you attempted to access a resource that doesn't exist.
         </li>
-        <li class="mb-1">
+        <li>
           <strong>422 (Unprocessable Entity)</strong>: Your request was unsuccessful because you did not submit the necessary parameters for the endpoint.
         </li>
-        <li class="mb-1">
+        <li>
           <strong>429 (Too Many Request)</strong>: Your request was unsuccessful because you accessed the Airport Gap API too many times in a short period.
           See the Rate Limiting section for more information.
         </li>
@@ -180,7 +195,7 @@
     </section>
 
     <section>
-      <h2 class="section-title">Rate Limiting</h2>
+      <h2 class="section-title" id="rate_limiting">Rate Limiting</h2>
 
       <p>
         You can make up to <strong>10 requests per minute</strong> to any endpoint. Any request exceeding the rate limit will receive a
@@ -193,7 +208,7 @@
     </section>
 
     <section>
-      <h2 class="section-title">Pagination</h2>
+      <h2 class="section-title" id="pagination">Pagination</h2>
 
       <p>
         Some endpoints that return multiple items will return up to a maximum of 30 items by default. You can fetch additional resources
@@ -202,11 +217,703 @@
 
       <p>
         Endpoints containing pagination will include an additional object with links to traverse the data, as specified in the
-        <a href="https://jsonapi.org/format/#fetching-pagination">Pagination section</a> of the JSON:API specification. Please read the API
+        <a href="https://jsonapi.org/format/#fetching-pagination" target="_blank" rel="noopener noreferrer">Pagination section</a> of the JSON:API specification. Please read the API
         endpoints reference for examples of paginated responses.
       </p>
     </section>
 
+    <h1 class="text-3xl font-bold">API endpoints reference</h1>
 
+    <section>
+      <h2 class="section-title" id="api_ref_get_airports">
+        <span class="http-action http-action__get">GET</span>
+        /airports
+      </h2>
+
+      <p>
+        Returns all airports in the Airport Gap database. Results are paginated (30 airports per page).
+      </p>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl https://airportgap.dev-tester.com/airports
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 200 OK</span>
+      </p>
+
+      <code class="example-code">
+        {
+            "data": [
+                {
+                    "attributes": {
+                        "altitude": 5282,
+                        "city": "Goroka",
+                        "country": "Papua New Guinea",
+                        "iata": "GKA",
+                        "icao": "AYGA",
+                        "latitude": "-6.08169",
+                        "longitude": "145.391998",
+                        "name": "Goroka Airport",
+                        "timezone": "Pacific/Port_Moresby"
+                    },
+                    "id": "GKA",
+                    "type": "airport"
+                },
+                {
+                    "attributes": {
+                        "altitude": 20,
+                        "city": "Madang",
+                        "country": "Papua New Guinea",
+                        "iata": "MAG",
+                        "icao": "AYMD",
+                        "latitude": "-5.20708",
+                        "longitude": "145.789001",
+                        "name": "Madang Airport",
+                        "timezone": "Pacific/Port_Moresby"
+                    },
+                    "id": "MAG",
+                    "type": "airport"
+                },
+
+                /* Response edited for brevity */
+
+                {
+                    "attributes": {
+                        "altitude": 1343,
+                        "city": "Brandon",
+                        "country": "Canada",
+                        "iata": "YBR",
+                        "icao": "CYBR",
+                        "latitude": "49.91",
+                        "longitude": "-99.951897",
+                        "name": "Brandon Municipal Airport",
+                        "timezone": "America/Winnipeg"
+                    },
+                    "id": "YBR",
+                    "type": "airport"
+                },
+                {
+                    "attributes": {
+                        "altitude": 90,
+                        "city": "Cambridge Bay",
+                        "country": "Canada",
+                        "iata": "YCB",
+                        "icao": "CYCB",
+                        "latitude": "69.108101",
+                        "longitude": "-105.138",
+                        "name": "Cambridge Bay Airport",
+                        "timezone": "America/Edmonton"
+                    },
+                    "id": "YCB",
+                    "type": "airport"
+                }
+            ],
+            "links": {
+                "first": "https://airportgap.dev-tester.com/airports",
+                "last": "https://airportgap.dev-tester.com/airports?page=203",
+                "self": "https://airportgap.dev-tester.com/airports"
+            }
+        }
+      </code>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="api_ref_get_airports_id">
+        <span class="http-action http-action__get">GET</span>
+        /airports/:id
+      </h2>
+
+      <p>
+        Returns the airport specified by the ID.
+      </p>
+
+      <p class="example-section-header">
+        Required parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">id</span></td>
+            <td>String</td>
+            <td>The airport code (IATA location identifier) of the airport.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl https://airportgap.dev-tester.com/airports/KIX
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 200 OK</span>
+      </p>
+
+      <code class="example-code">
+        {
+            "data": {
+                "attributes": {
+                    "altitude": 26,
+                    "city": "Osaka",
+                    "country": "Japan",
+                    "iata": "KIX",
+                    "icao": "RJBB",
+                    "latitude": "34.427299",
+                    "longitude": "135.244003",
+                    "name": "Kansai International Airport",
+                    "timezone": "Asia/Tokyo"
+                },
+                "id": "KIX",
+                "type": "airport"
+            }
+        }
+      </code>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="api_ref_post_airports_distance">
+        <span class="http-action http-action__post">POST</span>
+        /airports/distance
+      </h2>
+
+      <p>
+        Calculates the distance between two airports and returns the distance in miles, kilometers, and nautical miles.
+      </p>
+
+      <p class="example-section-header">
+        Required parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">from</span></td>
+            <td>String</td>
+            <td>The airport code (IATA location identifier) of the departure airport.</td>
+          </tr>
+
+          <tr>
+            <td><span class="monospace-inline">to</span></td>
+            <td>String</td>
+            <td>The airport code (IATA location identifier) of the destination airport.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl -X POST -d "from=KIX&to=NRT" http://localhost:3000/airports/distance
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 200 OK</span>
+      </p>
+
+      <code class="example-code">
+        {
+            "data": {
+                "attributes": {
+                    "from_airport": {
+                        "altitude": 26,
+                        "city": "Osaka",
+                        "country": "Japan",
+                        "iata": "KIX",
+                        "icao": "RJBB",
+                        "id": 9230,
+                        "latitude": "34.427299",
+                        "longitude": "135.244003",
+                        "name": "Kansai International Airport",
+                        "timezone": "Asia/Tokyo"
+                    },
+                    "kilometers": 0.0,
+                    "miles": 0.0,
+                    "nautical_miles": 0.0,
+                    "to_airport": {
+                        "altitude": 26,
+                        "city": "Osaka",
+                        "country": "Japan",
+                        "iata": "KIX",
+                        "icao": "RJBB",
+                        "id": 9230,
+                        "latitude": "34.427299",
+                        "longitude": "135.244003",
+                        "name": "Kansai International Airport",
+                        "timezone": "Asia/Tokyo"
+                    }
+                },
+                "id": "KIX-KIX",
+                "type": "airport_distance"
+            }
+        }
+      </code>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="api_ref_get_favorites">
+        <span class="http-action http-action__get">GET</span>
+        /favorites
+      </h2>
+
+      <div class="auth-required-notice">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" fill="none" rx="0" ry="0"></rect>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C6 3.69 8.69 1 12 1C15.31 1 18 3.69 18 7V10.042C19.4142 10.2818 20.5 11.5202 20.5 13V20C20.5 21.65 19.15 23 17.5 23H6.5C4.85 23 3.5 21.65 3.5 20V13C3.5 11.5202 4.58579 10.2818 6 10.042V7ZM8 10H16V7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7V10ZM12 20C12.8284 20 13.5 19.3284 13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20Z"></path>
+        </svg>
+        Authentication Required
+      </div>
+
+      <p>
+        Returns all the favorite airports saved to your Airport Gap account. Results are paginated (30 airports per page).
+      </p>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl -H "Authorization: Token &lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/favorites
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 200 OK</span>
+      </p>
+
+      <code class="example-code">
+        {
+            "data": [
+                {
+                    "attributes": {
+                        "airport": {
+                            "altitude": 26,
+                            "city": "Osaka",
+                            "country": "Japan",
+                            "iata": "KIX",
+                            "icao": "RJBB",
+                            "id": 9230,
+                            "latitude": "34.427299",
+                            "longitude": "135.244003",
+                            "name": "Kansai International Airport",
+                            "timezone": "Asia/Tokyo"
+                        },
+                        "note": "My local airport"
+                    },
+                    "id": "22",
+                    "type": "favorite"
+                },
+                {
+                    "attributes": {
+                        "airport": {
+                            "altitude": 50,
+                            "city": "Osaka",
+                            "country": "Japan",
+                            "iata": "ITM",
+                            "icao": "RJOO",
+                            "id": 7836,
+                            "latitude": "34.7855",
+                            "longitude": "135.438004",
+                            "name": "Osaka International Airport",
+                            "timezone": "Asia/Tokyo"
+                        },
+                        "note": "Small airport nearby, great for travel within Japan"
+                    },
+                    "id": "23",
+                    "type": "favorite"
+                },
+                {
+                    "attributes": {
+                        "airport": {
+                            "altitude": 9,
+                            "city": "San Juan",
+                            "country": "Puerto Rico",
+                            "iata": "SJU",
+                            "icao": "TJSJ",
+                            "id": 8270,
+                            "latitude": "18.4394",
+                            "longitude": "-66.001801",
+                            "name": "Luis Munoz Marin International Airport",
+                            "timezone": "America/Puerto_Rico"
+                        },
+                        "note": "My home country airport, used when I go visit my family"
+                    },
+                    "id": "24",
+                    "type": "favorite"
+                }
+            ],
+            "links": {
+                "first": "http://localhost:3000/favorites",
+                "last": "http://localhost:3000/favorites?page=1",
+                "self": "http://localhost:3000/favorites"
+            }
+        }
+      </code>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="api_ref_get_favorites_id">
+        <span class="http-action http-action__get">GET</span>
+        /favorites/:id
+      </h2>
+
+      <div class="auth-required-notice">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" fill="none" rx="0" ry="0"></rect>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C6 3.69 8.69 1 12 1C15.31 1 18 3.69 18 7V10.042C19.4142 10.2818 20.5 11.5202 20.5 13V20C20.5 21.65 19.15 23 17.5 23H6.5C4.85 23 3.5 21.65 3.5 20V13C3.5 11.5202 4.58579 10.2818 6 10.042V7ZM8 10H16V7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7V10ZM12 20C12.8284 20 13.5 19.3284 13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20Z"></path>
+        </svg>
+        Authentication Required
+      </div>
+
+      <p>
+        Returns the favorite airport from your Airport Gap account specified by the ID.
+      </p>
+
+      <p class="example-section-header">
+        Required parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">id</span></td>
+            <td>Integer</td>
+            <td>The ID of the favorite record in your Airport Gap account.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/favorites/22
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 200 OK</span>
+      </p>
+
+      <code class="example-code">
+        {
+            "data": {
+                "attributes": {
+                    "airport": {
+                        "altitude": 26,
+                        "city": "Osaka",
+                        "country": "Japan",
+                        "iata": "KIX",
+                        "icao": "RJBB",
+                        "id": 9230,
+                        "latitude": "34.427299",
+                        "longitude": "135.244003",
+                        "name": "Kansai International Airport",
+                        "timezone": "Asia/Tokyo"
+                    },
+                    "note": "My local airport"
+                },
+                "id": "22",
+                "type": "favorite"
+            }
+        }
+      </code>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="api_ref_post_favorites">
+        <span class="http-action http-action__post">POST</span>
+        /favorites
+      </h2>
+
+      <div class="auth-required-notice">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" fill="none" rx="0" ry="0"></rect>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C6 3.69 8.69 1 12 1C15.31 1 18 3.69 18 7V10.042C19.4142 10.2818 20.5 11.5202 20.5 13V20C20.5 21.65 19.15 23 17.5 23H6.5C4.85 23 3.5 21.65 3.5 20V13C3.5 11.5202 4.58579 10.2818 6 10.042V7ZM8 10H16V7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7V10ZM12 20C12.8284 20 13.5 19.3284 13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20Z"></path>
+        </svg>
+        Authentication Required
+      </div>
+
+      <p>
+        Allows you to save a favorite airport to your Airport Gap account.
+      </p>
+
+      <p class="example-section-header">
+        Required parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">airport_id</span></td>
+            <td>String</td>
+            <td>The airport code (IATA location identifier) of the airport.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Optional parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">note</span></td>
+            <td>String</td>
+            <td>A note you want to save about the airport.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl -X POST -d "airport_id=JFK&note=My usual layover when visiting family" -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/favorites
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 201 Created</span>
+      </p>
+
+      <code class="example-code">
+        {
+            "data": {
+                "attributes": {
+                    "airport": {
+                        "altitude": 13,
+                        "city": "New York",
+                        "country": "United States",
+                        "iata": "JFK",
+                        "icao": "KJFK",
+                        "id": 9055,
+                        "latitude": "40.639801",
+                        "longitude": "-73.7789",
+                        "name": "John F Kennedy International Airport",
+                        "timezone": "America/New_York"
+                    },
+                    "note": "My usual layover when visiting family"
+                },
+                "id": "25",
+                "type": "favorite"
+            }
+        }
+      </code>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="api_ref_patch_favorites">
+        <span class="http-action http-action__patch">PATCH</span>
+        /airports/:id
+      </h2>
+
+      <div class="auth-required-notice">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" fill="none" rx="0" ry="0"></rect>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C6 3.69 8.69 1 12 1C15.31 1 18 3.69 18 7V10.042C19.4142 10.2818 20.5 11.5202 20.5 13V20C20.5 21.65 19.15 23 17.5 23H6.5C4.85 23 3.5 21.65 3.5 20V13C3.5 11.5202 4.58579 10.2818 6 10.042V7ZM8 10H16V7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7V10ZM12 20C12.8284 20 13.5 19.3284 13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20Z"></path>
+        </svg>
+        Authentication Required
+      </div>
+
+      <p>
+        Allows you to update the note of one of your favorite airports in your Airport Gap account.
+      </p>
+
+      <p class="example-section-header">
+        Required parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">id</span></td>
+            <td>String</td>
+            <td>The ID of the favorite record in your Airport Gap account.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Optional parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">note</span></td>
+            <td>String</td>
+            <td>A note you want to save about the airport.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl -X PATCH -d "note=My usual layover when visiting family, although it's really far away..." -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/favorites/25
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 200 OK</span>
+      </p>
+
+      <code class="example-code">
+        {
+            "data": {
+                "attributes": {
+                    "airport": {
+                        "altitude": 13,
+                        "city": "New York",
+                        "country": "United States",
+                        "iata": "JFK",
+                        "icao": "KJFK",
+                        "id": 9055,
+                        "latitude": "40.639801",
+                        "longitude": "-73.7789",
+                        "name": "John F Kennedy International Airport",
+                        "timezone": "America/New_York"
+                    },
+                    "note": "My usual layover when visiting family, although it's really far away..."
+                },
+                "id": "25",
+                "type": "favorite"
+            }
+        }
+      </code>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="api_ref_delete_favorites">
+        <span class="http-action http-action__delete">DELETE</span>
+        /favorites/:id
+      </h2>
+
+      <div class="auth-required-notice">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" fill="none" rx="0" ry="0"></rect>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C6 3.69 8.69 1 12 1C15.31 1 18 3.69 18 7V10.042C19.4142 10.2818 20.5 11.5202 20.5 13V20C20.5 21.65 19.15 23 17.5 23H6.5C4.85 23 3.5 21.65 3.5 20V13C3.5 11.5202 4.58579 10.2818 6 10.042V7ZM8 10H16V7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7V10ZM12 20C12.8284 20 13.5 19.3284 13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20Z"></path>
+        </svg>
+        Authentication Required
+      </div>
+
+      <p>
+        Deletes one of your favorite airports from your Airport Gap account.
+      </p>
+
+      <p class="example-section-header">
+        Required parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">id</span></td>
+            <td>String</td>
+            <td>The ID of the favorite record in your Airport Gap account.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl -X DELETE -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/favorites/25
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 204 No Content</span>
+      </p>
+
+      <p class="italic">
+        No content is returned in the response body upon successful deletion.
+      </p>
+    </section>
   </div>
 </div>
