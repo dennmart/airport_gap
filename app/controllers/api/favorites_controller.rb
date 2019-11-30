@@ -1,5 +1,4 @@
-class FavoritesController < ApplicationController
-  skip_before_action :verify_authenticity_token
+class Api::FavoritesController < ApiController
   before_action :authenticate_token
 
   def index
@@ -8,9 +7,11 @@ class FavoritesController < ApplicationController
     if @favorites.present?
       options = {
         links: {
-          first: favorites_url,
-          self: favorites_url(page: params[:page]),
-          last: favorites_url(page: @favorites.total_pages)
+          first: api_favorites_url,
+          self: api_favorites_url(page: params[:page]),
+          last: api_favorites_url(page: @favorites.total_pages),
+          prev: api_favorites_url(page: @favorites.previous_page),
+          next: api_favorites_url(page: @favorites.next_page)
         }
       }
       render json: FavoriteSerializer.new(@favorites, options).serialized_json

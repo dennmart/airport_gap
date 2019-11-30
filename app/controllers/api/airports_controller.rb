@@ -1,15 +1,15 @@
-class AirportsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
+class Api::AirportsController < ApiController
   def index
     @airports = Airport.all.page(params[:page])
 
     if @airports.present?
       options = {
         links: {
-          first: airports_url,
-          self: airports_url(page: params[:page]),
-          last: airports_url(page: @airports.total_pages)
+          first: api_airports_url,
+          self: api_airports_url(page: params[:page]),
+          last: api_airports_url(page: @airports.total_pages),
+          prev: api_airports_url(page: @airports.previous_page),
+          next: api_airports_url(page: @airports.next_page)
         }
       }
       render json: AirportSerializer.new(@airports, options).serialized_json

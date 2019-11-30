@@ -7,13 +7,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy", as: :logout
 
-  resources :airports, only: [:index, :show] do
-    collection do
-      post :distance
-    end
-  end
-
-  resources :favorites, only: [:index, :show, :create, :update, :destroy]
   resource :tokens, only: [:new, :create, :show] do
     member do
       post :regenerate
@@ -21,4 +14,14 @@ Rails.application.routes.draw do
   end
 
   resource :password_reset, only: [:new, :create, :edit, :update]
+
+  namespace :api do
+    resources :airports, only: [:index, :show] do
+      collection do
+        post :distance
+      end
+    end
+
+    resources :favorites, only: [:index, :show, :create, :update, :destroy]
+  end
 end
