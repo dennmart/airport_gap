@@ -1,11 +1,13 @@
-<div class="api-docs flex container mx-auto">
-  <div class="w-1/5 p-4 h-full sticky top-0 overflow-y-auto">
+<div class="api-docs flex flex-col md:flex-row container mx-auto">
+  <div class="w-full md:w-1/4 lg:w-1/5 p-4 h-full sticky top-auto md:top-0 md:overflow-y-auto">
     <nav class="sidebar h-full overflow-y-auto text-base scrolling-touch lg:h-auto lg:block lg:relative lg:sticky">
       <div class="mx-auto mb-6">
         <%= link_to root_path do %>
           <%= image_pack_tag "airport_gap_logo.png" %>
         <% end %>
       </div>
+
+      <h3 class="font-bold text-grey-700 mb-2">API documentation</h3>
 
       <ul class="mb-6">
         <li>
@@ -93,15 +95,7 @@
     </div>
   </nav>
 
-  <div class="main-section w-4/5 px-4 py-6">
-    <div class="md:hidden mx-auto mb-6">
-      <%= link_to root_path do %>
-        <%= image_pack_tag "airport_gap_logo.png" %>
-      <% end %>
-    </div>
-
-    <h1 class="text-3xl font-bold">API Documentation</h1>
-
+  <div class="main-section w-full md:w-3/4 lg:w-4/5 px-4 py-6">
     <section>
       <p>
         The Airport Gap API is a <a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer">RESTful API</a> used

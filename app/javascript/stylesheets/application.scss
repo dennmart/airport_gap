@@ -64,7 +64,7 @@ html {
   }
 
   code {
-    @apply rounded bg-black text-white p-6 mb-8 block;
+    @apply rounded bg-black text-white p-6 mb-8 block overflow-x-auto;
   }
 
   .monospace-inline {
