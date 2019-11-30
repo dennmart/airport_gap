@@ -2,7 +2,9 @@
   <div class="w-1/5 p-4 h-full sticky top-0 overflow-y-auto">
     <nav class="sidebar h-full overflow-y-auto text-base scrolling-touch lg:h-auto lg:block lg:relative lg:sticky">
       <div class="mx-auto mb-6">
-        <%= image_pack_tag "airport_gap_logo.png" %>
+        <%= link_to root_path do %>
+          <%= image_pack_tag "airport_gap_logo.png" %>
+        <% end %>
       </div>
 
       <ul class="mb-6">
@@ -93,7 +95,9 @@
 
   <div class="main-section w-4/5 px-4 py-6">
     <div class="md:hidden mx-auto mb-6">
-      <%= image_pack_tag "airport_gap_logo.png" %>
+      <%= link_to root_path do %>
+        <%= image_pack_tag "airport_gap_logo.png" %>
+      <% end %>
     </div>
 
     <h1 class="text-3xl font-bold">API Documentation</h1>
