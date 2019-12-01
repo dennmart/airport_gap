@@ -16,8 +16,7 @@ class Api::FavoritesController < ApiController
       }
       render json: FavoriteSerializer.new(@favorites, options).serialized_json
     else
-      # TODO: Implement a better error message
-      head :not_found
+      render json: not_found_error_response, status: :not_found
     end
   end
 
@@ -25,8 +24,7 @@ class Api::FavoritesController < ApiController
     @favorite = @authenticated_user.favorites.find(params[:id])
     render json: FavoriteSerializer.new(@favorite).serialized_json
   rescue ActiveRecord::RecordNotFound
-    # TODO: Implement a better error message
-    head :not_found
+    render json: not_found_error_response, status: :not_found
   end
 
   def create
@@ -36,8 +34,8 @@ class Api::FavoritesController < ApiController
     if @favorite.save
       render json: FavoriteSerializer.new(@favorite).serialized_json, status: :created
     else
-      # TODO: Implement a better error message
-      head :unprocessable_entity
+      error_message = "Please enter a valid airport ID."
+      render json: unprocessable_entity_response(error_message), status: :unprocessable_entity
     end
   end
 
@@ -47,12 +45,11 @@ class Api::FavoritesController < ApiController
     if @favorite.update(note: params[:note])
       render json: FavoriteSerializer.new(@favorite).serialized_json
     else
-      # TODO: Implement a better error message
-      head :unprocessable_entity
+      error_message = "Please enter a valid note."
+      render json: unprocessable_entity_response(error_message), status: :unprocessable_entity
     end
   rescue ActiveRecord::RecordNotFound
-    # TODO: Implement a better error message
-    head :not_found
+    render json: not_found_error_response, status: :not_found
   end
 
   def destroy
@@ -60,7 +57,6 @@ class Api::FavoritesController < ApiController
     @favorite.destroy
     head :no_content
   rescue ActiveRecord::RecordNotFound
-    # TODO: Implement a better error message
-    head :not_found
+    render json: not_found_error_response, status: :not_found
   end
 end

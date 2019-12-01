@@ -14,8 +14,7 @@ class Api::AirportsController < ApiController
       }
       render json: AirportSerializer.new(@airports, options).serialized_json
     else
-      # TODO: Implement a better error message
-      head :not_found
+      render json: not_found_error_response, status: :not_found
     end
   end
 
@@ -25,8 +24,7 @@ class Api::AirportsController < ApiController
     if @airport
       render json: AirportSerializer.new(@airport).serialized_json
     else
-      # TODO: Implement a better error message
-      head :not_found
+      render json: not_found_error_response, status: :not_found
     end
   end
 
@@ -38,8 +36,8 @@ class Api::AirportsController < ApiController
       distances = Airport.distance_between(airport_1, airport_2)
       render json: AirportDistanceSerializer.new(distances).serialized_json
     else
-      # TODO: Implement a better error message
-      head :unprocessable_entity
+      error_message = "Please enter valid 'from' and 'to' airports."
+      render json: unprocessable_entity_response(error_message), status: :unprocessable_entity
     end
   end
 end
