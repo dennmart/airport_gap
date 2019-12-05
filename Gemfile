@@ -6,7 +6,7 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.1'
 gem 'pg', '~> 1.1.4'
 gem 'puma', '~> 4.1'
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 4.2'
 gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -32,5 +32,5 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 4.1'
-  gem 'faker', '~> 2.7'
+  gem 'faker', '~> 2.8'
 end
