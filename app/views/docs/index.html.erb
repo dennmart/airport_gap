@@ -58,6 +58,13 @@
         </li>
 
         <li class="api-reference">
+          <a href="#api_ref_post_tokens">
+            <span class="http-action http-action__post">POST</span>
+            <span>/tokens</span>
+          </a>
+        </li>
+
+        <li class="api-reference">
           <a href="#api_ref_get_favorites">
             <span class="http-action http-action__get">GET</span>
             <span>/favorites</span>
@@ -480,6 +487,66 @@
               "id": "KIX-KIX",
               "type": "airport_distance"
             }
+          }
+        JSON
+      ) %>
+    </section>
+
+    <section>
+      <h2 class="section-title" id="api_ref_post_tokens">
+        <span class="http-action http-action__post">POST</span>
+        /tokens
+      </h2>
+
+      <p>
+        Returns the API token for your Airport Gap account.
+      </p>
+
+      <p class="example-section-header">
+        Required parameters
+      </p>
+
+      <table class="parameters-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="monospace-inline">email</span></td>
+            <td>String</td>
+            <td>The email address for your Airport Gap account.</td>
+          </tr>
+
+          <tr>
+            <td><span class="monospace-inline">password</span></td>
+            <td>String</td>
+            <td>Your Airport Gap account password.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="example-section-header">
+        Example request (cURL)
+      </p>
+
+      <code class="example-code">
+        curl -X POST -d "email=test@airportgap.com&password=airportgappassword" https://airportgap.dev-tester.com/api/tokens
+      </code>
+
+      <p class="example-section-header">
+        Example of successful response
+        <span class="example-section-header__status">Status: 200 OK</span>
+      </p>
+
+      <%= json_syntax(
+        <<~JSON
+          {
+            "token": "<Your Airport Gap Token>"
           }
         JSON
       ) %>

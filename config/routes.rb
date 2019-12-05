@@ -23,5 +23,7 @@ Rails.application.routes.draw do
     end
 
     resources :favorites, only: [:index, :show, :create, :update, :destroy]
+
+    resource :tokens, only: [:create]
   end
 end
