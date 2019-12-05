@@ -10,26 +10,26 @@
 
     <!-- Search Engine -->
     <meta name="description" content="An API to fetch and save information about your favorite airports">
-    <meta name="image" content="https://dev-tester.com/content/images/static/airport_gap_logo.png">
+    <meta name="image" content="<%= request.base_url %>/images/airport_gap_logo.png">
 
     <!-- Schema.org for Google -->
     <meta itemprop="name" content="Airport Gap">
     <meta itemprop="description" content="An API to fetch and save information about your favorite airports">
-    <meta itemprop="image" content="https://dev-tester.com/content/images/static/airport_gap_logo.png">
+    <meta itemprop="image" content="<%= request.base_url %>/images/airport_gap_logo.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Airport Gap">
     <meta name="twitter:description" content="An API to fetch and save information about your favorite airports">
-    <meta name="twitter:image" content="https://dev-tester.com/content/images/static/airport_gap_logo.png">
+    <meta name="twitter:image" content="<%= request.base_url %>/images/airport_gap_share_logo.png">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Airport Gap">
     <meta property="og:description" content="An API to fetch and save information about your favorite airports">
-    <meta property="og:url" content="https://airportgap.dev-tester.com">
+    <meta property="og:url" content="<%= request.base_url %>">
     <meta property="og:site_name" content="Airport Gap">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://dev-tester.com/content/images/static/airport_gap_logo.png">
+    <meta property="og:image" content="<%= request.base_url %>/images/airport_gap_share_logo.png">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
