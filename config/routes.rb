@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resource :password_reset, only: [:new, :create, :edit, :update]
 
+  resource :change_password, only: [:show, :update]
+
   namespace :api do
     resources :airports, only: [:index, :show] do
       collection do

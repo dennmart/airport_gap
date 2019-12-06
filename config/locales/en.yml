@@ -7,3 +7,7 @@ en:
             airport:
               required: "Please enter a valid airport code"
               taken: "This airport is already in your favorites"
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "needs to match new password"
