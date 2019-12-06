@@ -34,7 +34,8 @@ class Api::FavoritesController < ApiController
     if @favorite.save
       render json: FavoriteSerializer.new(@favorite).serialized_json, status: :created
     else
-      error_message = "Please enter a valid airport ID."
+      # TODO: Improve how we display this error.
+      error_message = @favorite.errors.values.flatten.first
       render json: unprocessable_entity_response(error_message), status: :unprocessable_entity
     end
   end
