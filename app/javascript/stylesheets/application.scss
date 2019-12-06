@@ -8,6 +8,14 @@ html {
   font-family: "Lato", sans-serif;
 }
 
+.link-green {
+  @apply underline text-green-500;
+
+  &:hover {
+    @apply text-green-800;
+  }
+}
+
 .api-docs nav.sidebar {
   li {
     @apply py-1 px-2 rounded;

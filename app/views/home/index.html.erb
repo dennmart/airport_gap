@@ -6,22 +6,26 @@
 
     <h1 class="text-3xl font-bold text-center mb-6">An API to fetch and save information about your favorite airports</h1>
 
-    <div class="flex flex-col md:flex-row justify-center items-center">
+    <div class="flex flex-col md:flex-row justify-center items-center mb-2">
       <div class="mb-6 md:mb-0 md:mr-6">
-        <%= link_to "Generate Token", tokens_path, class: "block bg-green-500 text-lg text-white font-bold px-6 py-4 rounded hover:bg-green-700" %>
+        <%= link_to "Generate Token", tokens_path, class: "block bg-green-500 text-lg text-white font-bold px-6 py-4 rounded hover:bg-green-800" %>
       </div>
 
       <div>
-        <%= link_to "API Documention", docs_path, class: "block bg-purple-500 text-lg text-white font-bold px-6 py-4 rounded hover:bg-purple-700" %>
+        <%= link_to "API Documention", docs_path, class: "block bg-purple-500 text-lg text-white font-bold px-6 py-4 rounded hover:bg-purple-800" %>
       </div>
     </div>
+
+    <p class="text-center">
+      <%= link_to "Log in to your Airport Gap account", login_path, class: "link-green" %>
+    </p>
   </section>
 </div>
 
 <div>
   <section class="container mx-auto px-6 py-12">
     <p class="text-lg mb-6">
-      Airport Gap is a <a href="https://www.restapitutorial.com/" class="underline text-green-600">RESTful API</a> to
+      Airport Gap is a <a href="https://www.restapitutorial.com/" class="link-green">RESTful API</a> to
       help you improve your API automation testing skills. It provides access to a
       database of airports, calculate distances between airports, and allows you to
       save your favorite airports.
@@ -36,8 +40,8 @@
     </ul>
 
     <p class="text-lg">
-      Thanks to <a href="https://openflights.org/data.html" class="underline text-green-600">OpenFlights.org</a> for
-      providing the airport data under the <a href="http://opendatacommons.org/licenses/odbl/1.0/" class="underline text-green-600">
+      Thanks to <a href="https://openflights.org/data.html" class="link-green">OpenFlights.org</a> for
+      providing the airport data under the <a href="http://opendatacommons.org/licenses/odbl/1.0/" class="link-green">
       Open Database License</a>.
     </p>
   </section>
