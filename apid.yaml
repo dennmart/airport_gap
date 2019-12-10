@@ -1,0 +1,280 @@
+version: 1
+variables:
+  api_url: "{{ env.AIRPORT_GAP_API_URL }}"
+
+transactions:
+  - id: "GET /airports/:id"
+    steps:
+      - id: "Get information about a single airport"
+        request:
+          method: GET
+          endpoint: "{{ var.api_url }}/airports/KIX"
+        expect:
+          code: 200
+          body:
+            type: json
+            content: |
+              {
+                "data": {
+                  "id": "KIX",
+                  "type": "airport",
+                  "attributes": {
+                    "altitude": 26,
+                    "city": "Osaka",
+                    "country": "Japan",
+                    "iata": "KIX",
+                    "icao": "RJBB",
+                    "latitude": "34.427299",
+                    "longitude": "135.244003",
+                    "name": "Kansai International Airport",
+                    "timezone": "Asia/Tokyo"
+                  }
+                }
+              }
+  - id: "POST /airports/distance"
+    steps:
+      - id: "Calculate the distance between two airports"
+        request:
+          method: POST
+          endpoint: "{{ var.api_url }}/airports/distance"
+          headers:
+            "Content-Type": "application/json"
+          body: |
+            {
+              "from": "KIX",
+              "to": "SFO"
+            }
+        expect:
+          code: 200
+          body:
+            type: json
+            content: |
+              {
+                "data": {
+                  "id": "KIX-SFO",
+                  "type": "airport_distance",
+                  "attributes": {
+                    "from_airport": {
+                      "altitude": 26,
+                      "city": "Osaka",
+                      "country": "Japan",
+                      "iata": "KIX",
+                      "icao": "RJBB",
+                      "id": 3158,
+                      "latitude": "34.427299",
+                      "longitude": "135.244003",
+                      "name": "Kansai International Airport",
+                      "timezone": "Asia/Tokyo"
+                    },
+                    "to_airport": {
+                      "altitude": 13,
+                      "city": "San Francisco",
+                      "country": "United States",
+                      "iata": "SFO",
+                      "icao": "KSFO",
+                      "id": 2672,
+                      "latitude": "37.618999",
+                      "longitude": "-122.375",
+                      "name": "San Francisco International Airport",
+                      "timezone": "America/Los_Angeles"
+                    },
+                    "kilometers": 8692.066508240026,
+                    "miles": 5397.239853492001,
+                    "nautical_miles": 4690.070954910584
+                  }
+                }
+              }
+  - id: "GET /airports"
+    steps:
+      - id: "Get all airports, including pagination"
+        request:
+          method: GET
+          endpoint: "{{ var.api_url }}/airports"
+        expect:
+          code: 200
+          body:
+            type: json
+            exact: false
+            content: |
+              {
+                "data": [
+                  {
+                    "id": "",
+                    "type": "",
+                    "attributes": {}
+                  }
+                ],
+                "links": {
+                  "self": "",
+                  "first": "",
+                  "last": "",
+                  "next": "",
+                  "prev": ""
+                }
+              }
+  - id: "GET /favorites"
+    steps:
+      - id: "authentication"
+        request:
+          method: POST
+          endpoint: "{{ var.api_url }}/tokens"
+          headers:
+            "Content-Type": "application/json"
+          body: |
+            {
+              "email": "{{ env.AIRPORT_GAP_EMAIL }}",
+              "password": "{{ env.AIRPORT_GAP_PASSWORD }}"
+            }
+        export:
+          token: response.body.token
+      - id: "Get all favorites for the account"
+        request:
+          method: GET
+          endpoint: "{{ var.api_url }}/favorites"
+          headers:
+            "Authorization": "Bearer token={{ authentication.token }}"
+        expect:
+          code: 200
+          body:
+            type: json
+            exact: false
+            content: |
+              {
+                "data": [
+                  {
+                    "id": "",
+                    "type": "",
+                    "attributes": {}
+                  }
+                ],
+                "links": {
+                  "self": "",
+                  "first": "",
+                  "last": "",
+                  "next": "",
+                  "prev": ""
+                }
+              }
+  - id: "End-to-end test flow"
+    steps:
+      - id: "authentication"
+        request:
+          method: POST
+          endpoint: "{{ var.api_url }}/tokens"
+          headers:
+            "Content-Type": "application/json"
+          body: |
+            {
+              "email": "{{ env.AIRPORT_GAP_EMAIL }}",
+              "password": "{{ env.AIRPORT_GAP_PASSWORD }}"
+            }
+        export:
+          token: response.body.token
+      - id: "create_favorite"
+        request:
+          method: POST
+          endpoint: "{{ var.api_url }}/favorites"
+          headers:
+            "Content-Type": "application/json"
+            "Authorization": "Bearer token={{ authentication.token }}"
+          body: |
+            {
+              "airport_id": "KIX",
+              "note": "My local airport"
+            }
+          expect:
+            code: 201
+        export:
+          favorite_id: response.body.data.id
+      - id: "Fetch the newly created favorite"
+        request:
+          method: GET
+          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          headers:
+            "Authorization": "Bearer token={{ authentication.token }}"
+        expect:
+          code: 200
+          body:
+            type: json
+            content: |
+              {
+                "data": {
+                  "attributes": {
+                    "airport": {
+                      "altitude": 26,
+                      "city": "Osaka",
+                      "country": "Japan",
+                      "iata": "KIX",
+                      "icao": "RJBB",
+                      "id": 3158,
+                      "latitude": "34.427299",
+                      "longitude": "135.244003",
+                      "name": "Kansai International Airport",
+                      "timezone": "Asia/Tokyo"
+                    },
+                    "note": "My local airport"
+                  },
+                  "id": "{{ create_favorite.favorite_id }}",
+                  "type": "favorite"
+                }
+              }
+      - id: "Update favorite"
+        request:
+          method: PATCH
+          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          headers:
+            "Content-Type": "application/json"
+            "Authorization": "Bearer token={{ authentication.token }}"
+          body: |
+            {
+              "note": "My local airport, goes everywhere in the world!"
+            }
+          expect:
+            code: 200
+      - id: "Verify updated favorite"
+        request:
+          method: GET
+          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          headers:
+            "Authorization": "Bearer token={{ authentication.token }}"
+        expect:
+          body:
+            type: json
+            content: |
+              {
+                "data": {
+                  "attributes": {
+                    "airport": {
+                      "altitude": 26,
+                      "city": "Osaka",
+                      "country": "Japan",
+                      "iata": "KIX",
+                      "icao": "RJBB",
+                      "id": 3158,
+                      "latitude": "34.427299",
+                      "longitude": "135.244003",
+                      "name": "Kansai International Airport",
+                      "timezone": "Asia/Tokyo"
+                    },
+                    "note": "My local airport, goes everywhere in the world!"
+                  },
+                  "id": "{{ create_favorite.favorite_id }}",
+                  "type": "favorite"
+                }
+              }
+      - id: "Delete favorite"
+        request:
+          method: DELETE
+          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          headers:
+            "Authorization": "Bearer token={{ authentication.token }}"
+          expect:
+            code: 204
+      - id: "Ensure favorite is deleted"
+        request:
+          method: GET
+          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          headers:
+            "Authorization": "Bearer token={{ authentication.token }}"
+          expect:
+            code: 404
