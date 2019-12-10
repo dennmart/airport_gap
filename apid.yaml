@@ -180,8 +180,8 @@ transactions:
               "airport_id": "KIX",
               "note": "My local airport"
             }
-          expect:
-            code: 201
+        expect:
+          code: 201
         export:
           favorite_id: response.body.data.id
       - id: "Fetch the newly created favorite"
@@ -227,8 +227,8 @@ transactions:
             {
               "note": "My local airport, goes everywhere in the world!"
             }
-          expect:
-            code: 200
+        expect:
+          code: 200
       - id: "Verify updated favorite"
         request:
           method: GET
@@ -266,13 +266,13 @@ transactions:
           endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites/{{ create_favorite.favorite_id }}"
           headers:
             "Authorization": "Bearer token={{ authentication.token }}"
-          expect:
-            code: 204
+        expect:
+          code: 204
       - id: "Ensure favorite is deleted"
         request:
           method: GET
           endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites/{{ create_favorite.favorite_id }}"
           headers:
             "Authorization": "Bearer token={{ authentication.token }}"
-          expect:
-            code: 404
+        expect:
+          code: 404
