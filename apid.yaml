@@ -1,6 +1,4 @@
 version: 1
-variables:
-  api_url: "{{ env.AIRPORT_GAP_API_URL }}"
 
 transactions:
   - id: "GET /airports/:id"
@@ -8,7 +6,7 @@ transactions:
       - id: "Get information about a single airport"
         request:
           method: GET
-          endpoint: "{{ var.api_url }}/airports/KIX"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/airports/KIX"
         expect:
           code: 200
           body:
@@ -36,7 +34,7 @@ transactions:
       - id: "Calculate the distance between two airports"
         request:
           method: POST
-          endpoint: "{{ var.api_url }}/airports/distance"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/airports/distance"
           headers:
             "Content-Type": "application/json"
           body: |
@@ -89,7 +87,7 @@ transactions:
       - id: "Get all airports, including pagination"
         request:
           method: GET
-          endpoint: "{{ var.api_url }}/airports"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/airports"
         expect:
           code: 200
           body:
@@ -117,7 +115,7 @@ transactions:
       - id: "authentication"
         request:
           method: POST
-          endpoint: "{{ var.api_url }}/tokens"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/tokens"
           headers:
             "Content-Type": "application/json"
           body: |
@@ -130,7 +128,7 @@ transactions:
       - id: "Get all favorites for the account"
         request:
           method: GET
-          endpoint: "{{ var.api_url }}/favorites"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites"
           headers:
             "Authorization": "Bearer token={{ authentication.token }}"
         expect:
@@ -160,7 +158,7 @@ transactions:
       - id: "authentication"
         request:
           method: POST
-          endpoint: "{{ var.api_url }}/tokens"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/tokens"
           headers:
             "Content-Type": "application/json"
           body: |
@@ -173,7 +171,7 @@ transactions:
       - id: "create_favorite"
         request:
           method: POST
-          endpoint: "{{ var.api_url }}/favorites"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites"
           headers:
             "Content-Type": "application/json"
             "Authorization": "Bearer token={{ authentication.token }}"
@@ -189,7 +187,7 @@ transactions:
       - id: "Fetch the newly created favorite"
         request:
           method: GET
-          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites/{{ create_favorite.favorite_id }}"
           headers:
             "Authorization": "Bearer token={{ authentication.token }}"
         expect:
@@ -221,7 +219,7 @@ transactions:
       - id: "Update favorite"
         request:
           method: PATCH
-          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites/{{ create_favorite.favorite_id }}"
           headers:
             "Content-Type": "application/json"
             "Authorization": "Bearer token={{ authentication.token }}"
@@ -234,7 +232,7 @@ transactions:
       - id: "Verify updated favorite"
         request:
           method: GET
-          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites/{{ create_favorite.favorite_id }}"
           headers:
             "Authorization": "Bearer token={{ authentication.token }}"
         expect:
@@ -265,7 +263,7 @@ transactions:
       - id: "Delete favorite"
         request:
           method: DELETE
-          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites/{{ create_favorite.favorite_id }}"
           headers:
             "Authorization": "Bearer token={{ authentication.token }}"
           expect:
@@ -273,7 +271,7 @@ transactions:
       - id: "Ensure favorite is deleted"
         request:
           method: GET
-          endpoint: "{{ var.api_url }}/favorites/{{ create_favorite.favorite_id }}"
+          endpoint: "{{ env.AIRPORT_GAP_API_URL }}/favorites/{{ create_favorite.favorite_id }}"
           headers:
             "Authorization": "Bearer token={{ authentication.token }}"
           expect:
