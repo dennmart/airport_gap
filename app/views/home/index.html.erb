@@ -17,7 +17,7 @@
     </div>
 
     <p class="text-center">
-      <%= link_to "Log in to your Airport Gap account", login_path, class: "link-green" %>
+      <%= link_to "Log in to your Airport Gap account", login_path, class: "link-footer" %>
     </p>
   </section>
 </div>
@@ -48,7 +48,7 @@
 </div>
 
 <div class="bg-green-500 border-t-2 border-green-900">
-  <section class="container mx-auto px-6 py-6">
+  <section class="container mx-auto px-6 pt-6">
     <div class="mx-auto max-w-sm mb-2">
       <%= image_pack_tag "dev_tester_logo.png" %>
     </div>
@@ -57,5 +57,13 @@
       Airport Gap is provided by <a href="https://dev-tester.com/" class="underline">Dev Tester</a> -
       articles and tips to help you improve your test automation skills as a developer.
     </p>
+  </section>
+
+  <section>
+    <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-center items-center text-white">
+      <%= link_to "Generate Token", tokens_path, class: "underline hover:text-green-100 pb-2 md:pb-0 px-4" %>
+      <%= link_to "API Documentation", docs_path, class: "underline hover:text-green-100 pb-2 md:pb-0 px-4" %>
+      <%= link_to "Source Code", "https://github.com/dennmart/airport_gap", class: "underline hover:text-green-100 pb-2 md:pb-0 px-4" %>
+    </div>
   </section>
 </div>
