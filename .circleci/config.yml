@@ -1,0 +1,69 @@
+version: 2
+
+jobs:
+  unit_tests:
+    working_directory: ~/airport_gap
+    docker:
+      - image: circleci/ruby:2.6.5-node
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: airport_gap
+          RAILS_ENV: test
+      - image: circleci/postgres:12.1-alpine
+        environment:
+          POSTGRES_USER: airport_gap
+          POSTGRES_DB: airport_gap_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+
+      - run:
+          name: Configure Bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+
+      - restore_cache:
+          name: Restore Cache (Bundler)
+          keys:
+            - airport-gap-bundler-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Install dependencies (Bundler)
+          command: bundle install --path vendor/bundle
+
+      - save_cache:
+          name: Saving Cache (Bundler)
+          key: airport-gap-bundler-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - restore_cache:
+          name: Restore Cache (Yarn)
+          keys:
+            - airport-gap-yarn-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Install dependencies (Yarn)
+          command: yarn install --frozen-lockfile --prefer-offline --cache-folder ~/.cache/yarn
+
+      - save_cache:
+          name: Saving Cache (Yarn)
+          key: airport-gap-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run:
+          name: Database setup
+          command: bin/rails db:prepare
+
+      - run:
+          name: Run tests
+          command: bin/rails spec
+
+workflows:
+  version: 2
+  run_tests:
+    jobs:
+      - unit_tests
