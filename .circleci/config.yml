@@ -27,7 +27,7 @@ jobs:
       - restore_cache:
           name: Restore Cache (Bundler)
           keys:
-            - airport-gap-bundler-{{ checksum "Gemfile.lock" }}
+            - airport-gap-bundler-unit-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Install dependencies (Bundler)
@@ -35,14 +35,14 @@ jobs:
 
       - save_cache:
           name: Saving Cache (Bundler)
-          key: airport-gap-bundler-{{ checksum "Gemfile.lock" }}
+          key: airport-gap-bundler-unit-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
       - restore_cache:
           name: Restore Cache (Yarn)
           keys:
-            - airport-gap-yarn-{{ checksum "yarn.lock" }}
+            - airport-gap-yarn-unit-{{ checksum "yarn.lock" }}
 
       - run:
           name: Install dependencies (Yarn)
@@ -50,7 +50,7 @@ jobs:
 
       - save_cache:
           name: Saving Cache (Yarn)
-          key: airport-gap-yarn-{{ checksum "yarn.lock" }}
+          key: airport-gap-yarn-unit-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
 
@@ -87,7 +87,7 @@ jobs:
       - restore_cache:
           name: Restore Cache (Bundler)
           keys:
-            - airport-gap-bundler-{{ checksum "Gemfile.lock" }}
+            - airport-gap-bundler-e2e-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Install dependencies (Bundler)
@@ -95,14 +95,14 @@ jobs:
 
       - save_cache:
           name: Saving Cache (Bundler)
-          key: airport-gap-bundler-{{ checksum "Gemfile.lock" }}
+          key: airport-gap-bundler-e2e-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
       - restore_cache:
           name: Restore Cache (Yarn)
           keys:
-            - airport-gap-yarn-{{ checksum "yarn.lock" }}
+            - airport-gap-yarn-e2e-{{ checksum "yarn.lock" }}
 
       - run:
           name: Install dependencies (Yarn)
@@ -110,7 +110,7 @@ jobs:
 
       - save_cache:
           name: Saving Cache (Yarn)
-          key: airport-gap-yarn-{{ checksum "yarn.lock" }}
+          key: airport-gap-yarn-e2e-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
 
