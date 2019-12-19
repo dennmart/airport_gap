@@ -32,5 +32,5 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 4.1'
-  gem 'faker', '~> 2.8'
+  gem 'faker', '~> 2.9'
 end
