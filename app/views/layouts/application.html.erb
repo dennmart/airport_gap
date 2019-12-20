@@ -42,7 +42,7 @@
     <%= yield %>
   </body>
 
-  <% if Rails.env.production? %>
+  <% if Rails.env.production? && ENV['APPLICATION_HOST'] == "airportgap.dev-tester.com" %>
     <!-- Fathom - simple website analytics - https://usefathom.com -->
     <script>
       (function(f, a, t, h, o, m){
