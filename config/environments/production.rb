@@ -56,11 +56,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              Rails.application.credentials.aws[:ses_smtp_server],
-    port:                 Rails.application.credentials.aws[:ses_smtp_port],
+    address:              ENV['SMTP_SERVER'],
+    port:                 ENV['SMTP_PORT'],
     domain:               'dev-tester.com',
-    user_name:            Rails.application.credentials.aws[:ses_smtp_username],
-    password:             Rails.application.credentials.aws[:ses_smtp_password],
+    user_name:            ENV['SMTP_USERNAME'],
+    password:             ENV['SMTP_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
   }
