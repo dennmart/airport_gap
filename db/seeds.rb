@@ -28,7 +28,7 @@ user = User.find_or_create_by(email: "airportgap@dev-tester.com") do |user|
 end
 puts "Done creating example user!\n"
 puts "Email: #{user.email}"
-puts "Password: airport-gap-123"
+puts "Password: airportgap123"
 puts "Token: #{user.token}"
 puts "==========================================\n\n"
 
