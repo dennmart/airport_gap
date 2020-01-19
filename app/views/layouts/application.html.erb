@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Airport Gap - An API to fetch and save information about your favorite airports</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,7 +39,9 @@
   </head>
 
   <body class="bg-grey-050">
-    <%= yield %>
+    <main role="main">
+      <%= yield %>
+    </main>
   </body>
 
   <% if Rails.env.production? && ENV['APPLICATION_HOST'] == "airportgap.dev-tester.com" %>

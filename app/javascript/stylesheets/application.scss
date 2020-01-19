@@ -9,10 +9,10 @@ html {
 }
 
 .link-green {
-  @apply underline text-green-500;
+  @apply underline text-green-600;
 
   &:hover {
-    @apply text-green-800;
+    @apply text-green-900;
   }
 }
 
