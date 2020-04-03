@@ -19,7 +19,7 @@ gem 'rouge', '~> 3.13'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.9'
+  gem 'rspec-rails', '~> 4.0'
   gem 'factory_bot_rails', '~> 5.1'
 end
 
