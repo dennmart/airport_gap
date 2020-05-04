@@ -130,7 +130,8 @@ jobs:
 
       - run:
           name: Start application server
-          command: bin/rails s -b 0.0.0.0 -d
+          command: bin/rails s -b 0.0.0.0
+          background: true
 
       - run:
           name: Wait for application
