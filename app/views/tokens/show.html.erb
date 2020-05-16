@@ -14,11 +14,11 @@
 
       <h1 class="text-xl font-bold text-center mb-4">Your Account Information</h1>
 
-      <p class="mb-1">
+      <p id="user_email_address" class="mb-1">
         <strong>Email Address:</strong> <%= current_user.email %>
       </p>
 
-      <p class="mb-1">
+      <p id="user_auth_token" class="mb-1">
         <strong>Authentication Token: </strong> <%= current_user.token %>
       </p>
 
