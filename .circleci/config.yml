@@ -4,7 +4,7 @@ jobs:
   unit_tests:
     working_directory: ~/airport_gap
     docker:
-      - image: circleci/ruby:2.6.5-node
+      - image: circleci/ruby:2.7.1-node
         environment:
           PGHOST: 127.0.0.1
           PGUSER: airport_gap
@@ -65,7 +65,7 @@ jobs:
   end_to_end_tests:
     working_directory: ~/airport_gap
     docker:
-      - image: circleci/ruby:2.6.5-node
+      - image: circleci/ruby:2.7.1-node
         environment:
           PGHOST: 127.0.0.1
           PGUSER: airport_gap
@@ -123,14 +123,15 @@ jobs:
           command: bin/rails db:seed
 
       - run:
-          name: Download APId binary
+          name: Download and set up APId
           command: |
-            curl -o apid https://cdn.getapid.com/cli/latest/apid-latest-linux-amd64
-            chmod u+x apid
+            wget https://github.com/getapid/apid-cli/releases/download/v0.1.5/apid-0.1.5-linux-amd64.tar.gz
+            tar zxf apid-0.1.5-linux-amd64.tar.gz
 
       - run:
           name: Start application server
-          command: bin/rails s -b 0.0.0.0 -d
+          command: bin/rails s -b 0.0.0.0
+          background: true
 
       - run:
           name: Wait for application
