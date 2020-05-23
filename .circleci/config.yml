@@ -23,6 +23,7 @@ jobs:
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler
+            bundle config set path 'vendor/bundle'
 
       - restore_cache:
           name: Restore Cache (Bundler)
@@ -31,7 +32,7 @@ jobs:
 
       - run:
           name: Install dependencies (Bundler)
-          command: bundle install --path vendor/bundle
+          command: bundle install
 
       - save_cache:
           name: Saving Cache (Bundler)
@@ -83,6 +84,7 @@ jobs:
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler
+            bundle config set path 'vendor/bundle'
 
       - restore_cache:
           name: Restore Cache (Bundler)
@@ -91,7 +93,7 @@ jobs:
 
       - run:
           name: Install dependencies (Bundler)
-          command: bundle install --path vendor/bundle
+          command: bundle install
 
       - save_cache:
           name: Saving Cache (Bundler)
