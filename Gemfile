@@ -6,7 +6,7 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3.3'
 gem 'pg', '~> 1.2.3'
 gem 'puma', '~> 4.3'
-gem 'webpacker', '~> 5.1.1'
+gem 'webpacker', '~> 5.2.1'
 gem 'jbuilder', '~> 2.10.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -20,7 +20,7 @@ gem 'rouge', '~> 3.13'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 4.0.0'
-  gem 'factory_bot_rails', '~> 5.2.0'
+  gem 'factory_bot_rails', '~> 6.1.0'
 end
 
 group :development do
