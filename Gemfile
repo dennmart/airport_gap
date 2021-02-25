@@ -5,9 +5,9 @@ ruby '2.7.2'
 
 gem 'rails', '~> 6.1.3'
 gem 'pg', '~> 1.2.3'
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5.2'
 gem 'webpacker', '~> 5.2.1'
-gem 'jbuilder', '~> 2.10.0'
+gem 'jbuilder', '~> 2.11.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'fast_jsonapi', '~> 1.5'
