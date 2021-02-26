@@ -4,8 +4,8 @@ class Api::FavoritesController < ApiController
   def index
     @favorites = @authenticated_user.favorites.page(params[:page])
 
-    if @favorites.present?
-      options = {
+    options = if @favorites.present?
+      {
         links: {
           first: api_favorites_url,
           self: api_favorites_url(page: params[:page]),
@@ -14,10 +14,11 @@ class Api::FavoritesController < ApiController
           next: api_favorites_url(page: @favorites.next_page)
         }
       }
-      render json: FavoriteSerializer.new(@favorites, options).serialized_json
     else
-      render json: not_found_error_response, status: :not_found
+      {}
     end
+
+    render json: FavoriteSerializer.new(@favorites, options).serialized_json
   end
 
   def show

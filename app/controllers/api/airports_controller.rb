@@ -2,8 +2,8 @@ class Api::AirportsController < ApiController
   def index
     @airports = Airport.all.page(params[:page])
 
-    if @airports.present?
-      options = {
+    options = if @airports.present?
+      {
         links: {
           first: api_airports_url,
           self: api_airports_url(page: params[:page]),
@@ -12,10 +12,11 @@ class Api::AirportsController < ApiController
           next: api_airports_url(page: @airports.next_page)
         }
       }
-      render json: AirportSerializer.new(@airports, options).serialized_json
     else
-      render json: not_found_error_response, status: :not_found
+      {}
     end
+
+    render json: AirportSerializer.new(@airports, options).serialized_json
   end
 
   def show
