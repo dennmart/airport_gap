@@ -16,6 +16,7 @@ gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.2'
 gem 'sidekiq', '~> 6.0'
 gem 'rouge', '~> 3.13'
+gem 'rack-cors', '~> 1.1.1'
 
 group :development, :test do
   gem 'byebug'

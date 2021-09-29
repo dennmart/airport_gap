@@ -113,6 +113,8 @@ GEM
     rack (2.2.3)
     rack-attack (6.5.0)
       rack (>= 1.0, < 3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -219,6 +221,7 @@ DEPENDENCIES
   pg (~> 1.2.3)
   puma (~> 5.3)
   rack-attack (~> 6.2)
+  rack-cors (~> 1.1.1)
   rails (~> 6.1.4.1)
   rouge (~> 3.13)
   rspec-rails (~> 5.0.0)
