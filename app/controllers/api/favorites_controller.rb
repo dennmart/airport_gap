@@ -61,4 +61,9 @@ class Api::FavoritesController < ApiController
   rescue ActiveRecord::RecordNotFound
     render json: not_found_error_response, status: :not_found
   end
+
+  def clear_all
+    @authenticated_user.favorites.destroy_all
+    head :no_content
+  end
 end
