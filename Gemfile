@@ -32,6 +32,6 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 4.1'
-  gem 'faker', '~> 2.9'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'faker', '~> 2.19'
 end
