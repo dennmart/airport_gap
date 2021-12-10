@@ -1,7 +1,7 @@
 module.exports = {
-  purge: {
-    content: ["./app/views/**/*.html.erb"]
-  },
+  content: [
+    "./app/views/**/*.html.erb"
+  ],
   theme: {
     extend: {
       colors: {
