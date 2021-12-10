@@ -27,16 +27,16 @@
       <%= form_for @user, url: password_reset_path(password_reset_token: params[:password_reset_token]) do |f| %>
         <div class="mb-4">
           <%= f.label :password, "Password", class: "font-bold block mb-1" %>
-          <%= f.password_field :password, class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <%= f.password_field :password, class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:ring" %>
         </div>
 
         <div class="mb-4">
           <%= f.label :password_confirmation, "Confirm your password", class: "font-bold block mb-1" %>
-          <%= f.password_field :password_confirmation, class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <%= f.password_field :password_confirmation, class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:ring" %>
         </div>
 
         <div class="flex justify-end">
-          <%= f.submit "Reset Your Password", class: "w-full md:w-auto px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white font-bold focus:outline-none focus:shadow-outline" %>
+          <%= f.submit "Reset Your Password", class: "w-full md:w-auto px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white font-bold focus:outline-none focus:ring" %>
         </div>
       <% end %>
     </div>

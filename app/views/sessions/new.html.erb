@@ -33,16 +33,16 @@
       <%= form_for User.new, url: "/login" do |f| %>
         <div class="mb-4">
           <%= f.label :email, "Email Address", class: "font-bold block mb-1" %>
-          <%= f.email_field :email, class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <%= f.email_field :email, class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:ring" %>
         </div>
 
         <div class="mb-4">
           <%= f.label :password, "Password", class: "font-bold block mb-1" %>
-          <%= f.password_field :password, class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <%= f.password_field :password, class: "shadow appearance-none border border-grey-200 rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:ring" %>
         </div>
 
         <div class="flex justify-end">
-          <%= f.submit "Log In", class: "w-full md:w-auto px-4 py-2 bg-green-600 hover:bg-green-800 rounded-lg text-white font-bold focus:outline-none focus:shadow-outline" %>
+          <%= f.submit "Log In", class: "w-full md:w-auto px-4 py-2 bg-green-600 hover:bg-green-800 rounded-lg text-white font-bold focus:outline-none focus:ring" %>
         </div>
       <% end %>
     </div>

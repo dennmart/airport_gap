@@ -4,7 +4,9 @@
   "dependencies": {
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^5.4.0",
-    "tailwindcss": "^1.8.8"
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
   },
   "version": "0.1.0",
   "devDependencies": {
