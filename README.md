@@ -10,12 +10,12 @@ Airport Gap is provided by [Dev Tester](https://dev-tester.com/) - articles and 
 
 ## QuickStart: Setting up and running the application locally
 
-Airport Gap is a Rails 6.0 application. You need the following dependencies installed to run the application:
+Airport Gap is a Rails 6.1 application. You need the following dependencies installed to run the application:
 
-- [Ruby](https://www.ruby-lang.org/) (current version: 2.6.5)
-- [Bundler](https://bundler.io/) (current version: 2.0.2)
+- [Ruby](https://www.ruby-lang.org/) (current version: 2.7.5)
+- [Bundler](https://bundler.io/) (current stable 2.x version)
 - [Yarn](https://yarnpkg.com/) (current stable version)
-- [PostgreSQL](https://www.postgresql.org/) (version 10.0 or greater)
+- [PostgreSQL](https://www.postgresql.org/) (version 12.0 or greater)
 
 Once the dependencies are installed, run the `bin/setup` script to set up the application. The script will perform the following steps automatically:
 
