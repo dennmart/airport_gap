@@ -5,7 +5,7 @@ ruby '2.7.5'
 
 gem 'rails', '~> 6.1.4.1'
 gem 'pg', '~> 1.2.3'
-gem 'puma', '~> 5.5'
+gem 'puma', '~> 5.6'
 gem 'webpacker', '~> 5.4.0'
 gem 'jbuilder', '~> 2.11.2'
 gem 'bcrypt', '~> 3.1.7'
