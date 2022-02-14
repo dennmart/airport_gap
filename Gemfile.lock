@@ -171,7 +171,7 @@ GEM
     semantic_range (3.0.0)
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
-    sidekiq (6.3.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -226,7 +226,7 @@ DEPENDENCIES
   rouge (~> 3.13)
   rspec-rails (~> 5.0.0)
   shoulda-matchers (~> 5.0)
-  sidekiq (~> 6.0)
+  sidekiq (~> 6.4)
   spring
   spring-watcher-listen (~> 2.0.0)
   web-console (>= 3.3.0)

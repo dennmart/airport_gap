@@ -14,7 +14,7 @@ gem 'fast_jsonapi', '~> 1.5'
 gem 'will_paginate', '~> 3.3'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.2'
-gem 'sidekiq', '~> 6.0'
+gem 'sidekiq', '~> 6.4'
 gem 'rouge', '~> 3.13'
 gem 'rack-cors', '~> 1.1.1'
 
