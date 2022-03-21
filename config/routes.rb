@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resource :change_password, only: [:show, :update]
 
+  resources :airports, only: [:index]
+
   namespace :api do
     resources :airports, only: [:index, :show] do
       collection do

@@ -1,0 +1,75 @@
+<div class="bg-green-100 border-b-2 border-green-700">
+  <section class="container mx-auto px-6 py-4">
+    <div class="mx-auto max-w-xl mb-2">
+      <%= image_pack_tag "airport_gap_logo.png", alt: "Airport Gap logo" %>
+    </div>
+
+    <h1 class="text-3xl font-bold text-center mb-6">List of Airports</h1>
+  </section>
+</div>
+
+<div>
+  <section class="container mx-auto px-6 py-6">
+    <%= turbo_frame_tag :airports, target: "_top" do %>
+      <div class="flex flex-row justify-center space-x-6">
+        <% if @airports.previous_page %>
+          <%= link_to airports_path(page: @airports.previous_page), class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+          <% end %>
+        <% end %>
+
+        <% if @airports.next_page %>
+          <%= link_to airports_path(page: @airports.next_page), class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="-mx-4 my-8 overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:-mx-6 md:mx-0 md:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-300">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Name</th>
+              <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">City</th>
+              <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Country</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">IATA</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 bg-white">
+            <% @airports.each do |airport| %>
+              <tr>
+                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= airport.name %></td>
+                <td class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= airport.city %></td>
+                <td class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= airport.country %></td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= airport.iata %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+
+    <div class="flex flex-row justify-center space-x-6">
+        <% if @airports.previous_page %>
+          <%= link_to airports_path(page: @airports.previous_page), class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+          <% end %>
+        <% end %>
+
+        <% if @airports.next_page %>
+          <%= link_to airports_path(page: @airports.next_page), class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          <% end %>
+        <% end %>
+      </div>
+  </section>
+</div>
+
