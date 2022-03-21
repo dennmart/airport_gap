@@ -8,12 +8,13 @@ jobs:
         environment:
           PGHOST: 127.0.0.1
           PGUSER: airport_gap
+          PGPASSWORD: airport_gap
           RAILS_ENV: test
-      - image: circleci/postgres:12.1-alpine
+      - image: postgres:14.2-alpine
         environment:
           POSTGRES_USER: airport_gap
           POSTGRES_DB: airport_gap_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: airport_gap
     steps:
       - checkout
 
@@ -70,11 +71,12 @@ jobs:
         environment:
           PGHOST: 127.0.0.1
           PGUSER: airport_gap
-      - image: circleci/postgres:12.1-alpine
+          PGPASSWORD: airport_gap
+      - image: postgres:14.2-alpine
         environment:
           POSTGRES_USER: airport_gap
           POSTGRES_DB: airport_gap_development
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: airport_gap
     steps:
       - checkout
 
