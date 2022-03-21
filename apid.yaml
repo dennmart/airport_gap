@@ -76,9 +76,9 @@ transactions:
                       "name": "San Francisco International Airport",
                       "timezone": "America/Los_Angeles"
                     },
-                    "kilometers": 8692.066508240026,
-                    "miles": 5397.239853492001,
-                    "nautical_miles": 4690.070954910584
+                    "kilometers": 8692.06650824004,
+                    "miles": 5397.23985349201,
+                    "nautical_miles": 4690.070954910591
                   }
                 }
               }
