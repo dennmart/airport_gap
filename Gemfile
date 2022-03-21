@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.5'
 
-gem 'rails', '~> 6.1.4.1'
-gem 'pg', '~> 1.2.3'
+gem 'rails', '~> 7.0.2.3'
+gem 'pg', '~> 1.3.4'
 gem 'puma', '~> 5.6'
 gem 'webpacker', '~> 5.4.0'
 gem 'jbuilder', '~> 2.11.2'
@@ -20,7 +20,7 @@ gem 'rack-cors', '~> 1.1.1'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rspec-rails', '~> 5.1.1'
   gem 'factory_bot_rails', '~> 6.2.0'
 end
 
@@ -28,10 +28,12 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  # Temporarily disabling since this gem doesn't have support for the latest
+  # spring gem which is required for Rails 7.
+  # gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 5.0'
-  gem 'faker', '~> 2.19'
+  gem 'shoulda-matchers', '~> 5.1'
+  gem 'faker', '~> 2.20'
 end
