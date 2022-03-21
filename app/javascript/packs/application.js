@@ -6,4 +6,6 @@
 require("@rails/ujs").start();
 require.context('../images', true);
 
+import "@hotwired/turbo-rails";
+
 import "stylesheets/application";

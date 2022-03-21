@@ -17,6 +17,7 @@ gem 'rack-attack', '~> 6.2'
 gem 'sidekiq', '~> 6.4'
 gem 'rouge', '~> 3.13'
 gem 'rack-cors', '~> 1.1.1'
+gem 'turbo-rails', '~> 1.0.1'
 
 group :development, :test do
   gem 'byebug'
