@@ -118,6 +118,23 @@ jobs:
           paths:
             - ~/.cache/yarn
 
+      - restore_cache:
+          name: Restore Cache (Precompiled assets)
+          keys:
+            - airport-gap-assets-{{ arch }}-{{ .Branch }}
+            - airport-gap-assets-
+
+      - run:
+          name: Precompile assets
+          command: bin/rails assets:precompile
+
+      - save_cache:
+          name: Saving Cache (Precompiled assets)
+          key: airport-gap-assets-{{ arch }}-{{ .Branch }}-{{ epoch }}
+          paths:
+            - public/assets
+            - tmp/cache/assets/sprockets
+
       - run:
           name: Database setup
           command: bin/rails db:prepare
