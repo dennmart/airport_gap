@@ -4,13 +4,14 @@
   "dependencies": {
     "@hotwired/turbo-rails": "^7.1.1",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "^5.4.0",
     "autoprefixer": "^10.4.0",
+    "esbuild": "^0.14.27",
     "postcss": "^8.4.4",
     "tailwindcss": "^3.0.0"
   },
   "version": "0.1.0",
-  "devDependencies": {
-    "webpack-dev-server": "^3.9.0"
+  "devDependencies": {},
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
   }
 }
