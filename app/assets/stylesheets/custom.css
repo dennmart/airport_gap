@@ -1,0 +1,131 @@
+.link-green {
+  @apply underline text-green-600;
+
+  &:hover {
+    @apply text-green-900;
+  }
+}
+
+.api-docs nav.sidebar {
+  li {
+    @apply py-1 px-2 rounded;
+
+    &:hover {
+      @apply bg-gray-200;
+    }
+
+    a {
+      @apply block;
+    }
+  }
+
+  li.api-reference {
+    @apply py-2;
+  }
+
+  .http-action {
+    @apply text-white text-xs font-bold p-1 rounded mr-1;
+
+    &__get {
+      @apply bg-green-700;
+    }
+
+    &__post {
+      @apply bg-blue-700;
+    }
+
+    &__patch {
+      @apply bg-yellow-600;
+    }
+
+    &__delete {
+      @apply bg-red-700;
+    }
+  }
+}
+
+.api-docs .main-section {
+  section {
+    @apply pb-8 my-8 border-b border-grey-100;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold mb-3;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  a {
+    @apply underline text-green-600;
+  }
+
+  code {
+    @apply rounded bg-grey-900 text-white p-6 mb-8 block overflow-x-auto;
+  }
+
+  .monospace-inline {
+    @apply font-mono bg-grey-100 border border-grey-200 p-1 rounded-sm;
+  }
+
+  .status-code-list {
+    @apply list-inside list-disc;
+
+    li {
+      @apply mb-2;
+    }
+  }
+
+  .http-action {
+    @apply text-white text-2xl font-bold px-2 py-1 rounded mr-1;
+
+    &__get {
+      @apply bg-green-700;
+    }
+
+    &__post {
+      @apply bg-blue-700;
+    }
+
+    &__patch {
+      @apply bg-yellow-600;
+    }
+
+    &__delete {
+      @apply bg-red-700;
+    }
+  }
+
+  .example-section-header {
+    @apply font-bold mb-1;
+
+    &__status {
+      @apply ml-1 px-2 py-1 bg-green-100 text-sm rounded;
+    }
+  }
+
+  .example-code {
+    @apply mt-0;
+  }
+
+  .parameters-table {
+    @apply table-auto mb-8 w-full;
+
+    thead th {
+      @apply text-sm text-left border px-4 py-2 bg-grey-200;
+    }
+
+    tbody td {
+      @apply border px-4 py-2;
+    }
+  }
+
+  .auth-required-notice {
+    @apply flex items-center bg-yellow-400 border border-yellow-600 rounded inline-block mb-4 px-2 py-1 font-bold text-yellow-900;
+
+    svg {
+      @apply inline-block fill-current;
+    }
+  }
+}

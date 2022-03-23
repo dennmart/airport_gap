@@ -7,12 +7,14 @@
     "autoprefixer": "^10.4.4",
     "esbuild": "^0.14.27",
     "postcss": "^8.4.12",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6",
     "tailwindcss": "^3.0.23"
   },
   "version": "0.1.0",
   "devDependencies": {},
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --postcss --minify"
   }
 }
