@@ -1,7 +1,9 @@
 <div class="bg-green-100 border-b-2 border-green-700">
   <section class="container mx-auto px-6 py-4">
     <div class="mx-auto max-w-xl mb-2">
-      <%= image_tag "airport_gap_logo.png", alt: "Airport Gap logo" %>
+      <%= link_to root_path do %>
+        <%= image_tag "airport_gap_logo.png", alt: "Airport Gap logo" %>
+      <% end %>
     </div>
 
     <h1 class="text-3xl font-bold text-center mb-6">List of Airports</h1>
