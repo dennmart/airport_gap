@@ -6,7 +6,6 @@ ruby '3.1.1'
 gem 'rails', '~> 7.0.2.3'
 gem 'pg', '~> 1.3.4'
 gem 'puma', '~> 5.6'
-gem 'webpacker', '~> 5.4.0'
 gem 'jbuilder', '~> 2.11.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -20,6 +19,7 @@ gem 'rack-cors', '~> 1.1.1'
 gem 'turbo-rails', '~> 1.0.1'
 gem 'jsbundling-rails', '~> 1.0.2'
 gem 'cssbundling-rails', '~> 1.1.0'
+gem 'sprockets-rails', '~> 3.4.2'
 
 group :development, :test do
   gem 'byebug'
