@@ -122,7 +122,7 @@
   }
 
   .auth-required-notice {
-    @apply flex items-center bg-yellow-400 border border-yellow-600 rounded inline-block mb-4 px-2 py-1 font-bold text-yellow-900;
+    @apply inline-flex items-center bg-yellow-400 border border-yellow-600 rounded mb-4 px-2 py-1 font-bold text-yellow-900;
 
     svg {
       @apply inline-block fill-current;
