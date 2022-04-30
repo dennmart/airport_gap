@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@hotwired/turbo-rails": "^7.1.1",
-    "@rails/ujs": "^6.0.0",
+    "@rails/ujs": "^7.0.2-4",
     "autoprefixer": "^10.4.4",
     "esbuild": "^0.14.27",
     "postcss": "^8.4.12",
