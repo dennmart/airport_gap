@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-gem 'rails', '~> 7.0.2.3'
+gem 'rails', '~> 7.0.2.4'
 gem 'pg', '~> 1.3.4'
 gem 'puma', '~> 5.6'
 gem 'jbuilder', '~> 2.11.2'
@@ -23,7 +23,7 @@ gem 'sprockets-rails', '~> 3.4.2'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 5.1.1'
+  gem 'rspec-rails', '~> 5.1.2'
   gem 'factory_bot_rails', '~> 6.2.0'
 end
 
