@@ -1,12 +1,16 @@
 require "csv"
 
 puts "=========================================="
-puts "Importing airport data..."
-Airport.delete_all
+puts "Seeding / resetting airport data..."
+
+ActiveRecord::Base.connection_pool.with_connection { |conn| conn.execute("TRUNCATE airports RESTART IDENTITY") }
+
+airports = []
+
 CSV.foreach(Rails.root.join("db", "airports.csv"), headers: true) do |row|
   next if row["iata"].blank?
 
-  Airport.create(
+  airports << {
     name: row["name"],
     city: row["city"],
     country: row["country"],
@@ -16,8 +20,11 @@ CSV.foreach(Rails.root.join("db", "airports.csv"), headers: true) do |row|
     longitude: row["longitude"],
     altitude: row["altitude"],
     timezone: row["timezone"]
-  )
+  }
 end
+
+Airport.insert_all!(airports)
+
 puts "Done importing airport data!"
 puts "==========================================\n\n"
 
