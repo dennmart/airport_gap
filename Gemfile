@@ -4,17 +4,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'rails', '~> 7.0.4'
-gem 'pg', '~> 1.4.1'
+gem 'pg', '~> 1.4.3'
 gem 'puma', '~> 5.6'
 gem 'jbuilder', '~> 2.11.2'
 gem 'bcrypt', '~> 3.1.18'
-gem 'bootsnap', '~> 1.12.0', require: false
+gem 'bootsnap', '~> 1.13.0', require: false
 gem 'fast_jsonapi', '~> 1.5'
 gem 'will_paginate', '~> 3.3'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.2'
 gem 'sidekiq', '~> 6.5.1'
-gem 'rouge', '~> 3.29.0'
+gem 'rouge', '~> 4.0.0'
 gem 'rack-cors', '~> 1.1.1'
 gem 'turbo-rails', '~> 1.1.1'
 gem 'jsbundling-rails', '~> 1.0.3'
