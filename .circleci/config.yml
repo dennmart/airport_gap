@@ -4,7 +4,7 @@ jobs:
   unit_tests:
     working_directory: ~/airport_gap
     docker:
-      - image: cimg/ruby:3.1.2-node
+      - image: cimg/ruby:3.1.3-node
         environment:
           PGHOST: 127.0.0.1
           PGUSER: airport_gap
@@ -67,7 +67,7 @@ jobs:
   end_to_end_tests:
     working_directory: ~/airport_gap
     docker:
-      - image: cimg/ruby:3.1.2-node
+      - image: cimg/ruby:3.1.3-node
         environment:
           PGHOST: 127.0.0.1
           PGUSER: airport_gap
