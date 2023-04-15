@@ -31,9 +31,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   gem 'spring'
-  # Temporarily disabling since this gem doesn't have support for the latest
-  # spring gem which is required for Rails 7.
-  # gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 end
 
 group :test do
