@@ -17,8 +17,8 @@ gem 'sidekiq', '~> 6.5.1'
 gem 'rouge', '~> 4.0.0'
 gem 'rack-cors', '~> 1.1.1'
 gem 'turbo-rails', '~> 1.1.1'
-gem 'jsbundling-rails', '~> 1.0.3'
-gem 'cssbundling-rails', '~> 1.1.1'
+gem 'jsbundling-rails', '~> 1.1.1'
+gem 'cssbundling-rails', '~> 1.1.2'
 gem 'sprockets-rails', '~> 3.4.2'
 
 group :development, :test do
