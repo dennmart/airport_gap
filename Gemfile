@@ -23,18 +23,18 @@ gem 'sprockets-rails', '~> 3.4.2'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 5.1.2'
+  gem 'rspec-rails', '~> 6.0.1'
   gem 'factory_bot_rails', '~> 6.2.0'
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.2'
+  gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 5.2'
-  gem 'faker', '~> 2.23'
+  gem 'shoulda-matchers', '~> 5.3'
+  gem 'faker', '~> 3.2'
 end
