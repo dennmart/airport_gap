@@ -2,14 +2,14 @@
   "name": "airport_gap",
   "private": true,
   "dependencies": {
-    "@hotwired/turbo-rails": "7.2.0",
+    "@hotwired/turbo-rails": "7.3.0",
     "@rails/ujs": "7.0.4",
-    "autoprefixer": "10.4.12",
-    "esbuild": "^0.15.10",
-    "postcss": "8.4.17",
-    "postcss-import": "^15.0.0",
-    "postcss-nested": "^6.0.0",
-    "tailwindcss": "^3.1.8"
+    "autoprefixer": "10.4.14",
+    "esbuild": "^0.17.16",
+    "postcss": "8.4.21",
+    "postcss-import": "^15.1.0",
+    "postcss-nested": "^6.0.1",
+    "tailwindcss": "^3.3.1"
   },
   "version": "0.1.0",
   "devDependencies": {},
