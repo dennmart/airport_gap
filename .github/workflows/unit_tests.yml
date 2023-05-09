@@ -62,5 +62,8 @@ jobs:
       - name: Prepare test database
         run: bin/rails db:prepare
 
+      - name: Precompile assets
+        run: bin/rails assets:precompile
+
       - name: Run tests
         run: bundle exec rspec

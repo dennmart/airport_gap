@@ -62,8 +62,11 @@ jobs:
       - name: Prepare and seed test database
         run: bin/rails db:prepare db:seed
 
+      - name: Precompile assets
+        run: bin/rails assets:precompile
+
       - name: Start application server
-        run: bin/rails s -b 0.0.0.0
+        run: bin/rails s -b 0.0.0.0 &
 
       - name: Download and set up APId
         run: |
