@@ -1,0 +1,80 @@
+name: APId tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      RAILS_ENV: test
+      PGHOST: localhost
+      PGUSER: airport_gap
+      PGPASSWORD: airport_gap
+      AIRPORT_GAP_API_URL: http://localhost:3000/api
+      AIRPORT_GAP_EMAIL: airportgap@dev-tester.com
+      AIRPORT_GAP_PASSWORD: airportgap123
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: airport_gap_test
+          POSTGRES_USER: airport_gap
+          POSTGRES_PASSWORD: airport_gap
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2"
+          bundler-cache: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "yarn"
+
+      - name: Install JS dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Prepare and seed test database
+        run: bin/rails db:prepare db:seed
+
+      - name: Precompile assets
+        run: bin/rails assets:precompile
+
+      - name: Start application server
+        run: bin/rails s -b 0.0.0.0 &
+
+      - name: Download and set up APId
+        run: |
+          wget https://github.com/getapid/apid-cli/releases/download/v0.1.5/apid-0.1.5-linux-amd64.tar.gz
+          tar zxf apid-0.1.5-linux-amd64.tar.gz
+
+      - name: Run end-to-end tests
+        run: ./apid check
