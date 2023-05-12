@@ -3,7 +3,6 @@ name: Build and publish Docker image
 on:
   workflow_run:
     workflows:
-      - Unit tests
       - APId tests
     types:
       - completed
@@ -12,7 +11,7 @@ on:
 
 jobs:
   build-and-push-image:
-    # Only build and push image if Rails test workflow is successful.
+    # Only build and push image if APId tests workflow is successful.
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     runs-on: ubuntu-latest
