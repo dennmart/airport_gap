@@ -4,13 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 gem 'rails', '7.0.8'
-gem 'pg', '~> 1.5.3'
+gem 'pg', '~> 1.5.4'
 gem 'puma', '~> 6.4.0'
 gem 'jbuilder', '~> 2.11.2'
 gem 'bcrypt', '~> 3.1.18'
 gem 'bootsnap', '~> 1.16.0', require: false
 gem 'fast_jsonapi', '~> 1.5'
-gem 'will_paginate', '~> 3.3'
+gem 'will_paginate', '~> 4.0.0'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.2'
 gem 'sidekiq', '~> 7.1.4'
@@ -28,7 +28,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'

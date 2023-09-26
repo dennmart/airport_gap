@@ -89,9 +89,9 @@ GEM
       i18n (>= 1.8.11, < 2)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
-    ffi (1.15.5)
-    globalid (1.1.0)
-      activesupport (>= 5.0)
+    ffi (1.16.2)
+    globalid (1.2.1)
+      activesupport (>= 6.1)
     haversine (0.3.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -128,7 +128,7 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
-    pg (1.5.3)
+    pg (1.5.4)
     puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -202,7 +202,7 @@ GEM
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
       spring (>= 4)
-    sprockets (4.2.0)
+    sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
     sprockets-rails (3.4.2)
@@ -217,7 +217,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    web-console (4.2.0)
+    web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
@@ -225,7 +225,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    will_paginate (3.3.1)
+    will_paginate (4.0.0)
     zeitwerk (2.6.12)
 
 PLATFORMS
@@ -243,7 +243,7 @@ DEPENDENCIES
   jbuilder (~> 2.11.2)
   jsbundling-rails (~> 1.2.1)
   listen
-  pg (~> 1.5.3)
+  pg (~> 1.5.4)
   puma (~> 6.4.0)
   rack-attack (~> 6.2)
   rack-cors (~> 2.0.1)
@@ -256,8 +256,8 @@ DEPENDENCIES
   spring-watcher-listen
   sprockets-rails (~> 3.4.2)
   turbo-rails (~> 1.4.0)
-  web-console (>= 3.3.0)
-  will_paginate (~> 3.3)
+  web-console
+  will_paginate (~> 4.0.0)
 
 RUBY VERSION
    ruby 3.2.2p53
