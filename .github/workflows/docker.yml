@@ -1,12 +1,19 @@
 name: Build and publish Docker image
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - APId tests
+    types:
+      - completed
     branches:
       - main
 
 jobs:
   build-and-push-image:
+    # Only build and push image if APId tests workflow is successful.
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     runs-on: ubuntu-latest
     permissions:
       contents: read
