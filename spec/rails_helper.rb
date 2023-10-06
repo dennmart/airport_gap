@@ -35,3 +35,8 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+# Only show warnings and above for Sidekiq during testing
+Sidekiq.configure_client do |config|
+  config.logger.level = Logger::WARN
+end
