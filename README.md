@@ -1,8 +1,8 @@
-![Airport Gap](https://airportgap.dev-tester.com/images/airport_gap_logo.png)
+![Airport Gap](https://airportgap.com/images/airport_gap_logo.png)
 
 Airport Gap is a [RESTful API](https://www.restapitutorial.com/) to help you improve your API automation testing skills. It provides access to a database of airports, calculate distances between airports, and allows you to save your favorite airports.
 
-You can create a free Airport Gap account at https://airportgap.dev-tester.com/.
+You can create a free Airport Gap account at https://airportgap.com/.
 
 Airport data is provided by [OpenFlights.org](https://openflights.org/data.html) under the [Open Database License](http://opendatacommons.org/licenses/odbl/1.0/").
 

@@ -144,11 +144,11 @@
       <h2 class="section-title" id="base_url">Base URL</h2>
 
       <p>
-        The base URL for all endpoints for the Airport Gap API is <span class="monospace-inline">https://airportgap.dev-tester.com/api</span>.
+        The base URL for all endpoints for the Airport Gap API is <span class="monospace-inline">https://airportgap.com/api</span>.
       </p>
 
       <p>
-        For example, to fetch all airports via the API, the full URL is a GET request to <span class="monospace-inline">https://airportgap.dev-tester.com/api/airports</span>.
+        For example, to fetch all airports via the API, the full URL is a GET request to <span class="monospace-inline">https://airportgap.com/api/airports</span>.
       </p>
     </section>
 
@@ -251,7 +251,7 @@
       </p>
 
       <code class="example-code">
-        curl https://airportgap.dev-tester.com/api/airports
+        curl https://airportgap.com/api/airports
       </code>
 
       <p class="example-section-header">
@@ -328,11 +328,11 @@
               }
             ],
             "links": {
-              "first": "https://airportgap.dev-tester.com/api/airports",
-              "last": "https://airportgap.dev-tester.com/api/airports?page=203",
-              "next": "https://airportgap.dev-tester.com/api/airports?page=2",
-              "prev": "https://airportgap.dev-tester.com/api/airports",
-              "self": "https://airportgap.dev-tester.com/api/airports"
+              "first": "https://airportgap.com/api/airports",
+              "last": "https://airportgap.com/api/airports?page=203",
+              "next": "https://airportgap.com/api/airports?page=2",
+              "prev": "https://airportgap.com/api/airports",
+              "self": "https://airportgap.com/api/airports"
             }
           }
         JSON
@@ -376,7 +376,7 @@
       </p>
 
       <code class="example-code">
-        curl https://airportgap.dev-tester.com/api/airports/KIX
+        curl https://airportgap.com/api/airports/KIX
       </code>
 
       <p class="example-section-header">
@@ -450,7 +450,7 @@
       </p>
 
       <code class="example-code">
-        curl -X POST -d "from=KIX&to=NRT" https://airportgap.dev-tester.com/api/airports/distance
+        curl -X POST -d "from=KIX&to=NRT" https://airportgap.com/api/airports/distance
       </code>
 
       <p class="example-section-header">
@@ -542,7 +542,7 @@
       </p>
 
       <code class="example-code">
-        curl -X POST -d "email=test@airportgap.com&password=airportgappassword" https://airportgap.dev-tester.com/api/tokens
+        curl -X POST -d "email=test@airportgap.com&password=airportgappassword" https://airportgap.com/api/tokens
       </code>
 
       <p class="example-section-header">
@@ -582,7 +582,7 @@
       </p>
 
       <code class="example-code">
-        curl -H "Authorization: Token &lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/api/favorites
+        curl -H "Authorization: Token &lt;Your Airport Gap Token&gt;" https://airportgap.com/api/favorites
       </code>
 
       <p class="example-section-header">
@@ -652,11 +652,11 @@
               }
             ],
             "links": {
-              "first": "https://airportgap.dev-tester.com/api/favorites",
-              "last": "https://airportgap.dev-tester.com/api/favorites?page=1",
-              "next": "https://airportgap.dev-tester.com/api/favorites",
-              "prev": "https://airportgap.dev-tester.com/api/favorites",
-              "self": "https://airportgap.dev-tester.com/api/favorites"
+              "first": "https://airportgap.com/api/favorites",
+              "last": "https://airportgap.com/api/favorites?page=1",
+              "next": "https://airportgap.com/api/favorites",
+              "prev": "https://airportgap.com/api/favorites",
+              "self": "https://airportgap.com/api/favorites"
             }
           }
         JSON
@@ -708,7 +708,7 @@
       </p>
 
       <code class="example-code">
-        curl -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/api/favorites/22
+        curl -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.com/api/favorites/22
       </code>
 
       <p class="example-section-header">
@@ -810,7 +810,7 @@
       </p>
 
       <code class="example-code">
-        curl -X POST -d "airport_id=JFK&note=My usual layover when visiting family" -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/api/favorites
+        curl -X POST -d "airport_id=JFK&note=My usual layover when visiting family" -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.com/api/favorites
       </code>
 
       <p class="example-section-header">
@@ -912,7 +912,7 @@
       </p>
 
       <code class="example-code">
-        curl -X PATCH -d "note=My usual layover when visiting family, although it's really far away..." -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/api/favorites/25
+        curl -X PATCH -d "note=My usual layover when visiting family, although it's really far away..." -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.com/api/favorites/25
       </code>
 
       <p class="example-section-header">
@@ -992,7 +992,7 @@
       </p>
 
       <code class="example-code">
-        curl -X DELETE -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/api/favorites/25
+        curl -X DELETE -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.com/api/favorites/25
       </code>
 
       <p class="example-section-header">
@@ -1028,7 +1028,7 @@
       </p>
 
       <code class="example-code">
-        curl -X DELETE -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.dev-tester.com/api/favorites/clear_all
+        curl -X DELETE -H "Authorization: Bearer token=&lt;Your Airport Gap Token&gt;" https://airportgap.com/api/favorites/clear_all
       </code>
 
       <p class="example-section-header">
