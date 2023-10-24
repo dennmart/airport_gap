@@ -37,14 +37,18 @@ WORKDIR /app
 # Install necessary dependencies required to run the Rails application.
 RUN apk add --no-cache \
   tzdata \
-  postgresql
+  postgresql \
+  curl
 
 # Make sure Bundler knows where we're placing our gems coming from
 # the build stage.
 RUN bundle config set --local path "vendor/bundle"
 
 # Copy everything from the build stage, including gems and precompiled assets.
-COPY --from=build /app /app/
+COPY --from=build /app /app
+
+# Prepare the database before starting the application.
+ENTRYPOINT ["/app/bin/docker-entrypoint"]
 
 EXPOSE 3000
-CMD ["bundle", "exec", "rails", "s", "-p", "3000"]
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
