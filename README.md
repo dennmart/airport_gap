@@ -12,7 +12,7 @@ Airport Gap is provided by [Dev Tester](https://dev-tester.com/) - articles and 
 
 Airport Gap is a Rails 7 application. You need the following dependencies installed to run the application:
 
-- [Ruby](https://www.ruby-lang.org/) (current version: 3.2.2)
+- [Ruby](https://www.ruby-lang.org/) (current version: 3.3.0)
 - [Bundler](https://bundler.io/) (current stable 2.x version)
 - [Yarn](https://yarnpkg.com/) (current stable version)
 - [PostgreSQL](https://www.postgresql.org/) (version 12.0 or greater)

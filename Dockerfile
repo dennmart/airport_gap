@@ -1,7 +1,7 @@
 #####################################################################
 # Stage 1: Install gems and precompile assets.
 #####################################################################
-FROM ruby:3.2.2-alpine AS build
+FROM ruby:3.3.0-alpine AS build
 WORKDIR /app
 
 # Set a random secret key base so we can precompile assets.
@@ -31,7 +31,7 @@ RUN bin/rails assets:precompile
 #####################################################################
 # Stage 2: Copy gems and assets from build stage and finalize image.
 #####################################################################
-FROM ruby:3.2.2-alpine
+FROM ruby:3.3.0-alpine
 WORKDIR /app
 
 # Install necessary dependencies required to run the Rails application.
