@@ -2,7 +2,7 @@
   "name": "airport_gap",
   "private": true,
   "engines": {
-    "node": ">= 20.11.0"
+    "node": ">= 20.10"
   },
   "dependencies": {
     "@hotwired/turbo-rails": "7.3.0",
