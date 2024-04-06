@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2019_11_23_072206) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_06_092743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2019_11_23_072206) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["airport_id", "user_id"], name: "index_favorites_on_airport_id_and_user_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -44,6 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2019_11_23_072206) do
     t.string "password_digest"
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at", precision: nil
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
