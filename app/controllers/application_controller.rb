@@ -11,20 +11,16 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authenticate_token
-    authenticate_with_http_token do |token, options|
+    authenticate_with_http_token do |token, _options|
       @authenticated_user = User.find_by(token: token)
     end
 
-    unless @authenticated_user.present?
-      error = {
-        errors: [{
-          status: "401",
-          title: "Unauthorized",
-          detail: "You are not authorized to perform the requested action."
-        }]
-      }
+    return if @authenticated_user.present?
 
-      render json: error, status: :unauthorized
-    end
+    render json: { errors: [{
+      status: '401',
+      title: 'Unauthorized',
+      detail: 'You are not authorized to perform the requested action.'
+    }] }, status: :unauthorized
   end
 end

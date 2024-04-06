@@ -20,6 +20,9 @@ gem 'turbo-rails', '~> 2.0.5'
 gem 'jsbundling-rails', '~> 1.3.0'
 gem 'cssbundling-rails', '~> 1.4.0'
 gem 'sprockets-rails', '~> 3.4.2'
+gem 'rubocop', '~> 1.62'
+gem 'rubocop-rails', '~> 2.24'
+gem 'rubocop-rspec', '~> 2.29'
 
 group :development, :test do
   gem 'byebug'

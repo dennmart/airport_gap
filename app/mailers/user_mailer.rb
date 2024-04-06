@@ -6,11 +6,11 @@ class UserMailer < ApplicationMailer
 
   def password_reset_instructions(user_id)
     @user = User.find(user_id)
-    mail(to: @user.email, subject: "Password reset instructions")
+    mail(to: @user.email, subject: 'Password reset instructions')
   end
 
   def password_change_notification(user_id)
     @user = User.find(user_id)
-    mail(to: @user.email, subject: "Your password has been reset")
+    mail(to: @user.email, subject: 'Your password has been reset')
   end
 end

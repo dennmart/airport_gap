@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :user do
     email { Faker::Internet.email }
-    token { SecureRandom::base58 }
-    password { "airport-gap-123" }
+    token { SecureRandom.base58 }
+    password { 'airport-gap-123' }
 
     trait :with_password_reset do
       password_reset_token { SecureRandom.urlsafe_base64 }

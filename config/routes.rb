@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  root "home#index"
+  root 'home#index'
 
-  get "/docs", to: "docs#index", as: :docs
+  get '/docs', to: 'docs#index', as: :docs
 
-  get "/login", to: "sessions#new", as: :login
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy", as: :logout
+  get '/login', to: 'sessions#new', as: :login
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: :logout
 
   resource :tokens, only: [:new, :create, :show] do
     member do

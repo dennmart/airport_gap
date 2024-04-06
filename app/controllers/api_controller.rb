@@ -6,9 +6,9 @@ class ApiController < ApplicationController
   def not_found_error_response
     {
       errors: [{
-        status: "404",
-        title: "Not Found",
-        detail: "The page you requested could not be found"
+        status: '404',
+        title: 'Not Found',
+        detail: 'The page you requested could not be found'
       }]
     }
   end
@@ -16,8 +16,8 @@ class ApiController < ApplicationController
   def unprocessable_entity_response(detail)
     {
       errors: [{
-        status: "422",
-        title: "Unable to process request",
+        status: '422',
+        title: 'Unable to process request',
         detail: detail
       }]
     }

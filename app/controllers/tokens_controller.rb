@@ -17,13 +17,11 @@ class TokensController < ApplicationController
     end
   end
 
-  def show
-
-  end
+  def show; end
 
   def regenerate
     current_user.regenerate_token
-    redirect_to tokens_path, notice: "Your authentication token has been regenerated!"
+    redirect_to tokens_path, notice: 'Your authentication token has been regenerated!'
   end
 
   private
