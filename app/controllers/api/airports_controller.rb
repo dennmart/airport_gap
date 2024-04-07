@@ -2,22 +2,7 @@ module Api
   class AirportsController < ApiController
     def index
       @airports = Airport.all.page(params[:page])
-
-      options = if @airports.present?
-                  {
-                    links: {
-                      first: api_airports_url,
-                      self: api_airports_url(page: params[:page]),
-                      last: api_airports_url(page: @airports.total_pages),
-                      prev: api_airports_url(page: @airports.previous_page),
-                      next: api_airports_url(page: @airports.next_page)
-                    }
-                  }
-                else
-                  {}
-                end
-
-      render json: AirportSerializer.new(@airports, options).serialized_json
+      render json: AirportSerializer.new(@airports, generate_links_metadata(@airports)).serialized_json
     end
 
     def show

@@ -23,4 +23,20 @@ class ApplicationController < ActionController::Base
       detail: 'You are not authorized to perform the requested action.'
     }] }, status: :unauthorized
   end
+
+  def generate_links_metadata(resource)
+    if resource.present?
+      {
+        links: {
+          first: api_airports_url,
+          self: api_airports_url(page: params[:page]),
+          last: api_airports_url(page: resource.total_pages),
+          prev: api_airports_url(page: resource.previous_page),
+          next: api_airports_url(page: resource.next_page)
+        }
+      }
+    else
+      {}
+    end
+  end
 end

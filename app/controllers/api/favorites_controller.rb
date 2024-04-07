@@ -4,22 +4,7 @@ module Api
 
     def index
       @favorites = @authenticated_user.favorites.page(params[:page])
-
-      options = if @favorites.present?
-                  {
-                    links: {
-                      first: api_favorites_url,
-                      self: api_favorites_url(page: params[:page]),
-                      last: api_favorites_url(page: @favorites.total_pages),
-                      prev: api_favorites_url(page: @favorites.previous_page),
-                      next: api_favorites_url(page: @favorites.next_page)
-                    }
-                  }
-                else
-                  {}
-                end
-
-      render json: FavoriteSerializer.new(@favorites, options).serialized_json
+      render json: FavoriteSerializer.new(@favorites, generate_links_metadata(@favorites)).serialized_json
     end
 
     def show
