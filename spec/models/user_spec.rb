@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe User do
   describe 'has_secure_token method' do
     it { is_expected.to have_secure_token }
   end

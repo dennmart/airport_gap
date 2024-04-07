@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Airport, type: :model do
+RSpec.describe Airport do
   describe 'associations' do
     it { is_expected.to have_many(:favorites) }
   end

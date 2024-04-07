@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserMailer, type: :mailer do
+RSpec.describe UserMailer do
   describe 'generated_token' do
     let(:user) { create(:user) }
     let(:mail) { UserMailer.generated_token(user.id) }

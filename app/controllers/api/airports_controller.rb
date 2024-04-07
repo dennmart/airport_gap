@@ -35,7 +35,7 @@ module Api
       airport_to = Airport.find_by(iata: params[:to])
 
       if airport_from && airport_to
-        distances = Airport.distance_between(airport_from, airport_from)
+        distances = Airport.distance_between(airport_from, airport_to)
         render json: AirportDistanceSerializer.new(distances).serialized_json
       else
         error_message = "Please enter valid 'from' and 'to' airports."

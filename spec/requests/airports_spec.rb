@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Airports', type: :request do
+RSpec.describe 'Airports' do
   describe '#index' do
     it 'renders successfully' do
       get '/airports'

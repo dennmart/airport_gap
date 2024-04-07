@@ -57,15 +57,15 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: ENV['APPLICATION_HOST'] }
+  config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST', nil) }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['SMTP_SERVER'],
-    port: ENV['SMTP_PORT'],
+    address: ENV.fetch('SMTP_SERVER', nil),
+    port: ENV.fetch('SMTP_PORT', nil),
     domain: 'dev-tester.com',
-    user_name: ENV['SMTP_USERNAME'],
-    password: ENV['SMTP_PASSWORD'],
+    user_name: ENV.fetch('SMTP_USERNAME', nil),
+    password: ENV.fetch('SMTP_PASSWORD', nil),
     authentication: :login,
     enable_starttls_auto: true
   }
@@ -82,7 +82,7 @@ Rails.application.configure do
   config.active_support.report_deprecations = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
 
   # Use a different logger for distributed setups.
   # require "syslog/logger"
@@ -90,7 +90,7 @@ Rails.application.configure do
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     config.logger = ActiveSupport::Logger.new($stdout)
-                                         .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+                                         .tap  { |logger| logger.formatter = Logger::Formatter.new }
                                          .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
   end
 

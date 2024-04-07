@@ -37,7 +37,7 @@ module Api
         render json: FavoriteSerializer.new(@favorite).serialized_json, status: :created
       else
         # TODO: Improve how we display this error.
-        error_message = @favorite.errors.values.flatten.first
+        error_message = @favorite.errors.full_messages.first
         render json: unprocessable_entity_response(error_message), status: :unprocessable_entity
       end
     end

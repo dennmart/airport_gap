@@ -9,6 +9,7 @@ AllCops:
     - db/schema.rb
     - db/migrate/*
     - bin/*
+  NewCops: enable
 
 Bundler/OrderedGems:
   Enabled: false
@@ -31,6 +32,9 @@ Style/HashSyntax:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 Rails/Output:
   Exclude:
     - db/seeds.rb
@@ -50,3 +54,6 @@ RSpec/MultipleExpectations:
 
 RSpec/NotToNot:
   EnforcedStyle: to_not
+
+FactoryBot/AssociationStyle:
+  EnforcedStyle: explicit

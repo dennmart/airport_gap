@@ -1,6 +1,8 @@
 class TokensController < ApplicationController
   before_action :authorize, only: [:show, :regenerate]
 
+  def show; end
+
   def new
     @user = User.new
   end
@@ -16,8 +18,6 @@ class TokensController < ApplicationController
       render :new
     end
   end
-
-  def show; end
 
   def regenerate
     current_user.regenerate_token

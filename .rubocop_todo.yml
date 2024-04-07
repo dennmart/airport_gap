@@ -27,3 +27,11 @@ Metrics/BlockLength:
     - 'spec/models/airport_spec.rb'
     - 'spec/models/user_spec.rb'
 
+Style/RedundantConstantBase:
+  Exclude:
+    - 'config/environments/production.rb'
+
+Style/OpenStructUse:
+  Exclude:
+    - 'app/models/airport.rb'
+    - 'spec/models/airport_spec.rb'
