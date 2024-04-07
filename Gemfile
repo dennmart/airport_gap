@@ -24,6 +24,7 @@ gem 'rubocop', '~> 1.62'
 gem 'rubocop-rails', '~> 2.24'
 gem 'rubocop-rspec', '~> 2.29'
 gem 'rubocop-performance', '~> 1.21'
+gem 'rubocop-factory_bot', '~> 2.25'
 
 group :development, :test do
   gem 'byebug'
