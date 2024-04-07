@@ -23,6 +23,7 @@ gem 'sprockets-rails', '~> 3.4.2'
 gem 'rubocop', '~> 1.62'
 gem 'rubocop-rails', '~> 2.24'
 gem 'rubocop-rspec', '~> 2.29'
+gem 'rubocop-performance', '~> 1.21'
 
 group :development, :test do
   gem 'byebug'
