@@ -20,12 +20,12 @@ gem 'turbo-rails', '~> 2.0.5'
 gem 'jsbundling-rails', '~> 1.3.0'
 gem 'cssbundling-rails', '~> 1.4.0'
 gem 'sprockets-rails', '~> 3.4.2'
-gem 'rubocop', '~> 1.63'
-gem 'rubocop-rails', '~> 2.24'
-gem 'rubocop-rspec', '~> 2.29'
-gem 'rubocop-rspec_rails', '~> 2.28'
-gem 'rubocop-performance', '~> 1.21'
-gem 'rubocop-factory_bot', '~> 2.25'
+gem 'rubocop', '~> 1.63', require: false
+gem 'rubocop-rails', '~> 2.24', require: false
+gem 'rubocop-rspec', '~> 2.29', require: false
+gem 'rubocop-rspec_rails', '~> 2.28', require: false
+gem 'rubocop-performance', '~> 1.21', require: false
+gem 'rubocop-factory_bot', '~> 2.25', require: false
 
 group :development, :test do
   gem 'byebug'
