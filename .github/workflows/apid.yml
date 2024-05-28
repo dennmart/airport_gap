@@ -71,10 +71,5 @@ jobs:
       - name: Start application server
         run: bin/rails s -b 0.0.0.0 &
 
-      - name: Download and set up APId
-        run: |
-          wget https://github.com/getapid/apid-cli/releases/download/v0.1.5/apid-0.1.5-linux-amd64.tar.gz
-          tar zxf apid-0.1.5-linux-amd64.tar.gz
-
       - name: Run end-to-end tests
-        run: ./apid check
+        run: ./bin/apid check
