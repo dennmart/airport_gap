@@ -24,6 +24,9 @@ Metrics/BlockLength:
     - config/environments/*.rb
     - config/routes.rb
 
+Metrics/AbcSize:
+  Max: 18
+
 Style/Documentation:
   Enabled: false
 
