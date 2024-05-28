@@ -9,8 +9,8 @@ gem 'puma', '~> 6.4.0'
 gem 'jbuilder', '~> 2.12.0'
 gem 'bcrypt', '~> 3.1.18'
 gem 'bootsnap', '~> 1.18.3', require: false
-gem 'fast_jsonapi', '~> 1.5'
 gem 'csv', '~> 3.3.0', require: false
+gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.0'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.2'

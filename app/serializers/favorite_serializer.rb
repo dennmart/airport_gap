@@ -1,4 +1,5 @@
 class FavoriteSerializer
-  include FastJsonapi::ObjectSerializer
+  include JSONAPI::Serializer
+
   attributes :airport, :note
 end
