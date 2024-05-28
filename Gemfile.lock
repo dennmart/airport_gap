@@ -89,6 +89,7 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.4.0)
       railties (>= 6.0.0)
+    csv (3.3.0)
     date (3.3.4)
     diff-lcs (1.5.1)
     drb (2.2.1)
@@ -308,6 +309,7 @@ DEPENDENCIES
   bootsnap (~> 1.18.3)
   byebug
   cssbundling-rails (~> 1.4.0)
+  csv (~> 3.3.0)
   factory_bot_rails (~> 6.4.0)
   faker (~> 3.3.1)
   fast_jsonapi (~> 1.5)
