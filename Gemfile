@@ -27,6 +27,7 @@ gem 'rubocop-rspec', '~> 2.29', require: false
 gem 'rubocop-rspec_rails', '~> 2.28', require: false
 gem 'rubocop-performance', '~> 1.21', require: false
 gem 'rubocop-factory_bot', '~> 2.25', require: false
+gem 'redis', '~> 5.2'
 
 group :development, :test do
   gem 'byebug'
