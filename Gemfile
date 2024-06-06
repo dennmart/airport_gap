@@ -30,7 +30,7 @@ gem 'rubocop-factory_bot', '~> 2.25', require: false
 gem 'redis', '~> 5.2'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'debug', '~> 1.9.2'
   gem 'rspec-rails', '~> 6.1.2'
   gem 'factory_bot_rails', '~> 6.4.0'
 end
