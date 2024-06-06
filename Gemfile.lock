@@ -104,6 +104,7 @@ GEM
     faker (3.4.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
     haversine (0.3.2)
@@ -307,6 +308,8 @@ GEM
 
 PLATFORMS
   x86_64-linux
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   bcrypt (~> 3.1.18)
