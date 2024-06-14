@@ -11,16 +11,16 @@ gem 'bcrypt', '~> 3.1.18'
 gem 'bootsnap', '~> 1.18.3', require: false
 gem 'csv', '~> 3.3.0', require: false
 gem 'jsonapi-serializer', '~> 2.2.0'
-gem 'will_paginate', '~> 4.0.0'
+gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.2'
 gem 'sidekiq', '~> 7.2.4'
-gem 'rouge', '~> 4.2.1'
+gem 'rouge', '~> 4.3.0'
 gem 'rack-cors', '~> 2.0.2'
 gem 'turbo-rails', '~> 2.0.5'
 gem 'jsbundling-rails', '~> 1.3.0'
 gem 'cssbundling-rails', '~> 1.4.0'
-gem 'sprockets-rails', '~> 3.4.2'
+gem 'sprockets-rails', '~> 3.5.1'
 gem 'rubocop', '~> 1.64', require: false
 gem 'rubocop-rails', '~> 2.25', require: false
 gem 'rubocop-rspec', '~> 3.0', require: false
