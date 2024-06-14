@@ -23,10 +23,10 @@ gem 'cssbundling-rails', '~> 1.4.0'
 gem 'sprockets-rails', '~> 3.4.2'
 gem 'rubocop', '~> 1.64', require: false
 gem 'rubocop-rails', '~> 2.25', require: false
-gem 'rubocop-rspec', '~> 2.30', require: false
-gem 'rubocop-rspec_rails', '~> 2.28', require: false
+gem 'rubocop-rspec', '~> 3.0', require: false
+gem 'rubocop-rspec_rails', '~> 2.30', require: false
 gem 'rubocop-performance', '~> 1.21', require: false
-gem 'rubocop-factory_bot', '~> 2.25', require: false
+gem 'rubocop-factory_bot', '~> 2.26', require: false
 gem 'redis', '~> 5.2'
 
 group :development, :test do
