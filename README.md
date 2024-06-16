@@ -83,3 +83,9 @@ services:
 ```
 
 To seed the database with data, run `docker-compose exec web bundle exec rails db:setup`. You can then access the application at http://localhost:3000/.
+
+## Kamal
+
+This repo contains the necessary configuration for [Kamal deployments](https://kamal-deploy.org/). The [config/deploy.yml](/config/deploy.yml) file contains an example configuration file for deploying Airport Gap to a remote server.
+
+For more details on deploying a Rails application using Kamal using Airport Gap as an example, check out the video ["Rails Deployments Made Easy with Terraform and Kamal"](https://www.youtube.com/watch?v=uVGo7eZr6wU) on YouTube.
