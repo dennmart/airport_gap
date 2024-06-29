@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_06_092743) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_29_072645) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_06_092743) do
     t.decimal "longitude", precision: 10, scale: 6
     t.integer "altitude"
     t.string "timezone"
-    t.index ["iata"], name: "index_airports_on_iata"
+    t.index ["iata"], name: "index_airports_on_iata", unique: true
   end
 
   create_table "favorites", force: :cascade do |t|
