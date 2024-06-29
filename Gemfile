@@ -31,7 +31,7 @@ gem 'redis', '~> 5.2'
 
 group :development, :test do
   gem 'debug', '~> 1.9.2'
-  gem 'rspec-rails', '~> 6.1.2'
+  gem 'rspec-rails', '~> 6.1.3'
   gem 'factory_bot_rails', '~> 6.4.0'
 end
 
