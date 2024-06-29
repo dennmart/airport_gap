@@ -4,7 +4,7 @@ Airport Gap is a [RESTful API](https://www.restapitutorial.com/) to help you imp
 
 You can create a free Airport Gap account at https://airportgap.com/.
 
-Airport data is provided by [OpenFlights.org](https://openflights.org/data.html) under the [Open Database License](http://opendatacommons.org/licenses/odbl/1.0/").
+Airport data is provided by [OpenFlights.org](https://openflights.org/data.php) under the [Open Database License](http://opendatacommons.org/licenses/odbl/1.0/").
 
 Airport Gap is provided by [Dev Tester](https://dev-tester.com/) - articles and tips to help you improve your test automation skills as a developer.
 
