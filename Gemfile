@@ -29,6 +29,10 @@ gem 'rubocop-performance', '~> 1.21', require: false
 gem 'rubocop-factory_bot', '~> 2.26', require: false
 gem 'redis', '~> 5.2'
 
+# Workaround for https://github.com/ruby/net-pop/issues/26
+# Can be removed once next version of Ruby is released
+gem 'net-pop', github: 'ruby/net-pop'
+
 group :development, :test do
   gem 'debug', '~> 1.9.2'
   gem 'rspec-rails', '~> 6.1.3'
