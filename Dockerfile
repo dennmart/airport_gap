@@ -13,7 +13,8 @@ RUN apk add --no-cache \
   yarn \
   tzdata \
   postgresql-dev \
-  build-base
+  build-base \
+  git
 
 # Install gems into the vendor/bundle directory in the workspace.
 COPY Gemfile Gemfile.lock /app/
