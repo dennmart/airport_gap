@@ -3,7 +3,7 @@ module Api
     before_action :authenticate_token
 
     def index
-      @favorites = @authenticated_user.favorites.page(params[:page])
+      @favorites = @authenticated_user.favorites.includes(:airport).page(params[:page])
       render json: FavoriteSerializer.new(@favorites, generate_links_metadata(@favorites)).serializable_hash.to_json
     end
 
