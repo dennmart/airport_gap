@@ -21,7 +21,7 @@ gem 'turbo-rails', '~> 2.0.5'
 gem 'jsbundling-rails', '~> 1.3.0'
 gem 'cssbundling-rails', '~> 1.4.0'
 gem 'sprockets-rails', '~> 3.5.1'
-gem 'rubocop', '~> 1.64', require: false
+gem 'rubocop', '~> 1.65', require: false
 gem 'rubocop-rails', '~> 2.25', require: false
 gem 'rubocop-rspec', '~> 3.0', require: false
 gem 'rubocop-rspec_rails', '~> 2.30', require: false
