@@ -5,7 +5,7 @@ FROM ruby:3.3.4-alpine AS build
 WORKDIR /app
 
 # Set a random secret key base so we can precompile assets.
-ENV SECRET_KEY_BASE airport_gap_secret_key_base
+ENV SECRET_KEY_BASE=airport_gap_secret_key_base
 
 # Install necessary packages to build gems and assets.
 RUN apk add --no-cache \
