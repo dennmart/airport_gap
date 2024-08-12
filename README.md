@@ -24,7 +24,7 @@ Once the dependencies are installed, run `./bin/setup` to set up the application
 - Install Javascript dependencies (`yarn install`)
 - Set up the database with seed data (`rails db:prepare`)
 
-When everything is installed, run `./bin/dev` to start all the required processes to build the CSS and JavaScript and start the application server. The application will be accessible at http://localhost:5000/.
+When everything is installed, run `./bin/dev` to start all the required processes to build the CSS and JavaScript and start the application server. The application will be accessible at http://localhost:3000/.
 
 ## Automated tests
 
@@ -34,7 +34,7 @@ Unit tests are set up with [RSpec](https://rspec.info/). To run the tests, set u
 
 End-to-end tests for the API are covered with [APId](https://github.com/getapid/apid). To run the tests, [download the APId binary](https://github.com/getapid/apid/releases), set it up in your `PATH`, and run `apid check`. The tests require the following environment variables:
 
-- `AIRPORT_GAP_API_URL`: The URL of the API endpoints. If you're running the application locally, the URL is `http://localhost:5000/api`.
+- `AIRPORT_GAP_API_URL`: The URL of the API endpoints. If you're running the application locally, the URL is `http://localhost:3000/api`.
 - `AIRPORT_GAP_EMAIL`: The email address for a valid Airport Gap account in the application.
 - `AIRPORT_GAP_PASSWORD`: The password for the Airport Gap account in the application.
 
