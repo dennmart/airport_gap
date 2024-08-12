@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.3.4'
 
-gem 'rails', '7.1.3.4'
+gem 'rails', '7.2.0'
 gem 'pg', '~> 1.5.7'
 gem 'puma', '~> 6.4.0'
 gem 'jbuilder', '~> 2.12.0'
@@ -30,7 +30,7 @@ gem 'rubocop-factory_bot', '~> 2.26', require: false
 gem 'redis', '~> 5.2'
 
 group :development, :test do
-  gem 'debug', '~> 1.9.2'
+  gem 'debug', '~> 1.9.2', require: 'debug/prelude'
   gem 'rspec-rails', '~> 6.1.3'
   gem 'factory_bot_rails', '~> 6.4.0'
 end
