@@ -28,6 +28,7 @@ gem 'rubocop-rspec_rails', '~> 2.30', require: false
 gem 'rubocop-performance', '~> 1.22', require: false
 gem 'rubocop-factory_bot', '~> 2.26', require: false
 gem 'redis', '~> 5.3'
+gem 'kamal', '~> 1.9.2'
 
 group :development, :test do
   gem 'debug', '~> 1.9.2', require: 'debug/prelude'
