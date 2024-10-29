@@ -33,7 +33,7 @@ gem 'kamal', '~> 1.9.2'
 group :development, :test do
   gem 'debug', '~> 1.9.2', require: 'debug/prelude'
   gem 'rspec-rails', '~> 7.0.1'
-  gem 'factory_bot_rails', '~> 6.4.0'
+  gem 'factory_bot_rails', '~> 6.4.4'
 end
 
 group :development do
@@ -43,5 +43,5 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 6.4.0'
-  gem 'faker', '~> 3.4.2'
+  gem 'faker', '~> 3.5.1'
 end
