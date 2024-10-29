@@ -32,8 +32,9 @@ env:
     RAILS_LOG_TO_STDOUT: true
     RAILS_SERVE_STATIC_FILES: true
     APPLICATION_HOST: 123.123.123.123
-  # Set the correct environment variables in .env (check
-  # the .env.example file for a list of required variables).
+  # Set the correct environment variables in .kamal/secrets
+  # (check the .kamal/secrets.example file for a list of
+  # required variables).
   secret:
     - RAILS_MASTER_KEY
     - DATABASE_URL
@@ -49,7 +50,7 @@ env:
 # build the Docker image for the target architecture:
 # https://kamal-deploy.org/docs/configuration/builders/
 builder:
-  multiarch: false
+  arch: amd64
 
 # Update the IP addresses / host names for the servers
 # you'll use to deploy the database and Redis services.
@@ -77,3 +78,14 @@ accessories:
     port: 10.0.1.1:6379:6379
     directories:
       - data:/data
+
+# Kamal Proxy opens port 80 by default. The Airport Gap application
+# runs on port 3000, so we need to specify it here.
+#
+# If you want to automatically generate an SSL certificate (via Let's
+# Encrypt), set the correct host and enable the ssl option as shown
+# below.
+proxy:
+  app_port: 3000
+  host: airportgap.com
+  ssl: true
