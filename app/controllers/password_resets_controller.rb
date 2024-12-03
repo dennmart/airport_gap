@@ -6,8 +6,8 @@ class PasswordResetsController < ApplicationController
 
     return if @user.present?
 
-    redirect_to new_password_reset_path,
-                alert: 'Your password reset link is invalid or has expired. Please enter your email address to send a new link.'
+    message = 'Your password reset link is invalid or has expired. Please enter your email address to send a new link.'
+    redirect_to new_password_reset_path, alert: message
   end
 
   def create
@@ -26,11 +26,10 @@ class PasswordResetsController < ApplicationController
       UserMailer.password_change_notification(@user.id).deliver_later
       redirect_to login_path, notice: 'Your password was reset successfully. You can now log in with your new password.'
     elsif @user.present?
-      # flash.now[:alert] = 'Your new password could not be saved. Please make sure it is at least 6 characters long.'
       render :edit, status: :unprocessable_entity
     else
-      redirect_to new_password_reset_path,
-                  alert: 'Your password reset link is invalid or has expired. Please enter your email address to send a new link.'
+      message = 'Your password reset link is invalid or expired. Please enter your email address to send a new link.'
+      redirect_to new_password_reset_path, alert: message
     end
   end
 
