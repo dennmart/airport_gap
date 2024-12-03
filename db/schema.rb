@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_29_072645) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_03_071622) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "airports", force: :cascade do |t|
     t.string "name"
@@ -43,10 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_29_072645) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.string "password_reset_token"
-    t.datetime "password_reset_sent_at", precision: nil
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["token"], name: "index_users_on_token", unique: true
   end
-
 end
