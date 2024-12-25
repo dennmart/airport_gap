@@ -9,12 +9,12 @@ gem 'puma', '~> 6.5.0'
 gem 'jbuilder', '~> 2.13.0'
 gem 'bcrypt', '~> 3.1.18'
 gem 'bootsnap', '~> 1.18.4', require: false
-gem 'csv', '~> 3.3.0', require: false
+gem 'csv', '~> 3.3.2', require: false
 gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.2'
-gem 'sidekiq', '~> 7.3.6'
+gem 'sidekiq', '~> 7.3.7'
 gem 'rouge', '~> 4.5.1'
 gem 'rack-cors', '~> 2.0.2'
 gem 'turbo-rails', '~> 2.0.11'
@@ -23,7 +23,7 @@ gem 'cssbundling-rails', '~> 1.4.1'
 gem 'sprockets-rails', '~> 3.5.2'
 gem 'rubocop', '~> 1.69', require: false
 gem 'rubocop-rails', '~> 2.27', require: false
-gem 'rubocop-rspec', '~> 3.2', require: false
+gem 'rubocop-rspec', '~> 3.3', require: false
 gem 'rubocop-rspec_rails', '~> 2.30', require: false
 gem 'rubocop-performance', '~> 1.23', require: false
 gem 'rubocop-factory_bot', '~> 2.26', require: false
@@ -32,7 +32,7 @@ gem 'kamal', '~> 2.3.0'
 gem 'thruster', '~> 0.1.9'
 
 group :development, :test do
-  gem 'debug', '~> 1.9.2', require: 'debug/prelude'
+  gem 'debug', '~> 1.10.0', require: 'debug/prelude'
   gem 'rspec-rails', '~> 7.1.0'
   gem 'factory_bot_rails', '~> 6.4.4'
 end
