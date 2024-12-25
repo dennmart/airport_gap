@@ -123,7 +123,7 @@ GEM
     json (2.9.1)
     jsonapi-serializer (2.2.0)
       activesupport (>= 4.2)
-    kamal (2.3.0)
+    kamal (2.4.0)
       activesupport (>= 7.0)
       base64 (~> 0.2)
       bcrypt_pbkdf (~> 1.0)
@@ -347,7 +347,7 @@ DEPENDENCIES
   jbuilder (~> 2.13.0)
   jsbundling-rails (~> 1.3.1)
   jsonapi-serializer (~> 2.2.0)
-  kamal (~> 2.3.0)
+  kamal (~> 2.4.0)
   listen
   pg (~> 1.5.9)
   puma (~> 6.5.0)
