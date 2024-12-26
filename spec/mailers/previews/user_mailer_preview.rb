@@ -7,8 +7,7 @@ class UserMailerPreview < ActionMailer::Preview
 
   def password_reset_instructions
     user = User.last
-    user.update(password_reset_token: SecureRandom.urlsafe_base64, password_reset_sent_at: Time.current)
-    UserMailer.password_reset_instructions(user.id)
+    UserMailer.password_reset_instructions(user.id, user.password_reset_token)
   end
 
   def password_change_notification

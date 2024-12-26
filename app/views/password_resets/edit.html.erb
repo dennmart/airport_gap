@@ -13,7 +13,7 @@
     <div class="flex-1 m-4">
       <% if @user.errors.any? %>
         <div class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded relative mb-4" role="alert">
-          <span class="block sm:inline font-bold">There were some problems generating your token:</span>
+          <span class="block sm:inline font-bold">There were some problems resetting your password:</span>
           <ul class="list-inside list-disc mt-2">
             <% @user.errors.full_messages.each do |msg| %>
               <li class="ml-4"><%= msg %></li>

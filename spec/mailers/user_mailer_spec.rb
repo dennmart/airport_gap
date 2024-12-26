@@ -17,8 +17,9 @@ RSpec.describe UserMailer do
   end
 
   describe 'password_reset_instructions' do
-    let(:user) { create(:user, :with_password_reset) }
-    let(:mail) { UserMailer.password_reset_instructions(user.id) }
+    let(:user) { create(:user) }
+    let(:token) { user.password_reset_token }
+    let(:mail) { UserMailer.password_reset_instructions(user.id, token) }
 
     it 'renders the proper headers' do
       expect(mail.from).to eq(['airportgap@dev-tester.com'])
@@ -27,7 +28,7 @@ RSpec.describe UserMailer do
     end
 
     it 'includes the URL for resetting the password with the reset token in the body' do
-      expect(mail.body.encoded).to include(edit_password_reset_url(password_reset_token: user.password_reset_token))
+      expect(mail.body.encoded).to include(edit_password_reset_url(password_reset_token: token))
     end
   end
 
