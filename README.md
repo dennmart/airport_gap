@@ -86,6 +86,12 @@ To seed the database with data, run `docker-compose exec web bundle exec rails d
 
 ## Kamal
 
-This repo contains the necessary configuration for [Kamal deployments](https://kamal-deploy.org/). The [config/deploy.yml](/config/deploy.yml) file contains an example configuration file for deploying Airport Gap to a remote server.
+This repo contains an example to use for deploying Airport Gap using [Kamal](https://kamal-deploy.org/).
+
+If you want to deploy Airport Gap to your own server:
+
+- Copy [`config/deploy.yml.example`](/config/deploy.yml.example) to `config/deploy.yml` and update the configuration file with your server details.
+- Copy [`.kamal/secrets.example`](/.kamal/secrets.example) to `.kamal/secrets` and update the file with your secrets.
+- Run `kamal setup` to deploy the application to a new server.
 
 For more details on deploying a Rails application using Kamal using Airport Gap as an example, check out the video ["Rails Deployments Made Easy with Terraform and Kamal"](https://www.youtube.com/watch?v=uVGo7eZr6wU) on YouTube.

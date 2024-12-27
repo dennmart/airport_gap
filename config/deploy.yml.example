@@ -1,0 +1,91 @@
+# This Kamal deployment configuration file serves as an
+# example for deploying the Airport Gap application.
+# Update the configuration to match your needs.
+service: airport-gap
+
+# Make sure to set the image name to use an appropriate
+# one for the Docker registry you plan to use for deployment.
+image: dennmart/airport-gap
+
+# Update the IP addresses / host names for the servers
+# you'll use to deploy the web server and worker processes.
+servers:
+  web:
+    hosts:
+      - 123.123.123.123
+  worker:
+    hosts:
+      - 123.123.123.123
+    cmd: bundle exec sidekiq -q default -q mailers
+
+# Update the Docker registry and credentials for your environment.
+registry:
+  server: ghcr.io
+  username: dennmart
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  clear:
+    RAILS_ENV: production
+    RACK_ENV: production
+    RAILS_LOG_TO_STDOUT: true
+    RAILS_SERVE_STATIC_FILES: true
+    APPLICATION_HOST: 123.123.123.123
+  # Set the correct environment variables in .kamal/secrets
+  # (check the .kamal/secrets.example file for a list of
+  # required variables).
+  secret:
+    - RAILS_MASTER_KEY
+    - DATABASE_URL
+    - REDIS_URL
+    - SMTP_PASSWORD
+    - SMTP_PORT
+    - SMTP_SERVER
+    - SMTP_USERNAME
+
+# If your local development environment uses an different
+# system architecture than your deployment servers (e.g.
+# ARM64 vs. AMD64), update this configuration to properly
+# build the Docker image for the target architecture:
+# https://kamal-deploy.org/docs/configuration/builders/
+builder:
+  arch: amd64
+
+# Update the IP addresses / host names for the servers
+# you'll use to deploy the database and Redis services.
+accessories:
+  db:
+    image: postgres:16.2
+    host: 123.123.123.123
+    # The following port configuration uses a private network.
+    # You can only specify the port (port:5432) if you have
+    # secured the server with a firewall or other security measures.
+    port: 10.0.1.1:5432:5432
+    env:
+      secret:
+        - POSTGRES_DB
+        - POSTGRES_USER
+        - POSTGRES_PASSWORD
+    directories:
+      - data:/var/lib/postgresql/data
+  redis:
+    image: redis:7.2
+    host: 123.123.123.123
+    # The following port configuration uses a private network.
+    # You can only specify the port (port:6379) if you have
+    # secured the server with a firewall or other security measures.
+    port: 10.0.1.1:6379:6379
+    directories:
+      - data:/data
+
+# Kamal Proxy opens port 80 by default. The Airport Gap application
+# runs on port 3000, so we need to specify it here.
+#
+# If you want to automatically generate an SSL certificate (via Let's
+# Encrypt), set the correct host and enable the ssl option as shown
+# below.
+proxy:
+  app_port: 3000
+  host: airportgap.com
+  ssl: true
