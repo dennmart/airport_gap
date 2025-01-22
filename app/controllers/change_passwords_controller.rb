@@ -19,6 +19,6 @@ class ChangePasswordsController < ApplicationController
   private
 
   def change_password_params
-    params.require(:user).permit(:password, :password_confirmation)
+    params.expect(user: [:password, :password_confirmation])
   end
 end
