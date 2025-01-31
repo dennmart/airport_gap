@@ -5,7 +5,7 @@ ruby '3.4.1'
 
 gem 'rails', '8.0.1'
 gem 'pg', '~> 1.5.9'
-gem 'puma', '~> 6.5.0'
+gem 'puma', '~> 6.6.0'
 gem 'jbuilder', '~> 2.13.0'
 gem 'bcrypt', '~> 3.1.18'
 gem 'bootsnap', '~> 1.18.4', require: false
@@ -21,7 +21,7 @@ gem 'turbo-rails', '~> 2.0.11'
 gem 'jsbundling-rails', '~> 1.3.1'
 gem 'cssbundling-rails', '~> 1.4.1'
 gem 'sprockets-rails', '~> 3.5.2'
-gem 'rubocop', '~> 1.70', require: false
+gem 'rubocop', '~> 1.71', require: false
 gem 'rubocop-rails', '~> 2.29', require: false
 gem 'rubocop-rspec', '~> 3.4', require: false
 gem 'rubocop-rspec_rails', '~> 2.30', require: false
