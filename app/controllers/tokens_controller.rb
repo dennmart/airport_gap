@@ -15,7 +15,7 @@ class TokensController < ApplicationController
       UserMailer.generated_token(@user.id).deliver_later
       redirect_to tokens_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

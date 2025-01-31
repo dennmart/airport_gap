@@ -111,12 +111,13 @@ RSpec.describe 'Password Resets' do
         expect(UserMailer).to_not have_received(:password_change_notification)
       end
 
-      it 'renders the edit page' do
+      it 'renders the edit page and returns a 422 Unprocessable Entity response' do
         patch '/password_reset',
               params: { password_reset_token: user.password_reset_token,
                         user: { password: 'new-password', password_confirmation: 'bad-password' } }
 
         expect(response).to render_template(:edit)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
 
