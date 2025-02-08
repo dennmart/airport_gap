@@ -8,7 +8,7 @@
 
 .api-docs nav.sidebar {
   li {
-    @apply py-1 px-2 rounded;
+    @apply py-1 px-2 rounded-sm;
 
     &:hover {
       @apply bg-gray-200;
@@ -24,21 +24,21 @@
   }
 
   .http-action {
-    @apply text-white text-xs font-bold p-1 rounded mr-1;
+    @apply text-white text-xs font-bold p-1 rounded-sm mr-1;
 
-    &__get {
+    &.get {
       @apply bg-green-700;
     }
 
-    &__post {
+    &.post {
       @apply bg-blue-700;
     }
 
-    &__patch {
+    &.patch {
       @apply bg-yellow-600;
     }
 
-    &__delete {
+    &.delete {
       @apply bg-red-700;
     }
   }
@@ -62,11 +62,11 @@
   }
 
   code {
-    @apply rounded bg-grey-900 text-white p-6 mb-8 block overflow-x-auto;
+    @apply rounded-sm bg-grey-900 text-white p-6 mb-8 block overflow-x-auto;
   }
 
   .monospace-inline {
-    @apply font-mono bg-grey-100 border border-grey-200 p-1 rounded-sm;
+    @apply font-mono bg-grey-100 border border-grey-200 p-1 rounded-xs;
   }
 
   .status-code-list {
@@ -78,21 +78,21 @@
   }
 
   .http-action {
-    @apply text-white text-2xl font-bold px-2 py-1 rounded mr-1;
+    @apply text-white text-2xl font-bold px-2 py-1 rounded-sm mr-1;
 
-    &__get {
+    &.get {
       @apply bg-green-700;
     }
 
-    &__post {
+    &.post {
       @apply bg-blue-700;
     }
 
-    &__patch {
+    &.patch {
       @apply bg-yellow-600;
     }
 
-    &__delete {
+    &.delete {
       @apply bg-red-700;
     }
   }
@@ -100,8 +100,8 @@
   .example-section-header {
     @apply font-bold mb-1;
 
-    &__status {
-      @apply ml-1 px-2 py-1 bg-green-100 text-sm rounded;
+    .status {
+      @apply ml-1 px-2 py-1 bg-green-100 text-sm rounded-sm;
     }
   }
 
@@ -122,7 +122,7 @@
   }
 
   .auth-required-notice {
-    @apply inline-flex items-center bg-yellow-400 border border-yellow-600 rounded mb-4 px-2 py-1 font-bold text-yellow-900;
+    @apply inline-flex items-center bg-yellow-400 border border-yellow-600 rounded-sm mb-4 px-2 py-1 font-bold text-yellow-900;
 
     svg {
       @apply inline-block fill-current;

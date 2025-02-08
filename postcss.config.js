@@ -2,8 +2,8 @@ var tailwindcss = require("tailwindcss");
 
 module.exports = {
   plugins: [
-    require("postcss-import"),
-    require('postcss-nested'),
-    tailwindcss('./tailwind.config.js'),
-  ]
+    require("@tailwindcss/postcss"),
+    require("@tailwindcss/nesting"),
+    tailwindcss("./tailwind.config.js"),
+  ],
 };
