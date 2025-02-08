@@ -19,7 +19,6 @@ gem 'rouge', '~> 4.5.1'
 gem 'rack-cors', '~> 2.0.2'
 gem 'turbo-rails', '~> 2.0.11'
 gem 'jsbundling-rails', '~> 1.3.1'
-gem 'cssbundling-rails', '~> 1.4.1'
 gem 'sprockets-rails', '~> 3.5.2'
 gem 'rubocop', '~> 1.71', require: false
 gem 'rubocop-rails', '~> 2.29', require: false
