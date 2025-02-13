@@ -28,8 +28,8 @@ gem 'rubocop-performance', '~> 1.23', require: false
 gem 'rubocop-factory_bot', '~> 2.26', require: false
 gem 'redis', '~> 5.3'
 gem 'kamal', '~> 2.5.2'
-gem 'thruster', '~> 0.1.10'
-gem 'tailwindcss-ruby', '~> 4.0.4'
+gem 'thruster', '~> 0.1.11'
+gem 'tailwindcss-ruby', '~> 4.0.6'
 gem 'tailwindcss-rails', '~> 4.0.0'
 
 group :development, :test do
