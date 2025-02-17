@@ -5,7 +5,7 @@
 # docker run -d -p 80:80 -p 443:443 --name my-app -e RAILS_MASTER_KEY=<value from config/master.key> my-app
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
-ARG RUBY_VERSION=3.4.1
+ARG RUBY_VERSION=3.4.2
 
 #####################################################################
 # Stage 1: Install gems and precompile assets.
@@ -29,7 +29,7 @@ FROM base AS build
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-  apt-get install --no-install-recommends -y build-essential git libpq-dev node-gyp pkg-config python-is-python3 && \
+  apt-get install --no-install-recommends -y build-essential git libpq-dev node-gyp pkg-config python-is-python3 libyaml-dev && \
   rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install JavaScript dependencies

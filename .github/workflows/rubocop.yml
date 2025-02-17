@@ -47,7 +47,7 @@ jobs:
       - name: Set up Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.4.1"
+          ruby-version: "3.4.2"
           bundler-cache: true
 
       - name: Set up Node.js
