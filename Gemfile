@@ -17,20 +17,20 @@ gem 'rack-attack', '~> 6.2'
 gem 'sidekiq', '~> 7.3.9'
 gem 'rouge', '~> 4.5.1'
 gem 'rack-cors', '~> 2.0.2'
-gem 'turbo-rails', '~> 2.0.11'
+gem 'turbo-rails', '~> 2.0.13'
 gem 'jsbundling-rails', '~> 1.3.1'
 gem 'sprockets-rails', '~> 3.5.2'
-gem 'rubocop', '~> 1.72', require: false
+gem 'rubocop', '~> 1.74', require: false
 gem 'rubocop-rails', '~> 2.30', require: false
 gem 'rubocop-rspec', '~> 3.5', require: false
-gem 'rubocop-rspec_rails', '~> 2.30', require: false
+gem 'rubocop-rspec_rails', '~> 2.31', require: false
 gem 'rubocop-performance', '~> 1.23', require: false
-gem 'rubocop-factory_bot', '~> 2.26', require: false
-gem 'redis', '~> 5.3'
+gem 'rubocop-factory_bot', '~> 2.27', require: false
+gem 'redis', '~> 5.4.0'
 gem 'kamal', '~> 2.5.3'
-gem 'thruster', '~> 0.1.11'
-gem 'tailwindcss-ruby', '~> 4.0.6'
-gem 'tailwindcss-rails', '~> 4.0.0'
+gem 'thruster', '~> 0.1.12'
+gem 'tailwindcss-ruby', '~> 4.0.14'
+gem 'tailwindcss-rails', '~> 4.2.0'
 
 group :development, :test do
   gem 'debug', '~> 1.10.0', require: 'debug/prelude'

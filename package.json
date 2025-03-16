@@ -5,11 +5,11 @@
     "node": ">= 20.10"
   },
   "dependencies": {
-    "@hotwired/turbo-rails": "8.0.12",
+    "@hotwired/turbo-rails": "8.0.13",
     "@rails/ujs": "7.1.501",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "@tailwindcss/postcss": "^4.0.6",
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.25.1",
     "postcss": "8.5.2",
     "tailwindcss": "^4.0.6"
   },
