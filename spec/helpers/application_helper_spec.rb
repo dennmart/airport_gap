@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationHelper, type: :helper do
+RSpec.describe ApplicationHelper do
   describe '#captcha' do
     it 'returns a div tag with the class cf-turnstile and a default Cloudflare site key if not set' do
       expect(helper.captcha).to eq('<div class="cf-turnstile" data-sitekey="1x00000000000000000000AA"></div>')

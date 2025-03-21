@@ -8,19 +8,15 @@ class TokensController < ApplicationController
   end
 
   def create
-    captcha_verify = CaptchaVerify.new(params['cf-turnstile-response']).call
+    return render_invalid_captcha unless valid_captcha?
+
     @user = User.new(user_params)
 
-    if captcha_verify
-      if @user.save
-        session[:user_id] = @user.id
-        UserMailer.generated_token(@user.id).deliver_later
-        redirect_to tokens_path
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @user.save
+      session[:user_id] = @user.id
+      UserMailer.generated_token(@user.id).deliver_later
+      redirect_to tokens_path
     else
-      flash.now[:alert] = 'Could not validate captcha'
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,6 +27,16 @@ class TokensController < ApplicationController
   end
 
   private
+
+  def valid_captcha?
+    CaptchaVerify.new(params['cf-turnstile-response']).call
+  end
+
+  def render_invalid_captcha
+    @user = User.new(user_params)
+    flash.now[:alert] = 'Could not validate captcha'
+    render :new, status: :unprocessable_entity
+  end
 
   def user_params
     params.expect(user: [:email, :password])
