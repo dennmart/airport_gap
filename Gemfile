@@ -9,7 +9,7 @@ gem 'puma', '~> 6.6.0'
 gem 'jbuilder', '~> 2.13.0'
 gem 'bcrypt', '~> 3.1.18'
 gem 'bootsnap', '~> 1.18.4', require: false
-gem 'csv', '~> 3.3.2', require: false
+gem 'csv', '~> 3.3.3', require: false
 gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
@@ -30,7 +30,7 @@ gem 'redis', '~> 5.4.0'
 gem 'kamal', '~> 2.5.3'
 gem 'thruster', '~> 0.1.12'
 gem 'tailwindcss-ruby', '~> 4.0.14'
-gem 'tailwindcss-rails', '~> 4.2.0'
+gem 'tailwindcss-rails', '~> 4.2.1'
 
 group :development, :test do
   gem 'debug', '~> 1.10.0', require: 'debug/prelude'
