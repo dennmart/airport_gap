@@ -7,6 +7,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'rspec/rails'
 require 'sidekiq/testing'
+require 'webmock/rspec'
 Rails.root.glob('spec/support/**/*.rb').each { |f| require f }
 
 begin

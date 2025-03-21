@@ -1,3 +1,7 @@
+<%= content_for :head do %>
+  <%= javascript_include_tag "https://challenges.cloudflare.com/turnstile/v0/api.js", async: true, defer: true, "data-turbo-track": "reload" %>
+<% end %>
+
 <div class="flex flex-col justify-center items-center min-h-screen px-6">
   <div class="flex flex-col md:flex-row border border-grey-600 rounded-sm bg-white shadow-md w-full md:w-3/4 mb-3">
     <div class="flex-1 p-4 border-b md:border-b-0 md:border-r border-grey-600 bg-green-100">
@@ -20,6 +24,12 @@
     </div>
 
     <div class="flex-1 m-4">
+      <% if flash[:alert] %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded-sm relative mb-4" role="alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
       <% if @user.errors.any? %>
         <div class="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded-sm relative mb-4" role="alert">
           <span class="block sm:inline font-bold">There were some problems generating your token:</span>
@@ -33,7 +43,7 @@
 
       <h1 class="text-xl font-bold mb-6">Generate an authentication token</h1>
 
-      <%= form_for @user, url: tokens_path do |f| %>
+      <%= form_for @user, url: tokens_path, data: { turbo: false } do |f| %>
         <div class="mb-4">
           <%= f.label :email, "Email Address", class: "font-bold block mb-1" %>
           <%= f.email_field :email, class: "shadow-sm appearance-none border border-grey-200 rounded-sm w-full py-2 px-3 text-grey-700 leading-tight focus:outline-hidden focus:ring-3" %>
@@ -42,6 +52,10 @@
         <div class="mb-4">
           <%= f.label :password, "Password", class: "font-bold block mb-1" %>
           <%= f.password_field :password, class: "shadow-sm appearance-none border border-grey-200 rounded-sm w-full py-2 px-3 text-grey-700 leading-tight focus:outline-hidden focus:ring-3" %>
+        </div>
+
+        <div class="mb-4">
+          <%= captcha %>
         </div>
 
         <div class="flex justify-end">
