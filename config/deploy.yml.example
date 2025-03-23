@@ -32,6 +32,7 @@ env:
     RAILS_LOG_TO_STDOUT: true
     RAILS_SERVE_STATIC_FILES: true
     APPLICATION_HOST: 123.123.123.123
+    SEND_GENERATED_TOKEN_EMAIL: false
   # Set the correct environment variables in .kamal/secrets
   # (check the .kamal/secrets.example file for a list of
   # required variables).
@@ -43,6 +44,8 @@ env:
     - SMTP_PORT
     - SMTP_SERVER
     - SMTP_USERNAME
+    - CF_TURNSTILE_SITE_KEY
+    - CF_TURNSTILE_SECRET_KEY
 
 # If your local development environment uses an different
 # system architecture than your deployment servers (e.g.

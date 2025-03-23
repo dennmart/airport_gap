@@ -14,7 +14,11 @@ class TokensController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      UserMailer.generated_token(@user.id).deliver_later
+
+      if ActiveModel::Type::Boolean.new.cast(ENV.fetch('SEND_GENERATED_TOKEN_EMAIL', nil))
+        UserMailer.generated_token(@user.id).deliver_later
+      end
+
       redirect_to tokens_path
     else
       render :new, status: :unprocessable_entity
