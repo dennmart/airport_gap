@@ -7,7 +7,7 @@
   "dependencies": {
     "@hotwired/turbo-rails": "8.0.13",
     "@rails/ujs": "7.1.501",
-    "esbuild": "^0.25.1"
+    "esbuild": "^0.25.3"
   },
   "version": "0.1.0",
   "devDependencies": {},
