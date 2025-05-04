@@ -29,8 +29,8 @@ gem 'rubocop-factory_bot', '~> 2.27', require: false
 gem 'redis', '~> 5.4.0'
 gem 'kamal', '~> 2.5.3'
 gem 'thruster', '~> 0.1.13'
-gem 'tailwindcss-ruby', '~> 4.1.4'
-gem 'tailwindcss-rails', '~> 4.2.2'
+gem 'tailwindcss-ruby', '~> 4.1.5'
+gem 'tailwindcss-rails', '~> 4.2.3'
 
 group :development, :test do
   gem 'debug', '~> 1.10.0', require: 'debug/prelude'
