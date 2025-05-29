@@ -40,5 +40,10 @@ yarn-debug.log*
 !/app/assets/builds/.keep
 
 /.kamal/secrets
+/.kamal/secrets.*
+!/.kamal/secrets.example
+
 /config/deploy.yml
+/config/deploy.*.yml
+
 /.vscode
