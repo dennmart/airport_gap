@@ -5,9 +5,9 @@
     "node": ">= 20.10"
   },
   "dependencies": {
-    "@hotwired/turbo-rails": "8.0.13",
+    "@hotwired/turbo-rails": "8.0.16",
     "@rails/ujs": "7.1.501",
-    "esbuild": "^0.25.3"
+    "esbuild": "^0.25.5"
   },
   "version": "0.1.0",
   "devDependencies": {},
