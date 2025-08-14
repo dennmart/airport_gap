@@ -117,7 +117,7 @@ RSpec.describe 'Password Resets' do
                         user: { password: 'new-password', password_confirmation: 'bad-password' } }
 
         expect(response).to render_template(:edit)
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
 

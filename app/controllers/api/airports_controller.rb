@@ -24,7 +24,7 @@ module Api
         render json: AirportDistanceSerializer.new(distances).serializable_hash.to_json
       else
         error_message = "Please enter valid 'from' and 'to' airports."
-        render json: unprocessable_entity_response(error_message), status: :unprocessable_entity
+        render json: unprocessable_entity_response(error_message), status: :unprocessable_content
       end
     end
   end

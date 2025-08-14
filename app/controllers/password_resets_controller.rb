@@ -26,7 +26,7 @@ class PasswordResetsController < ApplicationController
       UserMailer.password_change_notification(@user.id).deliver_later
       redirect_to login_path, notice: 'Your password was reset successfully. You can now log in with your new password.'
     elsif @user.present?
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     else
       message = 'Your password reset link is invalid or expired. Please enter your email address to send a new link.'
       redirect_to new_password_reset_path, alert: message

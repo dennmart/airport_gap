@@ -23,7 +23,7 @@ module Api
       else
         # TODO: Improve how we display this error.
         error_message = @favorite.errors.full_messages.first
-        render json: unprocessable_entity_response(error_message), status: :unprocessable_entity
+        render json: unprocessable_entity_response(error_message), status: :unprocessable_content
       end
     end
 
@@ -34,7 +34,7 @@ module Api
         render json: FavoriteSerializer.new(@favorite).serializable_hash.to_json
       else
         error_message = 'Please enter a valid note.'
-        render json: unprocessable_entity_response(error_message), status: :unprocessable_entity
+        render json: unprocessable_entity_response(error_message), status: :unprocessable_content
       end
     rescue ActiveRecord::RecordNotFound
       render json: not_found_error_response, status: :not_found

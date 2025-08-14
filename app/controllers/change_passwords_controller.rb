@@ -12,7 +12,7 @@ class ChangePasswordsController < ApplicationController
     if current_user.update(change_password_params)
       redirect_to tokens_path, notice: 'Your password has been changed!'
     else
-      render :show, status: :unprocessable_entity
+      render :show, status: :unprocessable_content
     end
   end
 

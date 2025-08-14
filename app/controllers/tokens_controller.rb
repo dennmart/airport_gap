@@ -21,7 +21,7 @@ class TokensController < ApplicationController
 
       redirect_to tokens_path
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -39,7 +39,7 @@ class TokensController < ApplicationController
   def render_invalid_captcha
     @user = User.new(user_params)
     flash.now[:alert] = 'Could not validate captcha'
-    render :new, status: :unprocessable_entity
+    render :new, status: :unprocessable_content
   end
 
   def user_params
