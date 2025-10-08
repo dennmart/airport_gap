@@ -20,11 +20,11 @@ gem 'rack-cors', '~> 3.0.0'
 gem 'turbo-rails', '~> 2.0.16'
 gem 'jsbundling-rails', '~> 1.3.1'
 gem 'sprockets-rails', '~> 3.5.2'
-gem 'rubocop', '~> 1.79', require: false
+gem 'rubocop', '~> 1.81', require: false
 gem 'rubocop-rails', '~> 2.33', require: false
-gem 'rubocop-rspec', '~> 3.6', require: false
+gem 'rubocop-rspec', '~> 3.7', require: false
 gem 'rubocop-rspec_rails', '~> 2.31', require: false
-gem 'rubocop-performance', '~> 1.25', require: false
+gem 'rubocop-performance', '~> 1.26', require: false
 gem 'rubocop-factory_bot', '~> 2.27', require: false
 gem 'redis', '~> 5.4.1'
 gem 'kamal', '~> 2.7.0'
