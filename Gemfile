@@ -27,7 +27,7 @@ gem 'rubocop-rspec_rails', '~> 2.31', require: false
 gem 'rubocop-performance', '~> 1.26', require: false
 gem 'rubocop-factory_bot', '~> 2.27', require: false
 gem 'redis', '~> 5.4.1'
-gem 'kamal', '~> 2.7.0'
+gem 'kamal', '~> 2.8.2'
 gem 'thruster', '~> 0.1.15'
 gem 'tailwindcss-ruby', '~> 4.1.13'
 gem 'tailwindcss-rails', '~> 4.3.0'

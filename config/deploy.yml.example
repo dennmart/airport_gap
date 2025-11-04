@@ -18,12 +18,13 @@ servers:
       - 123.123.123.123
     cmd: bundle exec sidekiq -q default -q mailers
 
-# Update the Docker registry and credentials for your environment.
+# Use a local container registry for deployments.
+#
+# To use a remote container registry (Docker Hub, AWS ECR, etc.),
+# read the Kamal documentation:
+# https://kamal-deploy.org/docs/configuration/docker-registry/
 registry:
-  server: ghcr.io
-  username: dennmart
-  password:
-    - KAMAL_REGISTRY_PASSWORD
+  server: localhost:5555
 
 env:
   clear:
