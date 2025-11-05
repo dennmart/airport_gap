@@ -5,6 +5,8 @@ CI.run do
 
   step 'Style: Ruby', 'bin/rubocop'
 
+  step 'Security: Brakeman', 'bin/brakeman --no-pager'
+
   step 'Unit Tests: RSpec', 'bin/rails spec'
 
   # Optional: set a green GitHub commit status to unblock PR merge.

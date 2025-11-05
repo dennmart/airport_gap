@@ -36,6 +36,7 @@ group :development, :test do
   gem 'debug', '~> 1.11.0', require: 'debug/prelude'
   gem 'rspec-rails', '~> 8.0.2'
   gem 'factory_bot_rails', '~> 6.5.1'
+  gem 'brakeman', '~> 7.1.1', require: false
 end
 
 group :development do
