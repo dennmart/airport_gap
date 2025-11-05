@@ -5,7 +5,7 @@ CI.run do
 
   step 'Style: Ruby', 'bin/rubocop'
 
-  step 'Security: Importmap vulnerability audit', 'bin/importmap audit'
+  step 'Unit Tests: RSpec', 'bin/rails spec'
 
   # Optional: set a green GitHub commit status to unblock PR merge.
   # Requires the `gh` CLI and `gh extension install basecamp/gh-signoff`.
