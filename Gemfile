@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.4.7'
 
-gem 'rails', '8.0.3'
+gem 'rails', '8.1.1'
 gem 'pg', '~> 1.6.2'
 gem 'puma', '~> 7.0.4'
 gem 'jbuilder', '~> 2.14.1'
@@ -21,11 +21,11 @@ gem 'turbo-rails', '~> 2.0.17'
 gem 'jsbundling-rails', '~> 1.3.1'
 gem 'sprockets-rails', '~> 3.5.2'
 gem 'rubocop', '~> 1.81', require: false
-gem 'rubocop-rails', '~> 2.33', require: false
-gem 'rubocop-rspec', '~> 3.7', require: false
-gem 'rubocop-rspec_rails', '~> 2.31', require: false
+gem 'rubocop-rails', '~> 2.34', require: false
+gem 'rubocop-rspec', '~> 3.8', require: false
+gem 'rubocop-rspec_rails', '~> 2.32', require: false
 gem 'rubocop-performance', '~> 1.26', require: false
-gem 'rubocop-factory_bot', '~> 2.27', require: false
+gem 'rubocop-factory_bot', '~> 2.28', require: false
 gem 'redis', '~> 5.4.1'
 gem 'kamal', '~> 2.8.2'
 gem 'thruster', '~> 0.1.15'
