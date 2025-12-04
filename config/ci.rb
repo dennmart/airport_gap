@@ -1,0 +1,15 @@
+# Run using bin/ci
+
+CI.run do
+  step 'Setup', 'bin/setup --skip-server'
+
+  step 'Style: Ruby', 'bin/rubocop'
+
+  step 'Unit tests: RSpec', 'bin/rails spec'
+
+  if success?
+    step 'Signoff: All systems go. Ready for merge and deploy.', 'gh signoff'
+  else
+    failure 'Signoff: CI failed. Do not merge or deploy.', 'Fix the issues and try again.'
+  end
+end
