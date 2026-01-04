@@ -27,3 +27,12 @@ Airport.order('RANDOM()').limit(10).each do |airport|
 end
 puts 'Done creating favorites!'
 puts "==========================================\n\n"
+
+puts '=========================================='
+puts 'Creating API testing users...'
+(1..10).each do |i|
+  user = User.find_or_create_by(email: "testuser#{i}@dev-tester.com") do |u|
+    u.password = "password#{i}"
+  end
+  puts "Created user: #{user.email} with password: password#{i}"
+end
