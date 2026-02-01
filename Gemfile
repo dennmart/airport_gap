@@ -14,12 +14,7 @@ gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.8'
-
-# Sidekiq 8.1.0+ forces connection_pool to '~> 3', which is incompatible with Rails 8.1 and the Redis cache store.
-# Locking sidekiq and connection_pool gems until Rails is updated.
-gem 'sidekiq', '8.0.10'
-gem 'connection_pool', '~> 2.5.5'
-
+gem 'sidekiq', '8.1.0'
 gem 'rouge', '~> 4.7.0'
 gem 'rack-cors', '~> 3.0.0'
 gem 'turbo-rails', '~> 2.0.23'
