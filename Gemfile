@@ -8,13 +8,13 @@ gem 'pg', '~> 1.6.2'
 gem 'puma', '~> 7.2.0'
 gem 'jbuilder', '~> 2.14.1'
 gem 'bcrypt', '~> 3.1.21'
-gem 'bootsnap', '~> 1.21.1', require: false
+gem 'bootsnap', '~> 1.23.0', require: false
 gem 'csv', '~> 3.3.5', require: false
 gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.8'
-gem 'sidekiq', '8.1.0'
+gem 'sidekiq', '~> 8.1.1'
 gem 'rouge', '~> 4.7.0'
 gem 'rack-cors', '~> 3.0.0'
 gem 'turbo-rails', '~> 2.0.23'
@@ -28,15 +28,15 @@ gem 'rubocop-performance', '~> 1.26', require: false
 gem 'rubocop-factory_bot', '~> 2.28', require: false
 gem 'redis', '~> 5.4.1'
 gem 'kamal', '~> 2.10.1'
-gem 'thruster', '~> 0.1.17'
+gem 'thruster', '~> 0.1.18'
 gem 'tailwindcss-ruby', '~> 4.1.18'
 gem 'tailwindcss-rails', '~> 4.4.0'
 
 group :development, :test do
   gem 'debug', '~> 1.11.0', require: 'debug/prelude'
-  gem 'rspec-rails', '~> 8.0.2'
+  gem 'rspec-rails', '~> 8.0.3'
   gem 'factory_bot_rails', '~> 6.5.1'
-  gem 'brakeman', '~> 8.0.1', require: false
+  gem 'brakeman', '~> 8.0.2', require: false
 end
 
 group :development do
