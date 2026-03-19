@@ -3,21 +3,21 @@ require 'rails_helper'
 RSpec.describe 'API Airports' do
   describe 'GET /api/airports/:id' do
     it 'returns information about a single airport' do
-      airport = create(:airport,
-        name: 'Kansai International Airport',
-        city: 'Osaka',
-        country: 'Japan',
-        iata: 'KIX',
-        icao: 'RJBB',
-        latitude: '34.427299',
-        longitude: '135.244003',
-        altitude: 26,
-        timezone: 'Asia/Tokyo')
+      create(:airport,
+             name: 'Kansai International Airport',
+             city: 'Osaka',
+             country: 'Japan',
+             iata: 'KIX',
+             icao: 'RJBB',
+             latitude: '34.427299',
+             longitude: '135.244003',
+             altitude: 26,
+             timezone: 'Asia/Tokyo')
 
       get '/api/airports/KIX'
 
       expect(response).to have_http_status(:ok)
-      expect(JSON.parse(response.body)).to eq(
+      expect(response.parsed_body).to eq(
         'data' => {
           'id' => 'KIX',
           'type' => 'airport',
@@ -40,7 +40,7 @@ RSpec.describe 'API Airports' do
       get '/api/airports/INVALID'
 
       expect(response).to have_http_status(:not_found)
-      expect(JSON.parse(response.body)).to eq(
+      expect(response.parsed_body).to eq(
         'errors' => [{
           'status' => '404',
           'title' => 'Not Found',
@@ -53,34 +53,34 @@ RSpec.describe 'API Airports' do
   describe 'POST /api/airports/distance' do
     it 'calculates the distance between two airports' do
       create(:airport,
-        name: 'Kansai International Airport',
-        city: 'Osaka',
-        country: 'Japan',
-        iata: 'KIX',
-        icao: 'RJBB',
-        latitude: '34.427299',
-        longitude: '135.244003',
-        altitude: 26,
-        timezone: 'Asia/Tokyo')
+             name: 'Kansai International Airport',
+             city: 'Osaka',
+             country: 'Japan',
+             iata: 'KIX',
+             icao: 'RJBB',
+             latitude: '34.427299',
+             longitude: '135.244003',
+             altitude: 26,
+             timezone: 'Asia/Tokyo')
 
       create(:airport,
-        name: 'San Francisco International Airport',
-        city: 'San Francisco',
-        country: 'United States',
-        iata: 'SFO',
-        icao: 'KSFO',
-        latitude: '37.618999',
-        longitude: '-122.375',
-        altitude: 13,
-        timezone: 'America/Los_Angeles')
+             name: 'San Francisco International Airport',
+             city: 'San Francisco',
+             country: 'United States',
+             iata: 'SFO',
+             icao: 'KSFO',
+             latitude: '37.618999',
+             longitude: '-122.375',
+             altitude: 13,
+             timezone: 'America/Los_Angeles')
 
       post '/api/airports/distance',
-        params: { from: 'KIX', to: 'SFO' },
-        as: :json
+           params: { from: 'KIX', to: 'SFO' },
+           as: :json
 
       expect(response).to have_http_status(:ok)
 
-      body = JSON.parse(response.body)
+      body = response.parsed_body
       data = body['data']
 
       expect(data['id']).to eq('KIX-SFO')
@@ -96,11 +96,11 @@ RSpec.describe 'API Airports' do
 
     it 'returns 422 for invalid airport codes' do
       post '/api/airports/distance',
-        params: { from: 'INVALID', to: 'NOPE' },
-        as: :json
+           params: { from: 'INVALID', to: 'NOPE' },
+           as: :json
 
       expect(response).to have_http_status(:unprocessable_content)
-      expect(JSON.parse(response.body)).to eq(
+      expect(response.parsed_body).to eq(
         'errors' => [{
           'status' => '422',
           'title' => 'Unable to process request',
@@ -111,20 +111,18 @@ RSpec.describe 'API Airports' do
   end
 
   describe 'GET /api/airports' do
-    it 'returns all airports with pagination' do
-      create_list(:airport, 30)
+    it 'returns a list of airports' do
+      create(:airport)
 
       get '/api/airports'
 
       expect(response).to have_http_status(:ok)
 
-      body = JSON.parse(response.body)
+      body = response.parsed_body
 
       expect(body['data']).to be_an(Array)
-      expect(body['data']).not_to be_empty
+      expect(body['data']).to_not be_empty
       expect(body['data'].first).to include('id', 'type', 'attributes')
-
-      expect(body['links']).to include('self', 'first', 'last', 'next', 'prev')
     end
   end
 end

@@ -6,12 +6,12 @@ RSpec.describe 'API Tokens' do
       user = create(:user, email: 'test@example.com', password: 'testpassword')
 
       post '/api/tokens',
-        params: { email: 'test@example.com', password: 'testpassword' },
-        as: :json
+           params: { email: 'test@example.com', password: 'testpassword' },
+           as: :json
 
       expect(response).to have_http_status(:ok)
 
-      body = JSON.parse(response.body)
+      body = response.parsed_body
       expect(body['token']).to eq(user.token)
     end
 
@@ -19,16 +19,16 @@ RSpec.describe 'API Tokens' do
       create(:user, email: 'test@example.com', password: 'testpassword')
 
       post '/api/tokens',
-        params: { email: 'test@example.com', password: 'wrongpassword' },
-        as: :json
+           params: { email: 'test@example.com', password: 'wrongpassword' },
+           as: :json
 
       expect(response).to have_http_status(:unauthorized)
     end
 
     it 'returns unauthorized for a non-existent email' do
       post '/api/tokens',
-        params: { email: 'nobody@example.com', password: 'anything' },
-        as: :json
+           params: { email: 'nobody@example.com', password: 'anything' },
+           as: :json
 
       expect(response).to have_http_status(:unauthorized)
     end
