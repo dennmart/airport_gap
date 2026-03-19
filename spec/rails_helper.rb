@@ -6,9 +6,10 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 
 require 'rspec/rails'
-require 'sidekiq/testing'
 require 'webmock/rspec'
 Rails.root.glob('spec/support/**/*.rb').each { |f| require f }
+
+Sidekiq.testing!(:fake)
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
