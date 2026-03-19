@@ -24,5 +24,13 @@ RSpec.describe 'API Tokens' do
 
       expect(response).to have_http_status(:unauthorized)
     end
+
+    it 'returns unauthorized for a non-existent email' do
+      post '/api/tokens',
+        params: { email: 'nobody@example.com', password: 'anything' },
+        as: :json
+
+      expect(response).to have_http_status(:unauthorized)
+    end
   end
 end

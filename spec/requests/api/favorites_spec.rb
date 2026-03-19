@@ -19,6 +19,94 @@ RSpec.describe 'API Favorites' do
 
       expect(body['links']).to include('self', 'first', 'last', 'next', 'prev')
     end
+
+    it 'returns 401 without an authentication token' do
+      get '/api/favorites'
+
+      expect(response).to have_http_status(:unauthorized)
+      expect(JSON.parse(response.body)).to eq(
+        'errors' => [{
+          'status' => '401',
+          'title' => 'Unauthorized',
+          'detail' => 'You are not authorized to perform the requested action.'
+        }]
+      )
+    end
+  end
+
+  describe 'GET /api/favorites/:id' do
+    it 'returns 404 for a non-existent favorite' do
+      user = create(:user)
+
+      get '/api/favorites/999999',
+        headers: { 'Authorization' => "Bearer token=#{user.token}" }
+
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
+  describe 'POST /api/favorites' do
+    let(:user) { create(:user) }
+    let(:auth_headers) { { 'Authorization' => "Bearer token=#{user.token}" } }
+
+    it 'returns 422 when creating a duplicate favorite' do
+      airport = create(:airport)
+      create(:favorite, user: user, airport: airport)
+
+      post '/api/favorites',
+        params: { airport_id: airport.iata, note: 'Duplicate' },
+        headers: auth_headers,
+        as: :json
+
+      expect(response).to have_http_status(:unprocessable_content)
+    end
+
+    it 'returns 422 when airport_id is invalid' do
+      post '/api/favorites',
+        params: { airport_id: 'INVALID', note: 'No airport' },
+        headers: auth_headers,
+        as: :json
+
+      expect(response).to have_http_status(:unprocessable_content)
+    end
+  end
+
+  describe 'PATCH /api/favorites/:id' do
+    it 'returns 404 for a non-existent favorite' do
+      user = create(:user)
+
+      patch '/api/favorites/999999',
+        params: { note: 'Updated' },
+        headers: { 'Authorization' => "Bearer token=#{user.token}" },
+        as: :json
+
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
+  describe 'DELETE /api/favorites/:id' do
+    it 'returns 404 for a non-existent favorite' do
+      user = create(:user)
+
+      delete '/api/favorites/999999',
+        headers: { 'Authorization' => "Bearer token=#{user.token}" }
+
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
+  describe 'DELETE /api/favorites/clear_all' do
+    it 'removes all favorites for the authenticated user' do
+      user = create(:user)
+      create_list(:favorite, 3, user: user)
+
+      expect {
+        delete '/api/favorites/clear_all',
+          headers: { 'Authorization' => "Bearer token=#{user.token}" }
+      }.to change { user.favorites.count }.from(3).to(0)
+
+      expect(response).to have_http_status(:no_content)
+    end
   end
 
   describe 'end-to-end favorites CRUD flow' do

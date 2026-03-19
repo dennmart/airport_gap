@@ -35,6 +35,19 @@ RSpec.describe 'API Airports' do
         }
       )
     end
+
+    it 'returns 404 for a non-existent airport' do
+      get '/api/airports/INVALID'
+
+      expect(response).to have_http_status(:not_found)
+      expect(JSON.parse(response.body)).to eq(
+        'errors' => [{
+          'status' => '404',
+          'title' => 'Not Found',
+          'detail' => 'The page you requested could not be found'
+        }]
+      )
+    end
   end
 
   describe 'POST /api/airports/distance' do
@@ -79,6 +92,21 @@ RSpec.describe 'API Airports' do
       expect(attributes['kilometers']).to be_a(Float)
       expect(attributes['miles']).to be_a(Float)
       expect(attributes['nautical_miles']).to be_a(Float)
+    end
+
+    it 'returns 422 for invalid airport codes' do
+      post '/api/airports/distance',
+        params: { from: 'INVALID', to: 'NOPE' },
+        as: :json
+
+      expect(response).to have_http_status(:unprocessable_content)
+      expect(JSON.parse(response.body)).to eq(
+        'errors' => [{
+          'status' => '422',
+          'title' => 'Unable to process request',
+          'detail' => "Please enter valid 'from' and 'to' airports."
+        }]
+      )
     end
   end
 
