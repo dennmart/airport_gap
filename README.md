@@ -30,13 +30,7 @@ When everything is installed, run `./bin/dev` to start all the required processe
 
 The Airport Gap application has a suite of automated tests to help during development.
 
-Unit tests are set up with [RSpec](https://rspec.info/). To run the tests, set up the application's Ruby dependencies (`bundle install`) and a test database, and run `rails spec`.
-
-End-to-end tests for the API are covered with [APId](https://github.com/getapid/apid). To run the tests, [download the APId binary](https://github.com/getapid/apid/releases), set it up in your `PATH`, and run `apid check`. The tests require the following environment variables:
-
-- `AIRPORT_GAP_API_URL`: The URL of the API endpoints. If you're running the application locally, the URL is `http://localhost:3000/api`.
-- `AIRPORT_GAP_EMAIL`: The email address for a valid Airport Gap account in the application.
-- `AIRPORT_GAP_PASSWORD`: The password for the Airport Gap account in the application.
+Unit and integration tests are set up with [RSpec](https://rspec.info/). To run the tests, set up the application's Ruby dependencies (`bundle install`) and a test database, and run `rails spec`.
 
 ## Docker
 
