@@ -59,11 +59,8 @@ jobs:
       - name: Install JS dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Prepare test database
-        run: bin/rails db:prepare
-
-      - name: Precompile assets
-        run: bin/rails assets:precompile
+      - name: Setup database
+        run: bin/rails db:create db:schema:load
 
       - name: Run tests
-        run: bundle exec rspec
+        run: bin/rails spec
