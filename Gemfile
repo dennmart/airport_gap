@@ -14,13 +14,13 @@ gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.8'
-gem 'sidekiq', '~> 8.1.1'
+gem 'sidekiq', '~> 8.1.2'
 gem 'rouge', '~> 4.7.0'
 gem 'rack-cors', '~> 3.0.0'
 gem 'turbo-rails', '~> 2.0.23'
 gem 'jsbundling-rails', '~> 1.3.1'
 gem 'sprockets-rails', '~> 3.5.2'
-gem 'rubocop', '~> 1.85', require: false
+gem 'rubocop', '~> 1.86', require: false
 gem 'rubocop-rails', '~> 2.34', require: false
 gem 'rubocop-rspec', '~> 3.9', require: false
 gem 'rubocop-rspec_rails', '~> 2.32', require: false
@@ -28,7 +28,7 @@ gem 'rubocop-performance', '~> 1.26', require: false
 gem 'rubocop-factory_bot', '~> 2.28', require: false
 gem 'redis', '~> 5.4.1'
 gem 'kamal', '~> 2.11.0'
-gem 'thruster', '~> 0.1.19'
+gem 'thruster', '~> 0.1.20'
 gem 'tailwindcss-ruby', '~> 4.2.1'
 gem 'tailwindcss-rails', '~> 4.4.0'
 
