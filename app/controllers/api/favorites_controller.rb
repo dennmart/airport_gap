@@ -8,7 +8,7 @@ module Api
     end
 
     def show
-      @favorite = @authenticated_user.favorites.find(params[:id])
+      @favorite = @authenticated_user.favorites.find(params.expect(:id))
       render json: FavoriteSerializer.new(@favorite).serializable_hash.to_json
     rescue ActiveRecord::RecordNotFound
       render json: not_found_error_response, status: :not_found
@@ -28,7 +28,7 @@ module Api
     end
 
     def update
-      @favorite = @authenticated_user.favorites.find(params[:id])
+      @favorite = @authenticated_user.favorites.find(params.expect(:id))
 
       if @favorite.update(note: params[:note])
         render json: FavoriteSerializer.new(@favorite).serializable_hash.to_json
@@ -41,7 +41,7 @@ module Api
     end
 
     def destroy
-      @favorite = @authenticated_user.favorites.find(params[:id])
+      @favorite = @authenticated_user.favorites.find(params.expect(:id))
       @favorite.destroy
       head :no_content
     rescue ActiveRecord::RecordNotFound
