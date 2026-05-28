@@ -5,23 +5,23 @@ ruby '4.0.5'
 
 gem 'rails', '8.1.3'
 gem 'pg', '~> 1.6.2'
-gem 'puma', '~> 8.0.1'
-gem 'jbuilder', '~> 2.15.0'
+gem 'puma', '~> 8.0.2'
+gem 'jbuilder', '~> 2.15.1'
 gem 'bcrypt', '~> 3.1.22'
-gem 'bootsnap', '~> 1.24.4', require: false
+gem 'bootsnap', '~> 1.24.5', require: false
 gem 'csv', '~> 3.3.5', require: false
 gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
 gem 'rack-attack', '~> 6.8'
-gem 'sidekiq', '~> 8.1.5'
-gem 'rouge', '~> 4.7.0'
+gem 'sidekiq', '~> 8.1.6'
+gem 'rouge', '~> 5.0.0'
 gem 'rack-cors', '~> 3.0.0'
 gem 'turbo-rails', '~> 2.0.23'
 gem 'jsbundling-rails', '~> 1.3.1'
 gem 'sprockets-rails', '~> 3.5.2'
 gem 'rubocop', '~> 1.86', require: false
-gem 'rubocop-rails', '~> 2.34', require: false
+gem 'rubocop-rails', '~> 2.35', require: false
 gem 'rubocop-rspec', '~> 3.9', require: false
 gem 'rubocop-rspec_rails', '~> 2.32', require: false
 gem 'rubocop-performance', '~> 1.26', require: false
