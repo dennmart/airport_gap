@@ -8,7 +8,7 @@ gem 'pg', '~> 1.6.2'
 gem 'puma', '~> 8.0.2'
 gem 'jbuilder', '~> 2.15.1'
 gem 'bcrypt', '~> 3.1.22'
-gem 'bootsnap', '~> 1.24.5', require: false
+gem 'bootsnap', '~> 1.24.6', require: false
 gem 'csv', '~> 3.3.5', require: false
 gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
@@ -20,23 +20,23 @@ gem 'rack-cors', '~> 3.0.0'
 gem 'turbo-rails', '~> 2.0.23'
 gem 'jsbundling-rails', '~> 1.3.1'
 gem 'sprockets-rails', '~> 3.5.2'
-gem 'rubocop', '~> 1.86', require: false
+gem 'rubocop', '~> 1.88', require: false
 gem 'rubocop-rails', '~> 2.35', require: false
-gem 'rubocop-rspec', '~> 3.9', require: false
+gem 'rubocop-rspec', '~> 3.10', require: false
 gem 'rubocop-rspec_rails', '~> 2.32', require: false
 gem 'rubocop-performance', '~> 1.26', require: false
 gem 'rubocop-factory_bot', '~> 2.28', require: false
 gem 'redis', '~> 5.4.1'
 gem 'kamal', '~> 2.11.0'
 gem 'thruster', '~> 0.1.21'
-gem 'tailwindcss-ruby', '~> 4.3.0'
-gem 'tailwindcss-rails', '~> 4.4.0'
+gem 'tailwindcss-ruby', '~> 4.3.1'
+gem 'tailwindcss-rails', '~> 4.5.0'
 
 group :development, :test do
   gem 'debug', '~> 1.11.0', require: 'debug/prelude'
   gem 'rspec-rails', '~> 8.0.4'
   gem 'factory_bot_rails', '~> 6.5.1'
-  gem 'brakeman', '~> 8.0.2', require: false
+  gem 'brakeman', '~> 8.0.5', require: false
 end
 
 group :development do
@@ -45,7 +45,7 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 7.0.1'
+  gem 'shoulda-matchers', '~> 8.0.1'
   gem 'faker', '~> 3.8.0'
   gem 'rails-controller-testing', '~> 1.0.5'
   gem 'webmock', '~> 3.26.2'
