@@ -9,7 +9,7 @@ gem 'puma', '~> 8.0.2'
 gem 'jbuilder', '~> 2.15.1'
 gem 'bcrypt', '~> 3.1.22'
 gem 'bootsnap', '~> 1.24.6', require: false
-gem 'csv', '~> 3.3.5', require: false
+gem 'csv', '~> 3.3.6', require: false
 gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
@@ -28,8 +28,8 @@ gem 'rubocop-performance', '~> 1.26', require: false
 gem 'rubocop-factory_bot', '~> 2.28', require: false
 gem 'redis', '~> 5.4.1'
 gem 'kamal', '~> 2.12.0'
-gem 'thruster', '~> 0.1.22'
-gem 'tailwindcss-ruby', '~> 4.3.2'
+gem 'thruster', '~> 0.1.23'
+gem 'tailwindcss-ruby', '~> 4.3.3'
 gem 'tailwindcss-rails', '~> 4.6.0'
 
 group :development, :test do
