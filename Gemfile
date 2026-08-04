@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '4.0.6'
 
-gem 'rails', '8.1.3'
+gem 'rails', '8.1.3.1'
 gem 'pg', '~> 1.6.2'
 gem 'puma', '~> 8.0.2'
 gem 'jbuilder', '~> 2.15.1'
@@ -26,7 +26,7 @@ gem 'rubocop-rspec', '~> 3.10', require: false
 gem 'rubocop-rspec_rails', '~> 2.32', require: false
 gem 'rubocop-performance', '~> 1.26', require: false
 gem 'rubocop-factory_bot', '~> 2.28', require: false
-gem 'redis', '~> 5.4.1'
+gem 'redis', '~> 6.0.0'
 gem 'kamal', '~> 2.12.0'
 gem 'thruster', '~> 0.1.23'
 gem 'tailwindcss-ruby', '~> 4.3.3'
