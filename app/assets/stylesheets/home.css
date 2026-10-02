@@ -398,6 +398,59 @@
   }
 }
 
+/* Next step: TestNod */
+
+.next-step {
+  background: var(--sign-green-dark);
+  color: #e6f2e7;
+}
+
+.next-step :focus-visible {
+  outline-color: var(--sign-white);
+}
+
+.next-step-inner {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 48rem) {
+  .next-step-inner {
+    padding: 4rem 2rem;
+  }
+}
+
+.next-step-logo {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  margin: 0 auto 2rem;
+}
+
+.next-step-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.next-step h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--sign-white);
+  margin-bottom: 0.75rem;
+}
+
+.next-step p {
+  margin-bottom: 1rem;
+}
+
+.home .next-step-link {
+  font-weight: 600;
+  color: var(--sign-white);
+}
+
 /* Footer */
 
 .home-footer {

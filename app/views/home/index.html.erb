@@ -176,6 +176,24 @@
     </section>
   </div>
 
+  <section class="next-step" aria-labelledby="next-step-title">
+    <div class="next-step-inner">
+      <%= link_to "https://testnod.com/", class: "next-step-logo", target: "_blank", rel: "noopener" do %>
+        <%= image_tag "testnod_logo.png", alt: "TestNod", width: 1503, height: 352 %>
+      <% end %>
+
+      <div class="next-step-body">
+        <h2 id="next-step-title">When your tests run in CI</h2>
+        <p>
+          Here you trigger failures on purpose. In CI they show up on their own, and the hard part is telling a real
+          regression from a flaky test. TestNod reads the JUnit XML reports your CI already produces and tracks pass
+          rates, flaky tests and slowdowns across every build. It's from the maker of Airport Gap and free while in beta.
+        </p>
+        <%= link_to "See how TestNod works →", "https://testnod.com/", class: "next-step-link", target: "_blank", rel: "noopener" %>
+      </div>
+    </div>
+  </section>
+
   <footer class="home-footer">
     <div class="home-footer-inner">
       <p>
