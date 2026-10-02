@@ -1,9 +1,10 @@
 /*
-  Shared by the redesigned pages (home and API docs): design tokens, base
-  type and links, and the masthead with the logo.
+  Shared by the redesigned pages (home, API docs and the account pages):
+  design tokens, base type and links, and the masthead with the logo.
 */
 .home,
 .docs,
+.account,
 .masthead {
   --sign-green: #207227;
   --sign-green-dark: #05400a;
@@ -27,12 +28,14 @@
   color: var(--text);
 }
 
-.home {
+.home,
+.account {
   background: var(--floor);
 }
 
 .home :focus-visible,
 .docs :focus-visible,
+.account :focus-visible,
 .masthead :focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 3px;
@@ -40,6 +43,7 @@
 
 .home a,
 .docs a,
+.account a,
 .masthead a {
   color: inherit;
   text-decoration: underline;
@@ -49,12 +53,14 @@
 
 .home a:hover,
 .docs a:hover,
+.account a:hover,
 .masthead a:hover {
   text-decoration-thickness: 3px;
 }
 
 .home code,
-.docs code {
+.docs code,
+.account code {
   font-family: var(--mono);
   font-size: 0.9em;
 }

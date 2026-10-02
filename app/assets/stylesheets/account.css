@@ -1,0 +1,314 @@
+/*
+  Account pages: log in, token signup, password resets and the logged-in
+  account page. The intro panel reuses the home page's green sign; the forms
+  sit on white beside it. Shared tokens and the masthead live in site.css.
+*/
+
+.account {
+  min-height: 100vh;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.account-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+}
+
+@media (min-width: 48rem) {
+  .account-inner {
+    padding: 4rem 2rem 5rem;
+  }
+}
+
+.account-narrow {
+  max-width: 40rem;
+}
+
+/* Intro and form, side by side from 48rem */
+
+.account-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  background: var(--surface);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+@media (min-width: 48rem) {
+  .account-panel {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .account-panel {
+    margin: 0 -1rem;
+    border-radius: 0;
+  }
+}
+
+.account-intro {
+  background: var(--sign-green);
+  color: var(--sign-white);
+  border-bottom: 6px solid var(--sign-green-dark);
+  padding: 1.5rem 1rem;
+  font-size: 1.1875rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 48rem) {
+  .account-intro {
+    border-bottom: 0;
+    border-right: 6px solid var(--sign-green-dark);
+    padding: 2.5rem 2rem;
+  }
+}
+
+.account-intro p {
+  max-width: 34ch;
+}
+
+.account-intro p + p {
+  margin-top: 1rem;
+}
+
+.account-intro :focus-visible {
+  outline-color: var(--sign-white);
+}
+
+.account-form {
+  padding: 1.5rem 1rem 2rem;
+}
+
+@media (min-width: 48rem) {
+  .account-form {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* A single white card, for pages without an intro */
+
+.account-card {
+  background: var(--surface);
+  border-top: 6px solid var(--sign-green);
+  border-radius: 0 0 6px 6px;
+  padding: 1.5rem 1rem 2rem;
+}
+
+@media (min-width: 48rem) {
+  .account-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .account-card {
+    margin: 0 -1rem;
+    border-radius: 0;
+  }
+}
+
+.account h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+/* Forms */
+
+.account .field {
+  margin-bottom: 1.25rem;
+}
+
+.account .field label {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.375rem;
+}
+
+.account .field input {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 2px solid #6b736b;
+  border-radius: 4px;
+}
+
+.account .field input:focus {
+  border-color: var(--sign-green);
+}
+
+.account .captcha {
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+}
+
+.account .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.625rem 1.25rem;
+  border: 3px solid var(--sign-green);
+  border-radius: 4px;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.account .button-primary {
+  background: var(--sign-green);
+  color: var(--sign-white);
+}
+
+.account .button-primary:hover {
+  background: var(--sign-green-dark);
+  border-color: var(--sign-green-dark);
+}
+
+.account .button-secondary {
+  background: transparent;
+  color: var(--sign-green-dark);
+}
+
+.account .button-secondary:hover {
+  background: #dcefe7;
+}
+
+@media (max-width: 29.99rem) {
+  .account .button {
+    width: 100%;
+  }
+}
+
+.account-alt-link {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Alerts */
+
+.account-alert {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid;
+  border-radius: 0 4px 4px 0;
+}
+
+.account-alert-error {
+  background: #ffd9d4;
+  border-color: #a32020;
+  color: #7a1010;
+}
+
+.account-alert-notice {
+  background: #dcefe7;
+  border-color: var(--sign-green);
+  color: var(--sign-green-dark);
+}
+
+.account-alert ul {
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+/* Account details */
+
+.account-detail {
+  margin-bottom: 1.25rem;
+  overflow-wrap: anywhere;
+}
+
+.account-detail strong {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.account-token-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  min-height: 3rem;
+  background: var(--sign-green-dark);
+  color: var(--sign-white);
+  border-radius: 4px;
+}
+
+.account-token-box code {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.copy-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 4px;
+  color: var(--sign-white);
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background: rgb(255 255 255 / 0.14);
+}
+
+.account .copy-button:focus-visible {
+  outline-color: var(--sign-white);
+  outline-offset: -3px;
+}
+
+.copy-button .copied-icon,
+.copy-button.is-copied .copy-icon {
+  display: none;
+}
+
+.copy-button.is-copied .copied-icon {
+  display: block;
+  color: #9fd8a6;
+}
+
+.copy-status {
+  margin: -0.75rem 0 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--sign-green);
+  font-weight: 600;
+}
+
+.copy-status:empty {
+  margin: 0;
+}
+
+.account-actions {
+  margin-bottom: 2rem;
+}
+
+.account-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
+  color: var(--ink);
+}

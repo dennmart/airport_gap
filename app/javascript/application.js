@@ -2,3 +2,4 @@
 require("@rails/ujs").start();
 import "@hotwired/turbo-rails";
 import "./components/example_tabs";
+import "./components/copy_button";

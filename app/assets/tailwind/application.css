@@ -4,6 +4,7 @@
 @import "../stylesheets/custom.css";
 @import "../stylesheets/site.css";
 @import "../stylesheets/home.css";
+@import "../stylesheets/account.css";
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,

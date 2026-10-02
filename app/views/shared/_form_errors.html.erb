@@ -1,0 +1,10 @@
+<% if record.errors.any? %>
+  <div class="account-alert account-alert-error" role="alert">
+    <strong><%= title %></strong>
+    <ul>
+      <% record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

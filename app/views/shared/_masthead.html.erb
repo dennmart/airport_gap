@@ -3,10 +3,14 @@
     <%= link_to root_path, class: "masthead-logo" do %>
       <%= image_tag "airport_gap_logo.png", alt: "Airport Gap" %>
     <% end %>
-
     <ul class="masthead-links">
       <li><%= link_to "API docs", docs_path, "aria-current": ("page" if current_page?(docs_path)) %></li>
-      <li><%= link_to "Log in", login_path %></li>
+      <% if current_user %>
+        <li><%= link_to "Your account", tokens_path, "aria-current": ("page" if current_page?(tokens_path)) %></li>
+        <li><%= link_to "Log out", logout_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Log in", login_path, "aria-current": ("page" if current_page?(login_path)) %></li>
+      <% end %>
     </ul>
   </nav>
 </header>
