@@ -1,70 +1,206 @@
-<div class="bg-green-100 border-b-2 border-green-700">
-  <section class="container mx-auto px-6 py-12">
-    <div class="mx-auto max-w-xl mb-2">
-      <%= image_tag "airport_gap_logo.png", alt: "Airport Gap logo" %>
-    </div>
+<% content_for :head do %>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<% end %>
 
-    <h1 class="text-3xl font-bold text-center mb-6">An API to fetch and save information about your favorite airports</h1>
+<div class="home">
+  <header class="masthead">
+    <nav class="masthead-inner" aria-label="Main">
+      <%= link_to root_path, class: "masthead-logo" do %>
+        <%= image_tag "airport_gap_logo.png", alt: "Airport Gap" %>
+      <% end %>
 
-    <div class="flex flex-col md:flex-row justify-center items-center mb-2">
-      <div class="mb-6 md:mb-0 md:mr-6">
-        <%= link_to "Generate Token", tokens_path, class: "block bg-green-600 text-lg text-white font-bold px-6 py-4 rounded-sm hover:bg-green-800" %>
+      <ul class="masthead-links">
+        <li><%= link_to "API docs", docs_path %></li>
+        <li><%= link_to "Log in", login_path %></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="sign" aria-labelledby="sign-title">
+    <div class="sign-inner">
+      <div class="sign-body">
+        <div class="sign-intro">
+          <h1 id="sign-title">Practice API test automation against a real REST API.</h1>
+
+          <p class="sign-lede">
+            Airport Gap is a free API built for learning to test APIs. Write tests that cover every main HTTP method,
+            token authentication, error responses, rate limits and failures you trigger on purpose.
+          </p>
+
+          <div class="sign-actions">
+            <%= link_to "Generate a token", tokens_path, class: "button button-primary" %>
+            <%= link_to "Read the API docs", docs_path, class: "button button-secondary" %>
+          </div>
+        </div>
+
+        <div class="example" data-example-tabs>
+          <div class="example-tabs" role="tablist" aria-label="Example request" hidden>
+            <button type="button" role="tab" id="example-tab-success" aria-controls="example-success"
+                    aria-selected="true">Success</button>
+            <button type="button" role="tab" id="example-tab-failure" aria-controls="example-failure"
+                    aria-selected="false" tabindex="-1">Simulated failure</button>
+          </div>
+
+          <div class="example-panels">
+            <div class="example-panel" id="example-success" role="tabpanel" aria-labelledby="example-tab-success">
+              <h2 class="example-heading">Save a favorite airport</h2>
+              <pre class="example-code"><code><%= http_example(<<~HTTP)
+                POST /api/favorites HTTP/1.1
+                Host: airportgap.com
+                Authorization: Bearer token=<your token>
+                Content-Type: application/json
+
+                {
+                  "airport_id": "JFK",
+                  "note": "My usual layover"
+                }
+              HTTP
+              %></code></pre>
+
+              <h2 class="example-heading">
+                Response
+                <span class="example-status example-status-success">201 Created</span>
+              </h2>
+              <pre class="example-code"><code><%= http_example(<<~HTTP)
+                Content-Type: application/json
+
+                {
+                  "data": {
+                    "id": "11",
+                    "type": "favorite",
+                    "attributes": {
+                      "airport": {
+                        "iata": "JFK",
+                        "name": "John F Kennedy International Airport",
+                        "city": "New York",
+                        "country": "United States"
+                      },
+                      "note": "My usual layover"
+                    }
+                  }
+                }
+              HTTP
+              %></code></pre>
+            </div>
+
+            <div class="example-panel" id="example-failure" role="tabpanel" aria-labelledby="example-tab-failure">
+              <h2 class="example-heading">The same request, failing on purpose</h2>
+              <pre class="example-code"><code><%= http_example(<<~HTTP, highlight: "X-Simulate:")
+                POST /api/favorites HTTP/1.1
+                Host: airportgap.com
+                Authorization: Bearer token=<your token>
+                Content-Type: application/json
+                X-Simulate: service-unavailable
+
+                {
+                  "airport_id": "JFK",
+                  "note": "My usual layover"
+                }
+              HTTP
+              %></code></pre>
+
+              <h2 class="example-heading">
+                Response
+                <span class="example-status example-status-failure">503 Service Unavailable</span>
+              </h2>
+              <pre class="example-code"><code><%= http_example(<<~HTTP)
+                Content-Type: application/json
+                Retry-After: 30
+
+                {
+                  "errors": [
+                    {
+                      "status": "503",
+                      "title": "Service Unavailable",
+                      "detail": "The service is simulating downtime. Retry your request after 30 seconds."
+                    }
+                  ]
+                }
+              HTTP
+              %></code></pre>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div>
-        <%= link_to "API Documention", docs_path, class: "block bg-purple-500 text-lg text-white font-bold px-6 py-4 rounded-sm hover:bg-purple-800" %>
-      </div>
-    </div>
-
-    <p class="text-center mt-4">
-      <%= link_to "Log in to your Airport Gap account", login_path, class: "underline text-green-700 hover:text-green-900" %>
-    </p>
-  </section>
-</div>
-
-<div>
-  <section class="container mx-auto px-6 py-12">
-    <p class="text-lg mb-6">
-      Airport Gap is a <a href="https://www.restapitutorial.com/" class="link-green">RESTful API</a> to
-      help you improve your API automation testing skills. It provides access to a
-      database of airports, calculate distances between airports, and allows you to
-      save your favorite airports.
-    </p>
-
-    <h2 class="text-xl font-bold mb-4">API functionality available for testing</h2>
-
-    <ul class="text-lg pl-4 list-disc list-inside mb-6">
-      <li class="mb-2">Access to main HTTP methods for RESTful services (GET, POST, PUT/PATCH, DELETE)</li>
-      <li class="mb-2">HTTP Token Authentication</li>
-      <li class="mb-2">Data persistance - Save your favorite airports in your account</li>
-    </ul>
-
-    <p class="text-lg">
-      Thanks to <a href="https://openflights.org/data.php" class="link-green">OpenFlights.org</a> for
-      providing the airport data under the <a href="http://opendatacommons.org/licenses/odbl/1.0/" class="link-green">
-      Open Database License</a>.
-    </p>
-  </section>
-</div>
-
-<div class="bg-green-600 border-t-2 border-green-900">
-  <section class="container mx-auto px-6 pt-6">
-    <div class="mx-auto max-w-sm mb-2">
-      <%= image_tag "dev_tester_logo.png", alt: "Dev Tester logo" %>
-    </div>
-
-    <p class="text-white text-center">
-      Airport Gap is provided by <a href="https://dev-tester.com/" class="underline">Dev Tester</a> -
-      articles and tips to help you improve your test automation skills as a developer.
-    </p>
-  </section>
-
-  <section>
-    <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-center items-center text-white">
-      <%= link_to "Generate Token", tokens_path, class: "underline hover:text-green-100 pb-2 md:pb-0 px-4" %>
-      <%= link_to "API Documentation", docs_path, class: "underline hover:text-green-100 pb-2 md:pb-0 px-4" %>
-      <%= link_to "View Airports", airports_path, class: "underline hover:text-green-100 pb-2 md:pb-0 px-4" %>
-      <%= link_to "Source Code", "https://github.com/dennmart/airport_gap", class: "underline hover:text-green-100 pb-2 md:pb-0 px-4" %>
     </div>
   </section>
+
+  <div class="home-content">
+    <section class="practice" aria-labelledby="practice-title">
+      <h2 id="practice-title">What you can practice</h2>
+
+      <dl class="practice-list">
+        <dt>Every main HTTP method</dt>
+        <dd>Send GET, POST, PATCH and DELETE requests across airports and favorites.</dd>
+
+        <dt>Token authentication</dt>
+        <dd>
+          <%= link_to "Generate a token", tokens_path %> and send it in the
+          <code>Authorization</code> header to reach your account.
+        </dd>
+
+        <dt>Data that persists</dt>
+        <dd>Favorites stay saved in your account, so you can test create, update and delete flows end to end.</dd>
+
+        <dt>Failures on demand</dt>
+        <dd>
+          Add the <code>X-Simulate</code> header to get server errors, downtime, slow responses or malformed JSON.
+          <%= link_to "See failure simulation", docs_path(anchor: "failure_simulation") %>.
+        </dd>
+
+        <dt>Rate limits</dt>
+        <dd>Each IP address can send up to 100 requests a minute, so you can check how your tests handle a 429 response.</dd>
+      </dl>
+    </section>
+
+    <section class="directory" aria-labelledby="directory-title">
+      <h2 id="directory-title">Endpoints</h2>
+
+      <table class="directory-table">
+        <thead>
+          <tr>
+            <th scope="col">Method</th>
+            <th scope="col">Path</th>
+            <th scope="col">What it does</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% [
+               ["GET", "/airports", "List all airports, one page at a time", "api_ref_get_airports", false],
+               ["GET", "/airports/:id", "Get one airport by its IATA code", "api_ref_get_airports_id", false],
+               ["POST", "/airports/distance", "Measure the distance between two airports", "api_ref_post_airports_distance", false],
+               ["POST", "/tokens", "Get the API token for your account", "api_ref_post_tokens", false],
+               ["GET", "/favorites", "List your saved airports", "api_ref_get_favorites", true],
+               ["GET", "/favorites/:id", "Get one saved airport", "api_ref_get_favorites_id", true],
+               ["POST", "/favorites", "Save an airport", "api_ref_post_favorites", true],
+               ["PATCH", "/favorites/:id", "Update the note on a saved airport", "api_ref_patch_favorites", true],
+               ["DELETE", "/favorites/:id", "Remove a saved airport", "api_ref_delete_favorites", true],
+               ["DELETE", "/favorites/clear_all", "Remove all saved airports", "api_ref_clear_all_favorites", true]
+             ].each do |verb, path, summary, anchor, token_required| %>
+            <tr>
+              <td><span class="verb verb-<%= verb.downcase %>"><%= verb %></span></td>
+              <td><%= link_to path, docs_path(anchor: anchor), class: "directory-path" %></td>
+              <td>
+                <%= summary %>
+                <% if token_required %><span class="directory-token">Needs a token</span><% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <footer class="home-footer">
+    <div class="home-footer-inner">
+      <p>
+        Airport data comes from <a href="https://openflights.org/data.php">OpenFlights.org</a> under the
+        <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.
+      </p>
+      <p>
+        Airport Gap is made by <a href="https://dev-tester.com/">Dev Tester</a>, with articles and tips on test
+        automation for developers. The <a href="https://github.com/dennmart/airport_gap">source code</a> is on GitHub.
+      </p>
+    </div>
+  </footer>
 </div>
