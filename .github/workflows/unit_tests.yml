@@ -62,6 +62,9 @@ jobs:
       - name: Setup database
         run: bin/rails db:create db:schema:load
 
+      - name: Precompile assets
+        run: bin/rails assets:precompile
+
       - name: Run tests
         run: bin/rspec --format progress --format RspecJunitFormatter --out test-reports/junit.xml
 
