@@ -1,11 +1,3 @@
-.link-green {
-  @apply underline text-green-600;
-
-  &:hover {
-    @apply text-green-900;
-  }
-}
-
 /*
   API docs. Shares tokens, type and the masthead with the home page (site.css);
   code panels and tables follow the home page's example and endpoint list.

@@ -1,5 +1,3 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
   content: [
     "./app/views/**/*.html.erb",
@@ -9,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        "sans": ["Lato", ...defaultTheme.fontFamily.sans],
-      },
       colors: {
         // Primary
         "green-050": "#E3F9E5",

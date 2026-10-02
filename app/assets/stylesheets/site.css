@@ -1,11 +1,8 @@
 /*
-  Shared by the redesigned pages (home, API docs and the account pages):
-  design tokens, base type and links, and the masthead with the logo.
+  Shared by every page: design tokens, base type and links, and the masthead
+  with the logo.
 */
-.home,
-.docs,
-.account,
-.masthead {
+:root {
   --sign-green: #207227;
   --sign-green-dark: #05400a;
   --sign-white: #ffffff;
@@ -23,14 +20,12 @@
 
   --font: "Atkinson Hyperlegible Next", system-ui, sans-serif;
   --mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
-
-  font-family: var(--font);
-  color: var(--text);
 }
 
-.home,
-.account {
+body {
   background: var(--floor);
+  font-family: var(--font);
+  color: var(--text);
 }
 
 .home :focus-visible,
