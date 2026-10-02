@@ -35,6 +35,7 @@ gem 'tailwindcss-rails', '~> 4.6.0'
 group :development, :test do
   gem 'debug', '~> 1.11.0', require: 'debug/prelude'
   gem 'rspec-rails', '~> 8.0.4'
+  gem 'rspec_junit_formatter', '~> 0.6.0'
   gem 'factory_bot_rails', '~> 6.5.1'
   gem 'brakeman', '~> 8.1.0', require: false
 end
