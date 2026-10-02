@@ -1,20 +1,9 @@
 <% content_for :head do %>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+  <%= render "shared/fonts" %>
 <% end %>
 
 <div class="home">
-  <header class="masthead">
-    <nav class="masthead-inner" aria-label="Main">
-      <%= link_to root_path, class: "masthead-logo" do %>
-        <%= image_tag "airport_gap_logo.png", alt: "Airport Gap" %>
-      <% end %>
-
-      <ul class="masthead-links">
-        <li><%= link_to "API docs", docs_path %></li>
-        <li><%= link_to "Log in", login_path %></li>
-      </ul>
-    </nav>
-  </header>
+  <%= render "shared/masthead" %>
 
   <section class="sign" aria-labelledby="sign-title">
     <div class="sign-inner">

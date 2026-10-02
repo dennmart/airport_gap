@@ -1,0 +1,135 @@
+/*
+  Shared by the redesigned pages (home and API docs): design tokens, base
+  type and links, and the masthead with the logo.
+*/
+.home,
+.docs,
+.masthead {
+  --sign-green: #207227;
+  --sign-green-dark: #05400a;
+  --sign-white: #ffffff;
+  --ink: #000000;
+  --floor: #f1f2f0;
+  --surface: #ffffff;
+  --text: #2f3439;
+  --text-muted: #5c646c;
+  --rule: #d4d7d3;
+
+  --verb-get: #1f6b3a;
+  --verb-post: #1d4f91;
+  --verb-patch: #8a5a00;
+  --verb-delete: #a32020;
+
+  --font: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+
+  font-family: var(--font);
+  color: var(--text);
+}
+
+.home {
+  background: var(--floor);
+}
+
+.home :focus-visible,
+.docs :focus-visible,
+.masthead :focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.home a,
+.docs a,
+.masthead a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.home a:hover,
+.docs a:hover,
+.masthead a:hover {
+  text-decoration-thickness: 3px;
+}
+
+.home code,
+.docs code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+/* Masthead */
+
+.masthead {
+  background: var(--surface);
+}
+
+.masthead-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.masthead-logo {
+  display: block;
+  flex: 0 1 auto;
+}
+
+.masthead-logo img {
+  display: block;
+  width: auto;
+  height: 4.5rem;
+  /* The image carries generous transparent padding; trim it back. */
+  margin: -0.75rem 0 -0.75rem -0.5rem;
+}
+
+.masthead-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.masthead-accent {
+  border-bottom: 6px solid var(--sign-green);
+}
+
+.masthead-inner {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 48rem) {
+  .masthead-inner {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.masthead-links a {
+  display: inline-block;
+  padding: 0.625rem 0;
+}
+
+.masthead-links a[aria-current=page] {
+  text-decoration-thickness: 3px;
+}
+
+.verb {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.verb-get { color: var(--verb-get); }
+.verb-post { color: var(--verb-post); }
+.verb-patch { color: var(--verb-patch); }
+.verb-delete { color: var(--verb-delete); }

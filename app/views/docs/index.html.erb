@@ -1,13 +1,13 @@
-<div class="api-docs flex flex-col md:flex-row container mx-auto">
-  <div class="w-full md:w-1/4 lg:w-1/5 p-4 h-full md:h-screen sticky top-auto md:top-0 md:overflow-y-auto">
-    <nav class="sidebar h-full overflow-y-auto text-base scrolling-touch md:h-auto md:block md:sticky">
-      <div class="mx-auto mb-6">
-        <%= link_to root_path do %>
-          <%= image_tag "airport_gap_logo.png" %>
-        <% end %>
-      </div>
+<% content_for :head do %>
+  <%= render "shared/fonts" %>
+<% end %>
 
-      <h3 class="font-bold text-grey-700 mb-2">API documentation</h3>
+<%= render "shared/masthead", accent: true %>
+
+<div class="docs api-docs flex flex-col md:flex-row container mx-auto">
+  <div class="w-full md:w-1/4 p-4 h-full md:h-screen sticky top-auto md:top-0 md:overflow-y-auto">
+    <nav class="sidebar h-full overflow-y-auto text-base scrolling-touch md:h-auto md:block md:sticky">
+      <h3 class="sidebar-heading">API documentation</h3>
 
       <ul class="mb-6">
         <li>
@@ -36,7 +36,7 @@
         </li>
       </ul>
 
-      <h3 class="font-bold text-grey-700 mb-2">API endpoints reference</h3>
+      <h3 class="sidebar-heading">API endpoints reference</h3>
 
       <ul>
         <li class="api-reference">
@@ -112,7 +112,7 @@
     </div>
   </nav>
 
-  <div class="main-section w-full md:w-3/4 lg:w-4/5 px-4 py-6">
+  <div class="main-section w-full md:w-3/4 px-4 py-6">
     <section>
       <p>
         The Airport Gap API is a <a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer">RESTful API</a> used
@@ -326,7 +326,7 @@
 
       <p class="example-section-header">
         Example of simulated failure response
-        <span class="status">Status: 503 Service Unavailable</span>
+        <span class="status status-error">Status: 503 Service Unavailable</span>
       </p>
 
       <%= json_syntax(
@@ -342,7 +342,7 @@
       ) %>
     </section>
 
-    <h1 class="text-3xl font-bold">API endpoints reference</h1>
+    <h1 class="reference-title">API endpoints reference</h1>
 
     <section>
       <h2 class="section-title" id="api_ref_get_airports">

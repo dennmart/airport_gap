@@ -6,126 +6,286 @@
   }
 }
 
-.api-docs nav.sidebar {
-  li {
-    @apply py-1 px-2 rounded-sm;
+/*
+  API docs. Shares tokens, type and the masthead with the home page (site.css);
+  code panels and tables follow the home page's example and endpoint list.
+*/
+.docs.api-docs {
+  max-width: 76rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
 
-    &:hover {
-      @apply bg-gray-200;
-    }
-
-    a {
-      @apply block;
-    }
-  }
-
-  li.api-reference {
-    @apply py-2;
-  }
-
-  .http-action {
-    @apply text-white text-xs font-bold p-1 rounded-sm mr-1;
-
-    &.get {
-      @apply bg-green-700;
-    }
-
-    &.post {
-      @apply bg-blue-700;
-    }
-
-    &.patch {
-      @apply bg-yellow-600;
-    }
-
-    &.delete {
-      @apply bg-red-700;
-    }
+@media (min-width: 48rem) {
+  .docs.api-docs {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
+.api-docs .sidebar-heading {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0.375rem;
+}
+
+.api-docs nav.sidebar {
+  li {
+    border-radius: 4px;
+
+    &:hover {
+      background: rgb(0 0 0 / 0.05);
+    }
+
+    a {
+      display: block;
+      padding: 0.25rem 0.5rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+  }
+
+  li.api-reference a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.875rem;
+  }
+
+  .http-action {
+    min-width: 3.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    &.get { color: var(--verb-get); }
+    &.post { color: var(--verb-post); }
+    &.patch { color: var(--verb-patch); }
+    &.delete { color: var(--verb-delete); }
+  }
+}
+
+.api-docs .reference-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-top: 1rem;
+}
+
+.api-docs > :first-child {
+  flex-shrink: 0;
+}
+
 .api-docs .main-section {
+  /* Lets wide code blocks scroll instead of squeezing the sidebar. */
+  min-width: 0;
+
   section {
-    @apply pb-8 my-8 border-b border-grey-100;
+    padding-bottom: 2rem;
+    margin: 2rem 0;
+    border-bottom: 1px solid var(--rule);
   }
 
   .section-title {
-    @apply text-2xl font-bold mb-3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    overflow-wrap: anywhere;
   }
 
   p {
-    @apply mb-4;
+    margin-bottom: 1rem;
+    max-width: 80ch;
   }
 
-  a {
-    @apply underline text-green-600;
+  strong {
+    color: var(--ink);
   }
 
-  code {
-    @apply rounded-sm bg-grey-900 text-white p-6 mb-8 block overflow-x-auto;
+  /* Code panels, matching the home page example. */
+  code,
+  .highlight pre {
+    display: block;
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 6px;
+    background: var(--sign-green-dark);
+    color: #e6f2e7;
+    font-family: var(--mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+
+  .highlight pre code {
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+
+  /* Rouge JSON tokens */
+  .highlight {
+    .nl { color: #9fd8a6; }
+    .s2 { color: var(--sign-white); }
+    .mi, .mf, .kc { color: #ffd9a0; }
+    .p { color: #b9d3bc; }
   }
 
   .monospace-inline {
-    @apply font-mono bg-grey-100 border border-grey-200 p-1 rounded-xs;
+    overflow-wrap: anywhere;
+    font-family: var(--mono);
+    font-size: 0.875em;
+    padding: 0.0625rem 0.375rem;
+    border-radius: 3px;
+    background: #e2e7e1;
+    color: var(--ink);
   }
 
   .status-code-list {
-    @apply list-inside list-disc;
+    list-style: disc;
+    padding-left: 1.25rem;
 
     li {
-      @apply mb-2;
+      margin-bottom: 0.5rem;
     }
   }
 
   .http-action {
-    @apply text-white text-2xl font-bold px-2 py-1 rounded-sm mr-1;
+    font-family: var(--mono);
+    font-size: 0.75em;
+    font-weight: 600;
 
-    &.get {
-      @apply bg-green-700;
-    }
-
-    &.post {
-      @apply bg-blue-700;
-    }
-
-    &.patch {
-      @apply bg-yellow-600;
-    }
-
-    &.delete {
-      @apply bg-red-700;
-    }
+    &.get { color: var(--verb-get); }
+    &.post { color: var(--verb-post); }
+    &.patch { color: var(--verb-patch); }
+    &.delete { color: var(--verb-delete); }
   }
 
   .example-section-header {
-    @apply font-bold mb-1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
 
     .status {
-      @apply ml-1 px-2 py-1 bg-green-100 text-sm rounded-sm;
+      font-family: var(--mono);
+      font-size: 0.8125rem;
+      padding: 0.0625rem 0.5rem;
+      border-radius: 3px;
+      background: var(--sign-green-dark);
+      color: var(--sign-white);
+    }
+
+    .status-error {
+      background: #ffd9d4;
+      color: #7a1010;
     }
   }
 
   .example-code {
-    @apply mt-0;
+    margin-top: 0;
   }
 
+  /* Tables, matching the home page endpoint list. */
   .parameters-table {
-    @apply table-auto mb-8 w-full;
+    width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-top: 3px solid var(--sign-green);
 
     thead th {
-      @apply text-sm text-left border px-4 py-2 bg-grey-200;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-align: left;
+      color: var(--text-muted);
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--rule);
     }
 
     tbody td {
-      @apply border px-4 py-2;
+      padding: 0.625rem 0.75rem;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: baseline;
+    }
+
+    /* Keep parameter names and values like service-unavailable on one line. */
+    tbody td:first-child {
+      white-space: nowrap;
+    }
+
+    /* On narrow screens, rows stack: name and type on one line, description below. */
+    @media (max-width: 47.99rem) {
+      &,
+      tbody,
+      tr,
+      td {
+        display: block;
+      }
+
+      thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+      }
+
+      tr {
+        padding: 0.625rem 0.75rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      tbody td {
+        padding: 0;
+        border: 0;
+      }
+
+      tbody td:first-child,
+      tbody td:nth-child(2):not(:last-child) {
+        display: inline;
+      }
+
+      tbody td:nth-child(2):not(:last-child) {
+        margin-left: 0.5rem;
+        color: var(--text-muted);
+      }
+
+      tbody td:last-child {
+        margin-top: 0.25rem;
+      }
     }
   }
 
   .auth-required-notice {
-    @apply inline-flex items-center bg-yellow-400 border border-yellow-600 rounded-sm mb-4 px-2 py-1 font-bold text-yellow-900;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.75rem 0.25rem 0.5rem;
+    border-radius: 4px;
+    background: #e3efe4;
+    color: var(--sign-green-dark);
+    font-size: 0.9375rem;
+    font-weight: 600;
 
     svg {
-      @apply inline-block fill-current;
+      width: 1.125rem;
+      height: 1.125rem;
+      fill: currentColor;
     }
   }
 }

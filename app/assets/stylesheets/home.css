@@ -1,52 +1,12 @@
 /*
   Home page. Modeled on airport wayfinding signs: white type on signal green.
   The sign is the one loud element; everything below it stays quiet.
+  Shared tokens and the masthead live in site.css.
 */
+
 .home {
-  --sign-green: #207227;
-  --sign-green-dark: #05400a;
-  --sign-white: #ffffff;
-  --ink: #000000;
-  --floor: #f1f2f0;
-  --surface: #ffffff;
-  --text: #2f3439;
-  --text-muted: #5c646c;
-  --rule: #d4d7d3;
-
-  --verb-get: #1f6b3a;
-  --verb-post: #1d4f91;
-  --verb-patch: #8a5a00;
-  --verb-delete: #a32020;
-
-  --font: "Atkinson Hyperlegible Next", system-ui, sans-serif;
-  --mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
-
-  font-family: var(--font);
   font-size: 1.125rem;
   line-height: 1.5;
-  color: var(--text);
-  background: var(--floor);
-}
-
-.home :focus-visible {
-  outline: 3px solid var(--ink);
-  outline-offset: 3px;
-}
-
-.home a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-
-.home a:hover {
-  text-decoration-thickness: 3px;
-}
-
-.home code {
-  font-family: var(--mono);
-  font-size: 0.9em;
 }
 
 /* Sign */
@@ -62,7 +22,6 @@
 }
 
 .sign-inner,
-.masthead-inner,
 .home-content,
 .home-footer-inner {
   max-width: 76rem;
@@ -73,47 +32,11 @@
 
 @media (min-width: 48rem) {
   .sign-inner,
-  .masthead-inner,
   .home-content,
   .home-footer-inner {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}
-
-.masthead {
-  background: var(--surface);
-}
-
-.masthead-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.masthead-logo {
-  display: block;
-  flex: 0 1 auto;
-}
-
-.masthead-logo img {
-  display: block;
-  width: auto;
-  height: 4.5rem;
-  /* The image carries generous transparent padding; trim it back. */
-  margin: -0.75rem 0 -0.75rem -0.5rem;
-}
-
-.masthead-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.5rem;
-  font-weight: 600;
-  color: var(--ink);
 }
 
 .sign-body {
@@ -186,11 +109,6 @@
 
 .home .button-secondary:hover {
   background: rgb(255 255 255 / 0.12);
-}
-
-.masthead-links a {
-  display: inline-block;
-  padding: 0.625rem 0;
 }
 
 @media (max-width: 29.99rem) {
@@ -303,7 +221,7 @@
 }
 
 /* Divides the request from its response. */
-.example-code + .example-heading {
+.example .example-code + .example-heading {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
   border-top: 1px solid rgb(255 255 255 / 0.2);
@@ -327,7 +245,7 @@
   color: #7a1010;
 }
 
-.example-code {
+.example .example-code {
   font-family: var(--mono);
   font-size: 0.875rem;
   line-height: 1.6;
@@ -336,12 +254,11 @@
 }
 
 /* Each line wraps with a hanging indent, so a wrapped line can't pass for a new one. */
-.example-code .line {
+.example .example-code .line {
   display: block;
   padding-left: calc(var(--indent, 0ch) + 2ch);
   text-indent: -2ch;
 }
-
 
 .http-start {
   font-weight: 600;
@@ -352,7 +269,7 @@
   color: #9fd8a6;
 }
 
-.example-code mark.line {
+.example .example-code mark.line {
   margin: 0 -0.75rem;
   padding-left: calc(var(--indent, 0ch) + 2ch + 0.75rem);
   padding-right: 0.75rem;
@@ -423,16 +340,6 @@
   white-space: nowrap;
 }
 
-.verb {
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.verb-get { color: var(--verb-get); }
-.verb-post { color: var(--verb-post); }
-.verb-patch { color: var(--verb-patch); }
-.verb-delete { color: var(--verb-delete); }
 
 .home .directory-path {
   display: inline-block;
