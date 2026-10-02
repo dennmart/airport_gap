@@ -77,6 +77,12 @@
   gap: 0.75rem;
 }
 
+.sign-note {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  color: rgb(255 255 255 / 0.8);
+}
+
 .home .button {
   display: inline-flex;
   align-items: center;

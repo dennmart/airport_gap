@@ -6,6 +6,11 @@ RSpec.describe 'Password Resets' do
       get '/password_reset/new'
       expect(response).to have_http_status(:ok)
     end
+
+    it 'is excluded from search engines' do
+      get '/password_reset/new'
+      expect(response.parsed_body.at_css('meta[name="robots"]')['content']).to eq('noindex')
+    end
   end
 
   describe 'GET /password_reset/edit' do

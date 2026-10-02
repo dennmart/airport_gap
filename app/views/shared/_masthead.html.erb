@@ -1,7 +1,7 @@
 <header class="masthead<%= " masthead-accent" if local_assigns[:accent] %>">
   <nav class="masthead-inner" aria-label="Main">
     <%= link_to root_path, class: "masthead-logo" do %>
-      <%= image_tag "airport_gap_logo.png", alt: "Airport Gap" %>
+      <%= image_tag "airport_gap_logo.png", alt: "Airport Gap", width: 1712, height: 510 %>
     <% end %>
     <ul class="masthead-links">
       <li><%= link_to "API docs", docs_path, "aria-current": ("page" if current_page?(docs_path)) %></li>

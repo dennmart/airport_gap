@@ -1,3 +1,6 @@
+<% content_for :title, "List of Airports#{" (Page #{@airports.current_page})" if @airports.current_page > 1} | Airport Gap" %>
+<% content_for :description, "Browse the airports in the Airport Gap database, with IATA codes, cities and countries to use in your API tests." %>
+
 <div class="bg-green-100 border-b-2 border-green-700">
   <section class="container mx-auto px-6 py-4">
     <div class="mx-auto max-w-xl mb-2">

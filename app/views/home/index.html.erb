@@ -1,3 +1,6 @@
+<% content_for :title, "API Testing Practice with a Free REST API | Airport Gap" %>
+<% content_for :description, "Practice API testing against a free REST API with token authentication, rate limits and failures you can trigger on demand. Free to use." %>
+
 <div class="home">
   <%= render "shared/masthead" %>
 
@@ -5,17 +8,19 @@
     <div class="sign-inner">
       <div class="sign-body">
         <div class="sign-intro">
-          <h1 id="sign-title">Practice API test automation against a real REST API.</h1>
+          <h1 id="sign-title">Practice API testing and automation against a real REST API.</h1>
 
           <p class="sign-lede">
-            Airport Gap is a free API built for learning to test APIs. Write tests that cover every main HTTP method,
-            token authentication, error responses, rate limits and failures you trigger on purpose.
+            Airport Gap is a free REST API made for API testing practice and test automation. It has real endpoints, real
+            authentication and failures you can trigger on purpose, so your tests run against more than a happy path.
           </p>
 
           <div class="sign-actions">
             <%= link_to "Generate a token", tokens_path, class: "button button-primary" %>
             <%= link_to "Read the API docs", docs_path, class: "button button-secondary" %>
           </div>
+
+          <p class="sign-note">Free. Just an email and password, and we'll never send you marketing email.</p>
         </div>
 
         <div class="example" data-example-tabs>
@@ -112,16 +117,17 @@
 
   <div class="home-content">
     <section class="practice" aria-labelledby="practice-title">
-      <h2 id="practice-title">What you can practice</h2>
+      <h2 id="practice-title">What you can practice in your API tests</h2>
 
       <dl class="practice-list">
         <dt>Every main HTTP method</dt>
-        <dd>Send GET, POST, PATCH and DELETE requests across airports and favorites.</dd>
+        <dd>Send GET, POST, PATCH and DELETE requests across airports and favorites, so your suite covers both reads and writes.</dd>
 
         <dt>Token authentication</dt>
         <dd>
           <%= link_to "Generate a token", tokens_path %> and send it in the
-          <code>Authorization</code> header to reach your account.
+          <%= link_to docs_path(anchor: "authentication") do %><code>Authorization</code> header<% end %> to call the favorites
+          endpoints.
         </dd>
 
         <dt>Data that persists</dt>
@@ -129,17 +135,21 @@
 
         <dt>Failures on demand</dt>
         <dd>
-          Add the <code>X-Simulate</code> header to get server errors, downtime, slow responses or malformed JSON.
+          Add the <code>X-Simulate</code> header to get server errors, downtime, slow responses, malformed JSON or
+          wrong content types, so you can check how your tests handle retries, timeouts and bad responses.
           <%= link_to "See failure simulation", docs_path(anchor: "failure_simulation") %>.
         </dd>
 
         <dt>Rate limits</dt>
-        <dd>Each IP address can send up to 100 requests a minute, so you can check how your tests handle a 429 response.</dd>
+        <dd>
+          Each IP address can send up to 100 requests a minute, so you can check how your tests handle a 429 response.
+          Slow simulations are limited to 10 a minute. <%= link_to "See rate limiting", docs_path(anchor: "rate_limiting") %>.
+        </dd>
       </dl>
     </section>
 
     <section class="directory" aria-labelledby="directory-title">
-      <h2 id="directory-title">Endpoints</h2>
+      <h2 id="directory-title">REST API endpoints to test</h2>
 
       <table class="directory-table">
         <thead>
@@ -154,10 +164,10 @@
                ["GET", "/airports", "List all airports, one page at a time", "api_ref_get_airports", false],
                ["GET", "/airports/:id", "Get one airport by its IATA code", "api_ref_get_airports_id", false],
                ["POST", "/airports/distance", "Measure the distance between two airports", "api_ref_post_airports_distance", false],
-               ["POST", "/tokens", "Get the API token for your account", "api_ref_post_tokens", false],
+               ["POST", "/tokens", "Get your token with your email and password", "api_ref_post_tokens", false],
                ["GET", "/favorites", "List your saved airports", "api_ref_get_favorites", true],
                ["GET", "/favorites/:id", "Get one saved airport", "api_ref_get_favorites_id", true],
-               ["POST", "/favorites", "Save an airport", "api_ref_post_favorites", true],
+               ["POST", "/favorites", "Save a favorite airport", "api_ref_post_favorites", true],
                ["PATCH", "/favorites/:id", "Update the note on a saved airport", "api_ref_patch_favorites", true],
                ["DELETE", "/favorites/:id", "Remove a saved airport", "api_ref_delete_favorites", true],
                ["DELETE", "/favorites/clear_all", "Remove all saved airports", "api_ref_clear_all_favorites", true]
@@ -185,9 +195,12 @@
       <div class="next-step-body">
         <h2 id="next-step-title">When your tests run in CI</h2>
         <p>
-          Here you trigger failures on purpose. In CI they show up on their own, and the hard part is telling a real
-          regression from a flaky test. TestNod reads the JUnit XML reports your CI already produces and tracks pass
-          rates, flaky tests and slowdowns across every build. It's from the maker of Airport Gap and free while in beta.
+          On Airport Gap, you choose when things fail. In CI, failures show up on their own, and the hard part is
+          telling a real regression from a flaky test.
+        </p>
+        <p>
+          TestNod reads the JUnit XML reports your CI already produces and tracks pass rates, flaky tests and slowdowns
+          across every build. It's from the maker of Airport Gap and free while in beta.
         </p>
         <%= link_to "See how TestNod works →", "https://testnod.com/", class: "next-step-link", target: "_blank", rel: "noopener" %>
       </div>
