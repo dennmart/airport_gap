@@ -69,6 +69,7 @@ jobs:
         run: bin/rspec --format progress --format RspecJunitFormatter --out test-reports/junit.xml
 
       - name: Upload test results to TestNod
+        if: ${{ !cancelled() && hashFiles('test-reports/junit.xml') != '' }}
         uses: testnod/testnod-uploader-action@v1
         with:
           token: ${{ secrets.TESTNOD_TOKEN }}
