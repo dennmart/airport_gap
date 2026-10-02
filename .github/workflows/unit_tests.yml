@@ -63,4 +63,11 @@ jobs:
         run: bin/rails db:create db:schema:load
 
       - name: Run tests
-        run: bin/rails spec
+        run: bin/rspec --format progress --format RspecJunitFormatter --out test-reports/junit.xml
+
+      - name: Upload test results to TestNod
+        uses: testnod/testnod-uploader-action@v1
+        with:
+          token: ${{ secrets.TESTNOD_TOKEN }}
+          file: test-reports/junit.xml
+          tags: rspec,rails,unit-tests
