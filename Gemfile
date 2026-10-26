@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '4.0.9'
 
 gem 'rails', '8.1.4'
-gem 'pg', '~> 1.6.2'
+gem 'pg', '~> 1.7.0'
 gem 'puma', '~> 8.0.2'
 gem 'jbuilder', '~> 2.15.1'
 gem 'bcrypt', '~> 3.1.22'
@@ -20,22 +20,22 @@ gem 'rack-cors', '~> 3.0.0'
 gem 'turbo-rails', '~> 2.0.23'
 gem 'jsbundling-rails', '~> 1.3.1'
 gem 'sprockets-rails', '~> 3.5.2'
-gem 'rubocop', '~> 1.91', require: false
+gem 'rubocop', '~> 1.92', require: false
 gem 'rubocop-rails', '~> 2.38', require: false
 gem 'rubocop-rspec', '~> 3.10', require: false
-gem 'rubocop-rspec_rails', '~> 2.32', require: false
+gem 'rubocop-rspec_rails', '~> 2.33', require: false
 gem 'rubocop-performance', '~> 1.27', require: false
 gem 'rubocop-factory_bot', '~> 2.28', require: false
 gem 'redis', '~> 6.0.0'
 gem 'kamal', '~> 2.12.0'
-gem 'thruster', '~> 0.1.26'
+gem 'thruster', '~> 0.1.27'
 gem 'tailwindcss-ruby', '~> 4.3.3'
 gem 'tailwindcss-rails', '~> 4.6.0'
 
 group :development, :test do
   gem 'debug', '~> 1.11.0', require: 'debug/prelude'
   gem 'rspec-rails', '~> 8.0.4'
-  gem 'rspec_junit_formatter', '~> 0.6.0'
+  gem 'rspec_junit_formatter', '~> 0.8.0'
   gem 'factory_bot_rails', '~> 6.5.1'
   gem 'brakeman', '~> 8.1.0', require: false
 end
@@ -49,5 +49,5 @@ group :test do
   gem 'shoulda-matchers', '~> 8.0.1'
   gem 'faker', '~> 3.8.0'
   gem 'rails-controller-testing', '~> 1.0.5'
-  gem 'webmock', '~> 3.26.4'
+  gem 'webmock', '~> 3.34.0'
 end
