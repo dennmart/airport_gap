@@ -1,6 +1,6 @@
 module ApplicationHelper
   def json_syntax(content)
-    formatter = Rouge::Formatters::HTMLLegacy.new(css_class: 'highlight')
+    formatter = Rouge::Formatters::HTMLPygments.new(Rouge::Formatters::HTML.new, 'highlight')
     lexer = Rouge::Lexers::JSON.new
     formatter.format(lexer.lex(content)).html_safe # rubocop:disable Rails/OutputSafety
   end
