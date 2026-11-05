@@ -3,13 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '4.0.9'
 
-gem 'rails', '8.1.4'
+gem 'rails', '8.1.4.1'
 gem 'pg', '~> 1.7.0'
 gem 'puma', '~> 8.0.2'
 gem 'jbuilder', '~> 2.15.1'
 gem 'bcrypt', '~> 3.1.22'
-gem 'bootsnap', '~> 1.26.0', require: false
-gem 'csv', '~> 3.3.6', require: false
+gem 'bootsnap', '~> 1.26.1', require: false
+gem 'csv', '~> 3.3.7', require: false
 gem 'jsonapi-serializer', '~> 2.2.0'
 gem 'will_paginate', '~> 4.0.1'
 gem 'haversine', '~> 0.3'
@@ -30,7 +30,7 @@ gem 'redis', '~> 6.0.0'
 gem 'kamal', '~> 2.12.0'
 gem 'thruster', '~> 0.1.27'
 gem 'tailwindcss-ruby', '~> 4.3.3'
-gem 'tailwindcss-rails', '~> 4.6.0'
+gem 'tailwindcss-rails', '~> 4.7.0'
 
 group :development, :test do
   gem 'debug', '~> 1.11.0', require: 'debug/prelude'
